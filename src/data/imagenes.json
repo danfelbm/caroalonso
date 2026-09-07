@@ -186,18 +186,20 @@
     "difuminada": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBQCdASoUABsAPu1qr1AppaSiqAqpMB2JQBYj8dg1q27nEuSOx9gyRzKGeAr/yovlQAKAAP7T5C9GXBEnwZ7YRbfJAa3Qq8nFDJxVOM/FfKuTPJzMthykgK14OPV1zN3mCS9xXF89Joa63dQ34R/RD3YvrPpfucMbBGILTJNNOhV+z6IEKIja/lkCgxF5lbdFaQCckYn+HLHN69i1EYtqLpAAJArEPwoNpYACNs76tC9Fw6jgfaNGiAAAAA=="
   },
   "retrato-historia": {
-    "ancho": 900,
-    "alto": 1137,
+    "ancho": 1536,
+    "alto": 2048,
     "webp": {
       "400": "/retratos/retrato-historia-400.webp",
-      "800": "/retratos/retrato-historia-800.webp"
+      "800": "/retratos/retrato-historia-800.webp",
+      "1200": "/retratos/retrato-historia-1200.webp"
     },
     "avif": {
       "400": "/retratos/retrato-historia-400.avif",
-      "800": "/retratos/retrato-historia-800.avif"
+      "800": "/retratos/retrato-historia-800.avif",
+      "1200": "/retratos/retrato-historia-1200.avif"
     },
     "principal": "/retratos/retrato-historia.webp",
-    "difuminada": "data:image/webp;base64,UklGRoYBAABXRUJQVlA4WAoAAAAQAAAAEwAAGAAAQUxQSOsAAAAJkFrbtrJXa58vijlRzMzUAHpSceRiU0dcJCgqAT0XwNFMj9/3HfFBDRExASQrKPv4LSerMX5+dbbgyqKoaL23qmtr2C2DMdP2T/80hjKIMUzGFJ7ByccRTQWR0iCXuBmZnxDO149AWQ4QRnV9SLqoxZGXb65UoySnFIF8dGM/1xWzcGUthvRveBQDgmh+I/IYFtAIoNBWcZEYMYBADIxhpJfiYExbqAx/AZwmnFTjJCb+kO72eYiDc4zSeHyORexsB1GGX+bgYvHUwpR7DMBz/l3jCeKTRP2nDiU4xUmQW5YiqvGU4gy9JaEAAFZQOCB0AAAAEAQAnQEqFAAZAD7tcLBSqaYkoqgIATAdiUAABbU+bbgs2pT8qMcAkAAA/vQlNbID08dLqWhF9WtbHuGI5BCPkEF2z/LvvTzhQznUwde/KaP9vCoaxYgVbN6TMpoofqi9dlq7sE3wv1Tv6jNZHhvBRiCjgAA="
+    "difuminada": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBACdASoUABsAPu1ur1IppiQiqAgBMB2JQBOgAO2WGZo7iIruiLmvKEiEgAD+szydIj5e+/91rX5LBk7qyocRsPGkoDlAEKukVqhtil6Al9k7b+vxndviBsSfRB5RcKZHLRof+7GRk1lkpwSmDT3FlBxsTll81v2SKB1p7UXq1BmkMminZbl2rhWk1Sf5KX4lPiPsdCzRbk8tNGVAgxVOtU0zzgAA"
   },
   "retrato-libro": {
     "ancho": 1536,

@@ -1,19 +1,19 @@
 {
-  "videoMovil": "/hero/hero-movil.27ec2774.mp4",
-  "videoEscritorio": "/hero/hero-escritorio.be2a606f.mp4",
-  "posterMovil": "/hero/poster-movil.e661b8b9.webp",
-  "posterEscritorio": "/hero/poster-escritorio.5d38b191.webp",
-  "quietoMovil": "/hero/quieto-movil.7d387be6.webp",
-  "quietoEscritorio": "/hero/quieto-escritorio.339e491f.webp",
+  "videoMovil": "/hero/hero-movil.1a60ff19.mp4",
+  "videoEscritorio": "/hero/hero-escritorio.52dcbe40.mp4",
+  "posterMovil": "/hero/poster-movil.ef159951.webp",
+  "posterEscritorio": "/hero/poster-escritorio.3b891ff5.webp",
+  "quietoMovil": "/hero/quieto-movil.e56c505c.webp",
+  "quietoEscritorio": "/hero/quieto-escritorio.86df2761.webp",
   "duracion": 15,
   "movil": {
     "fps": 12,
-    "peso": 1335563,
+    "peso": 1863628,
     "cuadros": 181
   },
   "escritorio": {
     "fps": 15,
-    "peso": 3341045,
+    "peso": 4697021,
     "cuadros": 226
   },
   "provisional": false

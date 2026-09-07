@@ -33,12 +33,12 @@
  * son la sincronía entre texto e imagen. Los tramos NO ocupan un cuarto cada
  * uno: están cronometrados sobre el master, sacando un fotograma cada 1,7 s.
  *
- * | progreso    | segundo    | video                           | acto visible    |
- * |-------------|------------|---------------------------------|-----------------|
- * | 0 – 0,27    | 0 – 4      | noche cerrada, la brújula gira  | 1 (0 – 0,12)    |
- * | 0,27 – 0,55 | 4 – 8,3    | el rosa del alba sube al fondo  | 2 (0,23 – 0,44) |
- * | 0,55 – 0,80 | 8,3 – 12   | aparece la figura y camina      | 3 (0,63 – 0,76) |
- * | 0,80 – 1    | 12 – 15    | amanecer entero, cielo cálido   | 4 (0,91 – 1)    |
+ * | progreso    | segundo   | video                          | acto visible    |
+ * |-------------|-----------|--------------------------------|-----------------|
+ * | 0 – 0,10    | 0 – 1,5   | mar nocturno vacío             | 1 (0 – 0,10)    |
+ * | 0,11 – 0,55 | 1,7 – 8,3 | la brújula se dibuja y gira    | 2 (0,20 – 0,47) |
+ * | 0,60 – 0,80 | 9 – 12    | la figura aparece, abre el día | 3 (0,66 – 0,76) |
+ * | 0,80 – 1    | 12 – 15   | el amanecer completo           | 4 (0,88 – 1)    |
  *
  * La brújula dura casi la mitad del video, así que el segundo acto se queda
  * mucho más tiempo del que sugeriría repartir a partes iguales. Si algún día se
@@ -68,28 +68,26 @@ export const ACTOS: Acto[] = [
   // «¿Perdiste tu norte?» sobre el mar nocturno. Sale hacia arriba en cuanto
   // empieza a dibujarse la brújula.
   {
-    entrada: [0, 0.12, 0.19, 1],
+    entrada: [0, 0.10, 0.17, 1],
     opacidad: [1, 1, 0, 0],
     y: [0, 0, -24, -24],
   },
-  // La brújula, con el alba ya subiendo por detrás. Lleva placa porque a la
-  // mitad de su ventana el fondo ha dejado de ser marino y es rosa claro.
+  // La brújula estelar ya completa.
   {
-    entrada: [0, 0.17, 0.23, 0.44, 0.52, 1],
+    entrada: [0, 0.14, 0.20, 0.47, 0.55, 1],
     opacidad: [0, 0, 1, 1, 0, 0],
     y: [24, 24, 0, 0, -24, -24],
-    placa: true,
   },
   // La figura caminando hacia el horizonte, con el cielo ya abriendo.
   {
-    entrada: [0, 0.56, 0.63, 0.76, 0.83, 1],
+    entrada: [0, 0.60, 0.66, 0.76, 0.83, 1],
     opacidad: [0, 0, 1, 1, 0, 0],
     y: [24, 24, 0, 0, -24, -24],
     placa: true,
   },
   // El amanecer y la salida del hero.
   {
-    entrada: [0, 0.85, 0.91, 1],
+    entrada: [0, 0.82, 0.88, 1],
     opacidad: [0, 0, 1, 1],
     y: [24, 24, 0, 0],
     placa: true,
@@ -105,12 +103,8 @@ export const ACTOS: Acto[] = [
  * el amanecer, que es lo que hay que ver. Ahí toma el relevo la placa.
  */
 export const VELO = {
-  entrada: [0, 0.3, 0.6, 1],
-  // El amanecer ilustrado es papel amarillo y rosa, mucho más claro que el
-  // cielo fotorreal anterior: el velo sube en vez de bajar, o el texto claro
-  // se pierde. Aun así se queda corto a propósito y el trabajo fino lo hace
-  // la placa, que solo oscurece detrás de las letras.
-  opacidad: [0.22, 0.26, 0.34, 0.38],
+  entrada: [0, 0.45, 0.8, 1],
+  opacidad: [0.24, 0.3, 0.18, 0.12],
 };
 
 /** Sin movimiento no hay recorrido, así que el velo es un valor fijo. */

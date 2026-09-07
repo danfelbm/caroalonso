@@ -221,21 +221,15 @@ export default async function Inicio() {
           ================================================================ */}
       <Seccion fondo="papel" tamano="lg">
         <div className="grid gap-9 sm:gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
-          {/* Aquí va una FOTO REAL suya, no una generada, y a propósito: este
-              es el texto más personal del sitio y las generadas la rejuvenecían
-              lo bastante como para no parecer ella. El recorte sobre el papel
-              del sitio es además el mismo gesto que usaba su web anterior.
-
-              `object-contain` y no `object-cover`: la foto viene recortada
-              sobre fondo liso, así que encajarla a la fuerza le cortaría la
-              cabeza o las manos. */}
+          {/* Retrato propio de este bloque y no el de «Quién soy», que está a
+              un clic: repetir la misma foto en las dos hace que la segunda
+              parezca la primera. */}
           <div className="mx-auto w-4/5 max-w-[22rem] sm:w-3/5 lg:col-span-5 lg:mx-0 lg:w-full lg:max-w-none">
             <Retrato
               base="retrato-historia"
               color="#C2EFE3"
               firma={identidad.firma}
-              encajar="contain"
-              alt="Carolina Alonso, de pie y con los brazos cruzados, mira hacia un lado y sonríe."
+              alt="Carolina Alonso, sentada junto a una pared de yeso con luz de ventana, sonríe a la cámara."
               sizes="(min-width: 1024px) 26rem, 70vw"
               className="shadow-panel"
             />
