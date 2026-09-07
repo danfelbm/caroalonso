@@ -1,0 +1,332 @@
+{
+  "grietas": {
+    "ancho": 1024,
+    "alto": 768,
+    "webp": {
+      "400": "/libros/grietas-400.webp",
+      "800": "/libros/grietas-800.webp"
+    },
+    "avif": {
+      "400": "/libros/grietas-400.avif",
+      "800": "/libros/grietas-800.avif"
+    },
+    "principal": "/libros/grietas.webp",
+    "difuminada": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JZQAAQnY1mjtr4jMWBFTwAP7YEW/ujseb5vfh4/SB+rAR6Kl/+65VE9OlIfBheUGFynAOIzUgZxhDZM7jNys32ZgyprulEwPHlA9KrOHjeheg4IhYtCduvtZnfPDMQ5w8/8fgAr4uRNWUX8Vw0Hf/f3flYAAA"
+  },
+  "muertes-posibles": {
+    "ancho": 2560,
+    "alto": 2560,
+    "webp": {
+      "400": "/libros/muertes-posibles-400.webp",
+      "800": "/libros/muertes-posibles-800.webp",
+      "1200": "/libros/muertes-posibles-1200.webp"
+    },
+    "avif": {
+      "400": "/libros/muertes-posibles-400.avif",
+      "800": "/libros/muertes-posibles-800.avif",
+      "1200": "/libros/muertes-posibles-1200.avif"
+    },
+    "principal": "/libros/muertes-posibles.webp",
+    "difuminada": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAADwBACdASoUABQAPu1urlIppiQiqAgBMB2JbACuS8L6SAHTZRW5/izpFHac4BeqkAAA/R+DzezaOp/8mdt/Qw747/Jr0sFC101Xhy0yyxc7uLlunqKL90qDt4u4QfYl8W0YvVU8Ej9bgY55eNnu4wJvDHSGpR17jEidL71qUjug/xDS82+OP2xEvnkp8Q4Aa0PHbjaC1IYrPtPiM9zSIsHeqyAAAA=="
+  },
+  "mundo-medida": {
+    "ancho": 1024,
+    "alto": 768,
+    "webp": {
+      "400": "/libros/mundo-medida-400.webp",
+      "800": "/libros/mundo-medida-800.webp"
+    },
+    "avif": {
+      "400": "/libros/mundo-medida-400.avif",
+      "800": "/libros/mundo-medida-800.avif"
+    },
+    "principal": "/libros/mundo-medida.webp",
+    "difuminada": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQBACdASoUAA8APu1iqU2ppaOiMAgBMB2JZACdMoR4PoHh/gGkKux1YqAkMvQA9wbgYyWAsUM6ggbUCSMlYSeyrPQsWYno82Z8iJHTmrKCgBU/KrZGv4gA"
+  },
+  "navegaciones": {
+    "ancho": 1024,
+    "alto": 768,
+    "webp": {
+      "400": "/libros/navegaciones-400.webp",
+      "800": "/libros/navegaciones-800.webp"
+    },
+    "avif": {
+      "400": "/libros/navegaciones-400.avif",
+      "800": "/libros/navegaciones-800.avif"
+    },
+    "principal": "/libros/navegaciones.webp",
+    "difuminada": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoUAA8APu1iqU2ppaOiMAgBMB2JYwDCgB0l5qzQwV642GXBV4AA/tgRb+6Ox5vWjhmJB282y5bIHm9p3oXkLkPWU/wgv4n2+0a6SRPSRPeljrVnajYbO7Nv3nKgWH1VkEuxJZq4Mpr5FqCwjj7vnEP0K7Z3B5RVraQ8NPUJw/r9ceyAf72eHAAA"
+  },
+  "reinventa-amor": {
+    "ancho": 5433,
+    "alto": 2496,
+    "webp": {
+      "400": "/libros/reinventa-amor-400.webp",
+      "800": "/libros/reinventa-amor-800.webp",
+      "1200": "/libros/reinventa-amor-1200.webp"
+    },
+    "avif": {
+      "400": "/libros/reinventa-amor-400.avif",
+      "800": "/libros/reinventa-amor-800.avif",
+      "1200": "/libros/reinventa-amor-1200.avif"
+    },
+    "principal": "/libros/reinventa-amor.webp",
+    "difuminada": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAwCdASoUAAkAPu1iqU2ppaOiMAgBMB2JZACdMoAEagAA/uspdR1Eux2buWTHqUeWODf+VUP6+OS/6/dhHdj3tArLhqonAAA="
+  },
+  "sal-laberinto": {
+    "ancho": 1200,
+    "alto": 960,
+    "webp": {
+      "400": "/libros/sal-laberinto-400.webp",
+      "800": "/libros/sal-laberinto-800.webp",
+      "1200": "/libros/sal-laberinto-1200.webp"
+    },
+    "avif": {
+      "400": "/libros/sal-laberinto-400.avif",
+      "800": "/libros/sal-laberinto-800.avif",
+      "1200": "/libros/sal-laberinto-1200.avif"
+    },
+    "principal": "/libros/sal-laberinto.webp",
+    "difuminada": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoUABAAPu1iqU2ppaOiMAgBMB2JbAC7DiAAJRtNqHqAAAD+8eBm0uOTDrQxfF+9FkQthAKuxZd2Lwu67Au7X/3qIBjjCKUo/1hWBRn+VYnE0l5nK6mD2A3GAI4Ng1/eeTulfL5e8dkAAA=="
+  },
+  "se-la-heroina": {
+    "ancho": 1640,
+    "alto": 2560,
+    "webp": {
+      "400": "/libros/se-la-heroina-400.webp",
+      "800": "/libros/se-la-heroina-800.webp",
+      "1200": "/libros/se-la-heroina-1200.webp"
+    },
+    "avif": {
+      "400": "/libros/se-la-heroina-400.avif",
+      "800": "/libros/se-la-heroina-800.avif",
+      "1200": "/libros/se-la-heroina-1200.avif"
+    },
+    "principal": "/libros/se-la-heroina.webp",
+    "difuminada": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQBACdASoUAB8APu1kqU2ppaOiMAgBMB2JQBadZcsZns5Fd7BKQxSWmvQGG1DawAD54yMuo5PLYI5RmXRXGZLtoTUpbfFyxHQfJgumBqHNf4r+VXrKUM3X9gUIvMspnzIg3s1ltqHXk1bHureuH16eFCoalO7SdbLwcaa0uEiH/xuK3DL92X7pXhK7jh26yJJE7keAAAA="
+  },
+  "retrato-contacto": {
+    "ancho": 2048,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-contacto-400.webp",
+      "800": "/retratos/retrato-contacto-800.webp",
+      "1200": "/retratos/retrato-contacto-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-contacto-400.avif",
+      "800": "/retratos/retrato-contacto-800.avif",
+      "1200": "/retratos/retrato-contacto-1200.avif"
+    },
+    "principal": "/retratos/retrato-contacto.webp",
+    "difuminada": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAADwBACdASoUABQAPu1wsFIppiSiqAgBMB2JQBe6AjZqqjV2iPr3nN/B+RXZsMbawAAA/vHfSniFOvefsigC4K/ynKVCMU6o+UEZaM632rWGAELH4VcvePxMENsn4NyEHaCvvmt260DmDxhseR4YAl9CiP/7cTYHGiu8tz7Va3pF8LD1HzcQ1nnOcBzcNV4GUV8wX+rC15D8VAuvLff1H2rp2C6Xv3LCjII1a7/HZvLJoI0AAAA="
+  },
+  "retrato-escritorio": {
+    "ancho": 1536,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-escritorio-400.webp",
+      "800": "/retratos/retrato-escritorio-800.webp",
+      "1200": "/retratos/retrato-escritorio-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-escritorio-400.avif",
+      "800": "/retratos/retrato-escritorio-800.avif",
+      "1200": "/retratos/retrato-escritorio-1200.avif"
+    },
+    "principal": "/retratos/retrato-escritorio.webp",
+    "difuminada": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoUABsAPu1qrVCppaQiqAqpMB2JYwCdMtJv/gHS7RsCYxnfx6St7Ez1qVR0P0LBMvkAAP6BiUK3BUknEk9uet6Nvz/EscfD2ytf7CbepQ9B5ikWaQTVePfaVSaeesVMGG1nCgBpeiBdtDXykoL27nellXQOIKdDQLaVYqB1hYQPomgKB2GFyqREd/rqI7NJH60CWV9xDqDoMBhcVXDJP1gyQY7Uz6vAzkeg2XMcCPXQcCDXoCRAWHcAAAA="
+  },
+  "retrato-libro": {
+    "ancho": 1536,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-libro-400.webp",
+      "800": "/retratos/retrato-libro-800.webp",
+      "1200": "/retratos/retrato-libro-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-libro-400.avif",
+      "800": "/retratos/retrato-libro-800.avif",
+      "1200": "/retratos/retrato-libro-1200.avif"
+    },
+    "principal": "/retratos/retrato-libro.webp",
+    "difuminada": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAACwBQCdASoUABsAPu1qrlCppaQiqAqpMB2JZQDB7SAgtQoG3TxT9LDP3YNzK4d0v2sPdM/ZJgwA/u/XTWecw20vh9M0eUf9vhK252C22Z9nqZ7jCGNzHXQrP1LIagqQISXRTXWGXg1InofqS5Valc1ri50OIm4VE4Ov6umcQHXq3RFiM9Z7RoC3PNU3YlvNZUKi7a6B4PrDnnnqY9RDfswAXhbwU1fRm/7bY4206mkl7sUOH9eXWoaK+O6Q400NIgjE4hDuV2dCPC/JlAv7/wdA4f3Gd+nfNxCpAVhMhLzcFrfCgS8AAA=="
+  },
+  "retrato-podcast": {
+    "ancho": 1536,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-podcast-400.webp",
+      "800": "/retratos/retrato-podcast-800.webp",
+      "1200": "/retratos/retrato-podcast-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-podcast-400.avif",
+      "800": "/retratos/retrato-podcast-800.avif",
+      "1200": "/retratos/retrato-podcast-1200.avif"
+    },
+    "principal": "/retratos/retrato-podcast.webp",
+    "difuminada": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQBACdASoUABsAPu1mq08ppaOiKA1RMB2JYwDE2BEcrtrjo4dIa7HVj1rPXdGlAAD+8qBuHn5Duc3YwsoDmPt+Piw2hq05qFklosM45Lk9S27nzfxtOfYsfwIEj2SPMuo8LXiTpkTPT7Ut3Ram+Q01gYn4ukkekCjVVXwA"
+  },
+  "retrato-quien-soy": {
+    "ancho": 1536,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-quien-soy-400.webp",
+      "800": "/retratos/retrato-quien-soy-800.webp",
+      "1200": "/retratos/retrato-quien-soy-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-quien-soy-400.avif",
+      "800": "/retratos/retrato-quien-soy-800.avif",
+      "1200": "/retratos/retrato-quien-soy-1200.avif"
+    },
+    "principal": "/retratos/retrato-quien-soy.webp",
+    "difuminada": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACwBQCdASoUABsAPu1sq1EppaOiqAqpMB2JZwC7M2QlvwwDdY4f6uGgvIl8U0JnoTTiDm/t+YAA/u1IK+TMLUOGKLYd9ueIhvlA9PpOUv5pfeJ8s6b5P314KQz+lKUTRJencC1XQq7NggJz2u8cTEXS3AMI+O2oB0qnkTOkg5NFXu/ic6eEwfDxb0A6gkKsHwmZKoN08+7jeM2xfKAM4P0hXm0eTusVSAucuiaqXxiHs8lm2aMYD6Ws1H25sQhldybnMTgekKLxkT/3yAA="
+  },
+  "el-camino-del-artista": {
+    "ancho": 591,
+    "alto": 768,
+    "webp": {
+      "300": "/recomendaciones/el-camino-del-artista-300.webp"
+    },
+    "avif": {
+      "300": "/recomendaciones/el-camino-del-artista-300.avif"
+    },
+    "principal": "/recomendaciones/el-camino-del-artista.webp",
+    "difuminada": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAADQBQCdASoUABoAPu1qsFAppiUiqAqpMB2JaACdMuN6bwNhsGcADJC58dmljc93NCc3Ikp0RwgAAP7t3/gIw5/YOAsYBgyrAf0NSUgcq9bZm16FKbNTZpmpnijf4SqzeChY8w/M599hj1c/NsemBSyrSJ8WdE1yDeC8KE9NynOsVLfJh7elohzXMJfwcLpE+xvEIsATTgBqZFmZ/zB9OM4UQ8QhMR4GF+Gwlb7xmfWCsJjLA+20Bkk/KLrw4XBhROVVEFN6xeBcAxvlRGFKINxaqQkejoXOTj6r5pS419UJlLagAAA="
+  },
+  "el-origen-de-los-guardianes": {
+    "ancho": 590,
+    "alto": 876,
+    "webp": {
+      "300": "/recomendaciones/el-origen-de-los-guardianes-300.webp"
+    },
+    "avif": {
+      "300": "/recomendaciones/el-origen-de-los-guardianes-300.avif"
+    },
+    "principal": "/recomendaciones/el-origen-de-los-guardianes.webp",
+    "difuminada": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAABwBgCdASoUAB4APu1irFAppSQisBgIATAdiWYAuzMa1ADZJkHfy4DtOLc/RPivYKjqg0JUli3uqZhEHwQA/s3nZlJXA6lOR5exVy2quljiEQGvESymDKj1+ty0HkALfT6aNRM1T+AS+YJI24RbYqz7LTL/IRoEwj+UzBTNMYFch7DcJmOe2SNxCuRypNEVlGWFl6oQ6kfj8u0FMNp425o77OEGDMTnPy8grvYaaXRW12m2zpg4NGuBCuEVlXGPTZR0tBH9HCUJq2QDnGNdERPoXV/4Xhfl5DRqO6FvLA2nwMcwl0XTxPwirPwllgM1pVoO/WGAAAA="
+  },
+  "en-una-selva-oscura": {
+    "ancho": 226,
+    "alto": 175,
+    "webp": {
+      "226": "/recomendaciones/en-una-selva-oscura-226.webp"
+    },
+    "avif": {
+      "226": "/recomendaciones/en-una-selva-oscura-226.avif"
+    },
+    "principal": "/recomendaciones/en-una-selva-oscura.webp",
+    "difuminada": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADwAwCdASoUAA8APu1iqU2ppaOiMAgBMB2JQBOgBFsDevTVP0KbS/4AAP2/yVvv0mBz5QLoQNEdRcwywnM4Gm4t6FSBN3TbOmXD14jG5Nv4GeKr431rVNMyaR1q0kzICCLcz2nOeQla9+5ye/IJqbKQTtlGuIbIkM9PaYKeSMOEZJavkb/9ObIpuRJTOfFfXE1FNco5MAA="
+  },
+  "instrumental": {
+    "ancho": 1024,
+    "alto": 599,
+    "webp": {
+      "300": "/recomendaciones/instrumental-300.webp",
+      "600": "/recomendaciones/instrumental-600.webp"
+    },
+    "avif": {
+      "300": "/recomendaciones/instrumental-300.avif",
+      "600": "/recomendaciones/instrumental-600.avif"
+    },
+    "principal": "/recomendaciones/instrumental.webp",
+    "difuminada": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBACdASoUAAwAPu1iqU2ppaOiMAgBMB2JYwCw7YvCygrDXqQlErR/UWAA+Qs0uN/09vFYybA4/OZUMc9vsdxgQY+UeTexzF2V/h0OPJVEyZD50x9fWFllrhY24BoFgyTMt25oQbbUDY71s7MM+e1A+utzg9jWQhQW+qqq+gMS/8PMlvTMCkAA"
+  },
+  "parece-que-dios-hubiera-muerto": {
+    "ancho": 244,
+    "alto": 102,
+    "webp": {
+      "244": "/recomendaciones/parece-que-dios-hubiera-muerto-244.webp"
+    },
+    "avif": {
+      "244": "/recomendaciones/parece-que-dios-hubiera-muerto-244.avif"
+    },
+    "principal": "/recomendaciones/parece-que-dios-hubiera-muerto.webp",
+    "difuminada": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABQAwCdASoUAAgAPu1kqU2ppaQiMAgBMB2JZwAAW8ukJoQjwAD+7dfFq9m5I+pKphvkYkSmee8AVW7yQyyF0YAA"
+  },
+  "together": {
+    "ancho": 1600,
+    "alto": 2416,
+    "webp": {
+      "300": "/recomendaciones/together-300.webp",
+      "600": "/recomendaciones/together-600.webp"
+    },
+    "avif": {
+      "300": "/recomendaciones/together-300.avif",
+      "600": "/recomendaciones/together-600.avif"
+    },
+    "principal": "/recomendaciones/together.webp",
+    "difuminada": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASoUAB4APu1opU2ppiMiMBgMATAdiWcAwcwQ747F8V/wb5bUsNy2rOHiEChJAAD+6nv3km4BGcM+XKa/GhS/bPEXQ6QTz00fyxsBeVPpzFGEiAZ/oIiZxAshTMyQiZxc5t8OxXQYxs0vaNLcDktEYwFCriDqxiysrGb3OEO7/qvvJMAAAAA="
+  },
+  "unlocking-us": {
+    "ancho": 720,
+    "alto": 720,
+    "webp": {
+      "300": "/recomendaciones/unlocking-us-300.webp",
+      "600": "/recomendaciones/unlocking-us-600.webp"
+    },
+    "avif": {
+      "300": "/recomendaciones/unlocking-us-300.avif",
+      "600": "/recomendaciones/unlocking-us-600.avif"
+    },
+    "principal": "/recomendaciones/unlocking-us.webp",
+    "difuminada": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAADQBACdASoUABQAPu1ur1IppiQiqAgBMB2JZQDE2BGDya1DQJmBXyIHrRhKAjoyAAD+sjnGulkq5aX5fNGK2nwNOMsI/iEwSrfawPI6amAsEBQR5EgRci3F6f78YfXrt/nG4QuJKmRmY7AsM36duoyISpNxbugl4dUOJl19vcmpan2kuO1NnaVrsUmkQ3mCrQn5bHeota0zCblMyCHeIMJC1AywwzLn8c0gIi0AAAA="
+  },
+  "constelacion": {
+    "ancho": 2688,
+    "alto": 1520,
+    "webp": {
+      "800": "/texturas/constelacion-800.webp",
+      "1600": "/texturas/constelacion-1600.webp"
+    },
+    "avif": {
+      "800": "/texturas/constelacion-800.avif",
+      "1600": "/texturas/constelacion-1600.avif"
+    },
+    "principal": "/texturas/constelacion.webp",
+    "difuminada": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADwAgCdASoUAAsAPu1iqU2ppaQjMAgBMB2JZwCdAC0kAAD+8NWNYXPYkw3hIoAA"
+  },
+  "lavanda": {
+    "ancho": 2688,
+    "alto": 1520,
+    "webp": {
+      "800": "/texturas/lavanda-800.webp",
+      "1600": "/texturas/lavanda-1600.webp"
+    },
+    "avif": {
+      "800": "/texturas/lavanda-800.avif",
+      "1600": "/texturas/lavanda-1600.avif"
+    },
+    "principal": "/texturas/lavanda.webp",
+    "difuminada": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAwAwCdASoUAAsAPu1kqU26JaOiMAgDQB2JQBOgBaD5EU0AAP7vTAKJpusHRYCpq2IdpUFkqguaAAAA"
+  },
+  "olas": {
+    "ancho": 2688,
+    "alto": 1520,
+    "webp": {
+      "800": "/texturas/olas-800.webp",
+      "1600": "/texturas/olas-1600.webp"
+    },
+    "avif": {
+      "800": "/texturas/olas-800.avif",
+      "1600": "/texturas/olas-1600.avif"
+    },
+    "principal": "/texturas/olas.webp",
+    "difuminada": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAgCdASoUAAsAPu1iqk2ppaQiMAgBMB2JQBOgBc/QAP7vS2OCNn7wzyDw1xHJuYYP1DagA0uDqDdn+AAAAA=="
+  },
+  "papel": {
+    "ancho": 1024,
+    "alto": 1024,
+    "webp": {
+      "800": "/texturas/papel-800.webp"
+    },
+    "avif": {
+      "800": "/texturas/papel-800.avif"
+    },
+    "principal": "/texturas/papel.webp",
+    "difuminada": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAAAQAwCdASoUABQAPu1wsFKppiSiqAgBMB2JaQDGQBanFAAA/vBFxqVwTRQV/wAA"
+  }
+}

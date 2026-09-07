@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const UN_ANIO = "public, max-age=31536000, immutable";
+const UNA_SEMANA = "public, max-age=604800, must-revalidate";
 
 /**
  * Cabeceras de seguridad para todas las respuestas.
@@ -32,10 +33,18 @@ const nextConfig: NextConfig = {
     return [
       { source: "/:path*", headers: CABECERAS_SEGURIDAD },
       {
-        // Estos archivos llevan huella del contenido en el nombre, así que
-        // pueden cachearse un año sin miedo: si cambian, cambia la ruta.
-        source: "/:carpeta(hero|marca|libros|retratos|texturas|og)/:archivo*",
+        // Solo el hero lleva huella del contenido en el nombre, así que es el
+        // único que puede cachearse un año sin miedo: si cambia, cambia la ruta.
+        source: "/hero/:archivo*",
         headers: [{ key: "Cache-Control", value: UN_ANIO }],
+      },
+      {
+        // El resto usa nombres estables y predecibles a propósito, para poder
+        // escribirlos a mano en un componente. Con `immutable` una portada
+        // corregida se quedaría atascada un año en el navegador de quien ya la
+        // vio, así que una semana con revalidación es el trato correcto.
+        source: "/:carpeta(marca|libros|retratos|recomendaciones|texturas|og|audio)/:archivo*",
+        headers: [{ key: "Cache-Control", value: UNA_SEMANA }],
       },
     ];
   },
