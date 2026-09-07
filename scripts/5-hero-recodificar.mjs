@@ -55,28 +55,37 @@ const DURACION = 15;
  * El presupuesto no es una aspiración: a 3 Mbps cada MB es un segundo largo de
  * espera con el hero congelado en el póster. Si se pasa, el script falla.
  */
+/*
+ * El presupuesto se mide POR SEGUNDO, no en absoluto. El primer intento fijaba
+ * 1,6 MB para el móvil, que era el número de un video de diez segundos, y este
+ * dura quince: con imagen real fallaba por 0,6 MB sin que hubiera nada mal.
+ *
+ * Las cifras (127 KB/s en móvil, 320 KB/s en escritorio) salen del proyecto
+ * hermano, que sirve 126 y 412 y saca 94 en Lighthouse móvil sobre 4G. Vamos
+ * por debajo de las dos.
+ */
 const CORTES = {
   movil: {
     // Nombres que puede traer el master; se usa el primero que exista.
-    masters: ["hero-movil-master.mp4", "hero-movil.mp4", "hero-vertical.mp4"],
+    masters: ["coordenadas-9x16.mp4", "hero-movil-master.mp4", "hero-movil.mp4", "hero-vertical.mp4"],
     salida: "hero-movil.mp4",
-    ancho: 608,
-    alto: 1080,
+    ancho: 540,
+    alto: 960,
     fps: 12,
     crf: 33,
-    presupuesto: 1.6 * 1024 * 1024,
+    presupuesto: 127 * 1024 * DURACION,
     // El relleno provisional se genera con esta forma mientras no haya master.
     rellenoAncho: 1080,
     rellenoAlto: 1920,
   },
   escritorio: {
-    masters: ["hero-escritorio-master.mp4", "hero-escritorio.mp4", "hero-horizontal.mp4"],
+    masters: ["coordenadas-16x9.mp4", "hero-escritorio-master.mp4", "hero-escritorio.mp4", "hero-horizontal.mp4"],
     salida: "hero-escritorio.mp4",
     ancho: 1600,
     alto: 900,
     fps: 15,
     crf: 33,
-    presupuesto: 3.5 * 1024 * 1024,
+    presupuesto: 320 * 1024 * DURACION,
     rellenoAncho: 1920,
     rellenoAlto: 1080,
   },

@@ -30,15 +30,19 @@
  * ## Cómo se reparten los quince segundos de video
  *
  * El progreso del scroll es también el tiempo del video, así que estos números
- * son la sincronía entre texto e imagen. Los cuatro tramos del video ocupan un
- * cuarto cada uno, y cada acto está del todo visible dentro del suyo:
+ * son la sincronía entre texto e imagen. Los tramos NO ocupan un cuarto cada
+ * uno: están cronometrados sobre el master, sacando un fotograma cada 1,7 s.
  *
- * | progreso  | video                        | acto visible |
- * |-----------|------------------------------|--------------|
- * | 0 – 0,25  | mar nocturno                 | 1 (0 – 0,16) |
- * | 0,25 – 0,5| la brújula de estrellas      | 2 (0,29 – 0,44) |
- * | 0,5 – 0,75| la figura que camina         | 3 (0,58 – 0,71) |
- * | 0,75 – 1  | el amanecer                  | 4 (0,85 – 1) |
+ * | progreso    | segundo   | video                          | acto visible    |
+ * |-------------|-----------|--------------------------------|-----------------|
+ * | 0 – 0,10    | 0 – 1,5   | mar nocturno vacío             | 1 (0 – 0,10)    |
+ * | 0,11 – 0,55 | 1,7 – 8,3 | la brújula se dibuja y gira    | 2 (0,20 – 0,47) |
+ * | 0,60 – 0,80 | 9 – 12    | la figura aparece, abre el día | 3 (0,66 – 0,76) |
+ * | 0,80 – 1    | 12 – 15   | el amanecer completo           | 4 (0,88 – 1)    |
+ *
+ * La brújula dura casi la mitad del video, así que el segundo acto se queda
+ * mucho más tiempo del que sugeriría repartir a partes iguales. Si algún día se
+ * regenera el video, hay que volver a cronometrarlo: es lo único que cambia.
  *
  * El primero arranca visible —es lo que se ve al abrir la página, antes de
  * tocar nada— y el último se queda hasta el final, para que los botones sigan
@@ -64,26 +68,26 @@ export const ACTOS: Acto[] = [
   // «¿Perdiste tu norte?» sobre el mar nocturno. Sale hacia arriba en cuanto
   // empieza a dibujarse la brújula.
   {
-    entrada: [0, 0.16, 0.23, 1],
+    entrada: [0, 0.10, 0.17, 1],
     opacidad: [1, 1, 0, 0],
     y: [0, 0, -24, -24],
   },
   // La brújula estelar ya completa.
   {
-    entrada: [0, 0.21, 0.29, 0.44, 0.52, 1],
+    entrada: [0, 0.14, 0.20, 0.47, 0.55, 1],
     opacidad: [0, 0, 1, 1, 0, 0],
     y: [24, 24, 0, 0, -24, -24],
   },
   // La figura caminando hacia el horizonte, con el cielo ya abriendo.
   {
-    entrada: [0, 0.5, 0.58, 0.71, 0.79, 1],
+    entrada: [0, 0.60, 0.66, 0.76, 0.83, 1],
     opacidad: [0, 0, 1, 1, 0, 0],
     y: [24, 24, 0, 0, -24, -24],
     placa: true,
   },
   // El amanecer y la salida del hero.
   {
-    entrada: [0, 0.77, 0.85, 1],
+    entrada: [0, 0.82, 0.88, 1],
     opacidad: [0, 0, 1, 1],
     y: [24, 24, 0, 0],
     placa: true,

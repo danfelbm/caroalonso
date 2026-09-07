@@ -1,0 +1,24 @@
+{
+  "generado": "2026-09-07T14:25:37.281Z",
+  "huellaPrompt": "622a275b",
+  "modelo": "seedance_2_0",
+  "prompt": "A calm night sea under a vast field of stars, very slow drift. The stars connect to each other with fine luminous lines and draw a compass rose over the water. The compass slowly transforms into the silhouette of a woman walking toward the horizon. The sky then opens into a pink and golden dawn over the still water. Static camera, no cuts, continuous very slow movement, cinematic. no text, no letters, no logos.",
+  "params": [
+    "--aspect_ratio",
+    "9:16",
+    "--duration",
+    "15",
+    "--resolution",
+    "720p",
+    "--generate_audio",
+    "false",
+    "--mode",
+    "std"
+  ],
+  "imagenInicio": "/Users/testuser/Herd/caroalonso/arte/video/claves/clave-2-9x16.png",
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7.mp4"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T14:22:12.682184Z\",\n    \"display_name\": \"Seedance 2.0\",\n    \"id\": \"c265cf75-28f5-4977-bdd1-1eca0720bad7\",\n    \"job_type\": \"seedance_2_0\",\n    \"min_result_url\": null,\n    \"params\": {\n      \"aspect_ratio\": \"9:16\",\n      \"bitrate_mode\": \"standard\",\n      \"duration\": 15,\n      \"generate_audio\": false,\n      \"genre\": \"auto\",\n      \"height\": 1280,\n      \"medias\": [\n        {\n          \"data\": {\n            \"id\": \"f3fc1d63-c955-4036-ba0d-4b495da40b58\",\n            \"type\": \"media_input\",\n            \"url\": \"https://d2ol7oe51mr4n9.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/f3fc1d63-c955-4036-ba0d-4b495da40b58.png\"\n          },\n          \"role\": \"start_image\"\n        }\n      ],\n      \"mode\": \"std\",\n      \"model\": \"seedance_2_0\",\n      \"multi_prompt\": [],\n      \"multi_shot_mode\": \"custom\",\n      \"multi_shots\": false,\n      \"prompt\": \"A calm night sea under a vast field of stars, very slow drift. The stars connect to each other with fine luminous lines and draw a compass rose over the water. The compass slowly transforms into the silhouette of a woman walking toward the horizon. The sky then opens into a pink and golden dawn over the still water. Static camera, no cuts, continuous very slow movement, cinematic. no text, no letters, no logos.\",\n      \"prompt_language\": \"en\",\n      \"reference_elements\": [],\n      \"resolution\": \"720p\",\n      \"speedramp\": \"auto\",\n      \"width\": 720\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7.mp4\",\n    \"status\": \"completed\",\n    \"thumbnail_url\": \"https://cdn.higgsfield.ai/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7_thumbnail.webp\"\n  }\n]\n"
+}
