@@ -10,6 +10,21 @@ export const metadata = {
   // Una página de error no tiene nada que indexar, y si se indexa compite en
   // los resultados con las páginas que sí existen.
   robots: { index: false, follow: true },
+  // Sí lleva tarjeta de compartir: un enlace roto se comparte igual, en un
+  // chat o en un correo, y sin esto sale la vista previa en blanco.
+  openGraph: {
+    type: "website",
+    locale: "es_CO",
+    siteName: "Carolina Alonso C.",
+    title: "Aquí se perdió el norte",
+    description: "La dirección que buscas no existe o cambió de lugar.",
+    images: [{ url: "/og/404.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aquí se perdió el norte",
+    images: ["/og/404.jpg"],
+  },
 };
 
 /**

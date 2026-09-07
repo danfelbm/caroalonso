@@ -390,7 +390,11 @@ function Identidad({ compacto = false }: { compacto?: boolean }) {
             : "font-display text-2xl text-papel sm:text-3xl"
         }
       >
-        Escritora, filósofa y coach
+        {/* Aquí, y solo aquí, sin «coach»: el hero es una entrada, y dos
+            oficios se leen de un golpe donde tres se leen como una lista. En el
+            resto del sitio se mantiene el oficio completo de `sitio.json`, que
+            es como ella se presenta y respalda con seis certificaciones. */}
+        Escritora y filósofa
       </p>
       {/*
        * Los botones son los del sistema de diseño y no una versión propia: son

@@ -87,7 +87,7 @@
       "1200": "/libros/sal-laberinto-1200.avif"
     },
     "principal": "/libros/sal-laberinto.webp",
-    "difuminada": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoUABAAPu1iqU2ppaOiMAgBMB2JbAC7DiAAJRtNqHqAAAD+8eBm0uOTDrQxfF+9FkQthAKuxZd2Lwu67Au7X/3qIBjjCKUo/1hWBRn+VYnE0l5nK6mD2A3GAI4Ng1/eeTulfL5e8dkAAA=="
+    "difuminada": "data:image/webp;base64,UklGRqYBAABXRUJQVlA4WAoAAAAQAAAAEwAADwAAQUxQSMQAAAABuS5E9D8At7Zt1cre717c3d0hItIKKEBjOqEUImjBSTUlJ3J3O3cjz0qImIAJQMibpFWXdxIYeXEqhfdl2YoPDpgi+2YYkjgAAceDADyBtAIiIBBABiIgkCyxIikEgrgAUkucSCpKcERiiAi+/RMIDBAAFPIKeNXGzIIIAEGTObeO3SNxikUmrKolEnyLkOmzjpasccy3NyDvXhXyPABwQMwwIDKfaM+4Go3a9Ok3pNeFExt2nfGMSACvLsH/SJl3XyAWVlA4ILwAAAAQBQCdASoUABAAPu1iqU2ppaOiMAgBMB2JbACdLwDs/7Ij8mADdYuJ8tAIYFt3f2RAAP0dGI+bu7csP/sYwVCKdbh9X3zF9Rp0pNHPQxaWBhSjKWn7GuswBSEke3PqF8BDYcG/o7OLCEbRuWEuBwRx4R/fffk2IUYYrH+/JVd/8oas160H9XbqAnoqBnqUkGumkI5lUKPcercqOmfYe/1/7f/jCDsFt2Xyv+PhM9vzyegL2xEl/m5v+l0AAA=="
   },
   "se-la-heroina": {
     "ancho": 1640,
@@ -184,6 +184,20 @@
     },
     "principal": "/retratos/retrato-heroina.webp",
     "difuminada": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBQCdASoUABsAPu1qr1AppaSiqAqpMB2JQBYj8dg1q27nEuSOx9gyRzKGeAr/yovlQAKAAP7T5C9GXBEnwZ7YRbfJAa3Qq8nFDJxVOM/FfKuTPJzMthykgK14OPV1zN3mCS9xXF89Joa63dQ34R/RD3YvrPpfucMbBGILTJNNOhV+z6IEKIja/lkCgxF5lbdFaQCckYn+HLHN69i1EYtqLpAAJArEPwoNpYACNs76tC9Fw6jgfaNGiAAAAA=="
+  },
+  "retrato-historia": {
+    "ancho": 900,
+    "alto": 1137,
+    "webp": {
+      "400": "/retratos/retrato-historia-400.webp",
+      "800": "/retratos/retrato-historia-800.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-historia-400.avif",
+      "800": "/retratos/retrato-historia-800.avif"
+    },
+    "principal": "/retratos/retrato-historia.webp",
+    "difuminada": "data:image/webp;base64,UklGRoYBAABXRUJQVlA4WAoAAAAQAAAAEwAAGAAAQUxQSOsAAAAJkFrbtrJXa58vijlRzMzUAHpSceRiU0dcJCgqAT0XwNFMj9/3HfFBDRExASQrKPv4LSerMX5+dbbgyqKoaL23qmtr2C2DMdP2T/80hjKIMUzGFJ7ByccRTQWR0iCXuBmZnxDO149AWQ4QRnV9SLqoxZGXb65UoySnFIF8dGM/1xWzcGUthvRveBQDgmh+I/IYFtAIoNBWcZEYMYBADIxhpJfiYExbqAx/AZwmnFTjJCb+kO72eYiDc4zSeHyORexsB1GGX+bgYvHUwpR7DMBz/l3jCeKTRP2nDiU4xUmQW5YiqvGU4gy9JaEAAFZQOCB0AAAAEAQAnQEqFAAZAD7tcLBSqaYkoqgIATAdiUAABbU+bbgs2pT8qMcAkAAA/vQlNbID08dLqWhF9WtbHuGI5BCPkEF2z/LvvTzhQznUwde/KaP9vCoaxYgVbN6TMpoofqi9dlq7sE3wv1Tv6jNZHhvBRiCjgAA="
   },
   "retrato-libro": {
     "ancho": 1536,

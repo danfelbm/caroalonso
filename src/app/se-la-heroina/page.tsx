@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 
 import { ListaEpisodios } from "@/components/heroina/lista-episodios";
 import { Prensa } from "@/components/heroina/prensa";
+import { PortadaLibro } from "@/components/portada/marco-imagen";
 import { Seccion, Titulo } from "@/components/layout/seccion";
 import { Prosa } from "@/components/ui/prosa";
 import { Subrayado } from "@/components/ui/subrayado";
@@ -104,8 +105,16 @@ export default async function SeLaHeroina() {
   return (
     <>
       {/* ---------------------------- Cabecera ---------------------------- */}
+      {/* La cabecera enseña la portada: es un libro, y la portada es la mitad
+          de lo que alguien reconoce de un libro. En móvil va arriba y centrada;
+          desde `lg` se pone al lado del texto, algo más pequeña que él. */}
       <Seccion fondo="acento" tamano="lg" conGrano style={acento}>
-        <div className={COLUMNA}>
+        <div className="mx-auto grid max-w-[64rem] gap-10 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:items-center lg:gap-16">
+          <div className="mx-auto w-3/5 max-w-[16rem] lg:mx-0 lg:w-full lg:max-w-none">
+            <PortadaLibro libro={libro} prioridad sizes="(min-width: 1024px) 18rem, 60vw" />
+          </div>
+
+          <div>
           <p className="eyebrow opacity-70">
             El libro · {libro.editorial}, {libro.anio}
           </p>
@@ -128,6 +137,7 @@ export default async function SeLaHeroina() {
             <p className="mt-6 font-display text-subtitulo opacity-80">{libro.subtitulo}</p>
           )}
           <p className="mt-8 max-w-[44ch] text-entradilla opacity-85">{libro.resumen}</p>
+          </div>
         </div>
       </Seccion>
 

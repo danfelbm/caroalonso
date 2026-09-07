@@ -78,6 +78,10 @@ async function convertir() {
       const anchos = tarea.anchos.filter((a) => a <= (meta.width ?? 0));
       if (anchos.length === 0) anchos.push(meta.width ?? tarea.anchos[0]);
 
+      // No se rellena el fondo: WebP y AVIF admiten transparencia, y varias
+      // fotos de Carolina son recortes sobre fondo liso. Rellenarlas les
+      // pondría un rectángulo de papel encima del bloque de color que las
+      // acompaña.
       const entrada = { ancho: meta.width, alto: meta.height, webp: {}, avif: {} };
 
       for (const ancho of anchos) {
@@ -90,7 +94,6 @@ async function convertir() {
             !forzar && existsSync(salida) && statSync(salida).mtimeMs > mtimeOrigen;
           if (!alDia) {
             await sharp(rutaOrigen)
-              .flatten({ background: "#FBF8F6" }) // el papel del sitio, no blanco puro
               .resize({ width: ancho, withoutEnlargement: true })
               [formato](opciones)
               .toFile(salida);
@@ -105,7 +108,6 @@ async function convertir() {
       const limpio = join(dirDestino, `${base}.webp`);
       if (forzar || !existsSync(limpio) || statSync(limpio).mtimeMs <= mtimeOrigen) {
         await sharp(rutaOrigen)
-          .flatten({ background: "#FBF8F6" })
           .resize({ width: mayor, withoutEnlargement: true })
           .webp({ quality: 82, effort: 5 })
           .toFile(limpio);
@@ -114,7 +116,6 @@ async function convertir() {
 
       // Marcador de posición: 20 px de ancho en base64, para pintar algo mientras carga.
       const difuminada = await sharp(rutaOrigen)
-        .flatten({ background: "#FBF8F6" })
         .resize({ width: 20 })
         .webp({ quality: 40 })
         .toBuffer();

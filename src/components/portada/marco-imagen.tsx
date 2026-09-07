@@ -52,6 +52,12 @@ function conjuntoDeFuentes(variantes: Record<string, string>) {
 type Ajuste = "cubrir" | "contener";
 
 interface MarcoProps {
+  /**
+   * `contain` para las fotos recortadas sobre fondo liso: encajarlas a la
+   * fuerza les corta la cabeza o las manos, y además dejan ver el color del
+   * bloque a través de la transparencia, que es justo lo que se busca.
+   */
+  encajar?: "cover" | "contain";
   /** Nombre base del archivo, sin carpeta ni extensión: la clave del manifiesto. */
   base: string;
   /** Carpeta de `public/`. Solo se usa para la ruta de reserva. */
@@ -100,6 +106,7 @@ export function Marco({
   sizes,
   className,
   prioridad = false,
+  encajar = "cover",
   alt = "",
 }: MarcoProps) {
   const entrada = MANIFIESTO[base];
@@ -223,6 +230,7 @@ export function Retrato({
   sizes,
   className,
   prioridad,
+  encajar,
 }: {
   base: string;
   color: string;
@@ -232,10 +240,12 @@ export function Retrato({
   sizes?: string;
   className?: string;
   prioridad?: boolean;
+  encajar?: "cover" | "contain";
 }) {
   return (
     <Marco
       base={base}
+      encajar={encajar}
       carpeta="retratos"
       color={color}
       respaldo={firma}
