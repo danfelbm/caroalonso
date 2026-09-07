@@ -4,6 +4,45 @@ const UN_ANIO = "public, max-age=31536000, immutable";
 const UNA_SEMANA = "public, max-age=604800, must-revalidate";
 
 /**
+ * Política de seguridad de contenido.
+ *
+ * Estaba dada por hecha en CLAUDE.md y en el comentario de los formularios,
+ * pero no existía: las maquetas de contacto, reconexión y boletín confiaban en
+ * un `form-action 'none'` que nadie emitía. Ahora sí.
+ *
+ * Dos permisos que parecen flojos y no lo son:
+ *
+ * - `'unsafe-inline'` en script-src es inevitable con App Router: React manda
+ *   su carga inicial en un script en línea. La alternativa, un middleware que
+ *   ponga un nonce por petición, obligaría a renderizar cada página en el
+ *   servidor y tirar por tierra las dieciocho rutas prerenderizadas.
+ * - `frame-src` deja pasar solo a Spotify, y solo por la fachada del pódcast,
+ *   que no monta el iframe hasta que alguien pulsa. Sin esta línea, ese clic no
+ *   haría nada.
+ *
+ * En desarrollo hacen falta `'unsafe-eval'` y el websocket de recarga en
+ * caliente; en producción no, así que no se conceden.
+ */
+const enDesarrollo = process.env.NODE_ENV === "development";
+
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${enDesarrollo ? " 'unsafe-eval'" : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  // `data:` por los marcadores de posición difuminados que escribe el pipeline.
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  "media-src 'self'",
+  "frame-src https://open.spotify.com",
+  `connect-src 'self'${enDesarrollo ? " ws: wss:" : ""}`,
+  "form-action 'none'",
+  "base-uri 'self'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+/**
  * Cabeceras de seguridad para todas las respuestas.
  *
  * `form-action 'none'` está a propósito: los formularios del sitio son maquetas
@@ -17,6 +56,7 @@ const CABECERAS_SEGURIDAD = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  { key: "Content-Security-Policy", value: CSP },
 ];
 
 const nextConfig: NextConfig = {

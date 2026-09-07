@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { FORMULARIO_RECONEXION } from "@/components/formularios/campos";
+import { Formulario } from "@/components/formularios/formulario";
 import { Boton } from "@/components/layout/boton";
 import { Columna, Seccion, Titulo } from "@/components/layout/seccion";
 import { Subrayado } from "@/components/ui/subrayado";
-import { formatearPrecio, getServicio } from "@/lib/datos";
+import { formatearPrecio, getRedes, getServicio } from "@/lib/datos";
 
 /** Hoy solo hay un servicio y esta es su página; el slug puede ser constante. */
 const SLUG = "reconexion";
@@ -32,6 +34,11 @@ export async function generateMetadata(): Promise<Metadata> {
       // que el HTML no cambie el día que el archivo exista.
       images: [{ url: "/og/reconexion.jpg", width: 1200, height: 630, alt: servicio.nombre }],
     },
+    // El bloque `twitter` del layout se hereda entero si una página no pone el
+    // suyo, y ahí el título es el del sitio: compartir esta página enseñaría la
+    // tarjeta de la portada. La imagen no hace falta repetirla — cuando falta
+    // `twitter:image`, los lectores de tarjetas caen en `og:image`.
+    twitter: { title: servicio.nombre, description: servicio.definicion },
   };
 }
 
@@ -49,6 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
  */
 export default async function Reconexion() {
   const servicio = await getServicio(SLUG);
+  const redes = await getRedes();
   if (!servicio) notFound();
 
   const { nombre, entradilla, definicion, efectos, proceso, precio, formulario } = servicio;
@@ -168,24 +176,28 @@ export default async function Reconexion() {
           <Titulo eyebrow="Escríbeme" titulo={formulario.invitacion} tamano="md" />
 
           {/*
-            TODO · AQUÍ VA EL FORMULARIO COMPARTIDO.
+            EL FORMULARIO COMPARTIDO, el mismo de `/contacto` y del pie. Aquí no
+            se maqueta ni un campo propio: saldrían dos formularios distintos
+            para el mismo sitio.
 
-            Lo escribe otro frente en `src/components/formularios/` y se inserta
-            justo en este hueco, con `nombre="reconexion"` (el valor está en
-            `servicio.formulario.nombre`, no lo repitas a mano).
+            `FORMULARIO_RECONEXION` ya trae los cuatro campos en su orden
+            —nombre, correo, celular y comentarios— y su `nombre` es el mismo
+            «reconexion» que guarda `servicios.json`.
 
-            Campos, en este orden:
-              · nombre       — texto, obligatorio
-              · correo       — email, obligatorio
-              · celular      — tel, opcional
-              · comentarios  — textarea
+            `conTitulo={false}` porque el titular acaba de ponerlo el <Titulo> de
+            arriba, con el texto que viene de los datos; si no, la invitación
+            saldría dos veces seguidas.
 
-            No se maquetan aquí campos propios: saldrían dos formularios
-            distintos para el mismo sitio. Y recuerda que son maquetas: el
-            <form> va sin `action` —la política de seguridad lleva
-            `form-action 'none'`— y al enviar se anuncia un aviso a lectores de
-            pantalla en vez de mandar nada a ningún sitio.
+            `redes` es lo que hace útil el aviso: el <form> va sin `action` —las
+            cabeceras llevan `form-action 'none'`— así que al pulsar no sale
+            nada, y el aviso tiene que poder decir por dónde SÍ escribirle hoy.
           */}
+          <Formulario
+            maqueta={FORMULARIO_RECONEXION}
+            redes={redes}
+            conTitulo={false}
+            className="mt-2"
+          />
         </Columna>
       </Seccion>
     </>

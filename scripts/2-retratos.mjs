@@ -111,8 +111,15 @@ const ESCENAS = [
     referencia: "carolina_alonso_c.png",
     pedido: "3:2",
     aspecto: "3:2",
-    encuadre: "Wide horizontal portrait, medium shot, she is placed off to one side of the frame",
-    escena: "She stands looking away from the camera toward the light, calm and thoughtful, a faint smile. She occupies only one side of the picture and the rest is generous empty wall, deliberately left as open space.",
+    // El Soul tira a primer plano centrado y mirando a cámara: hay que decirle
+    // la composición con números y con el lado exacto, o la ignora.
+    encuadre: "Wide horizontal editorial photograph, medium shot framed from the waist up, camera standing well back from her",
+    escena: "She stands small in the frame, occupying only about one third of the picture width, calm and thoughtful with a faint smile, her chin slightly lifted and her eyes directed off toward the empty side of the frame, watching something beyond the edge of the picture.",
+    variantes: [
+      "She stands over at the right-hand third of the frame, her body angled to the left, her gaze travelling out past the left edge of the picture. The entire left two thirds of the image is bare plaster wall, empty and unoccupied, deliberately left as open space for text.",
+      "She stands over at the left-hand third of the frame, her body angled to the right, her gaze travelling out past the right edge of the picture. The entire right two thirds of the image is bare plaster wall, empty and unoccupied, deliberately left as open space for text.",
+      "She stands at the right-hand third of the frame in near profile, turned away from the lens toward the window light, eyes lowered and thoughtful. The left two thirds of the image is bare plaster wall, empty and unoccupied, deliberately left as open space for text.",
+    ],
   },
   {
     nombre: "retrato-heroina",

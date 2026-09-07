@@ -58,6 +58,11 @@ export async function generateMetadata(): Promise<Metadata> {
       // que el HTML no cambie el día que el archivo exista.
       images: [{ url: "/og/se-la-heroina.jpg", width: 1200, height: 630, alt: titulo }],
     },
+    // El bloque `twitter` del layout se hereda entero si una página no pone el
+    // suyo, y ahí el título es el del sitio: compartir esta página enseñaría la
+    // tarjeta de la portada. La imagen no hace falta repetirla — cuando falta
+    // `twitter:image`, los lectores de tarjetas caen en `og:image`.
+    twitter: { title: titulo, description: libro.resumen },
   };
 }
 

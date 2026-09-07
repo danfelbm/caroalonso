@@ -236,10 +236,9 @@ interface FormularioBoletinProps {
  * TODO de `footer.tsx` —`formulario={<FormularioBoletin boletin={boletin} />}`—
  * sin saber nada de maquetas ni de campos.
  *
- * Los textos de `sitio.json` mandan sobre los de `campos.ts`: el pie ya pinta
- * `boletin.titular` y `boletin.aviso` por su cuenta, y dos textos distintos
- * diciendo lo mismo a dos centímetros son un error esperando a que alguien
- * cambie uno solo de los dos.
+ * `boletin.etiquetaCampo` y `boletin.textoBoton` mandan sobre los de
+ * `campos.ts`: son textos de pantalla que Carolina tiene que poder cambiar sin
+ * abrir un `.tsx`, y ahí es donde están declarados para ella.
  */
 export function FormularioBoletin({ boletin, redes }: FormularioBoletinProps) {
   const maqueta: Maqueta = {
@@ -254,7 +253,12 @@ export function FormularioBoletin({ boletin, redes }: FormularioBoletinProps) {
     <Formulario
       maqueta={maqueta}
       redes={redes}
-      aviso={boletin.aviso}
+      /*
+       * Sin `aviso`: aquí manda el de `campos.ts`. `boletin.aviso` sí se pinta,
+       * pero lo pinta el pie por su cuenta y de forma permanente, justo debajo
+       * de este formulario. Pasárselo también al aviso de envío pondría la
+       * misma frase dos veces con cuatro líneas de por medio.
+       */
       // El pie pone el titular y la entradilla del bloque: repetirlos aquí
       // dejaría dos encabezados seguidos diciendo lo mismo.
       conTitulo={false}

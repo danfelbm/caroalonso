@@ -86,7 +86,14 @@ export interface Recomendacion {
    * Sigue apuntando a la biblioteca de WordPress: son las únicas copias que
    * existen de estas ocho imágenes (ver docs/por-confirmar.md).
    */
-  imagen: string;
+  /**
+   * Nombre base del archivo en `public/recomendaciones/`, sin extensión.
+   *
+   * `null` cuando no hay imagen: la de «La brújula dorada» se perdió del
+   * servidor de WordPress y sus once variantes devuelven 404, así que hoy esa
+   * ficha ya se ve rota en el sitio viejo.
+   */
+  imagen: string | null;
   /** El enlace que ella misma dejó dentro del texto, si lo había. */
   enlace: string | null;
   color: string;

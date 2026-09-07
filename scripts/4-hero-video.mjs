@@ -14,7 +14,7 @@
  *
  * La fase `final` solo se corre con el borrador ya aprobado: son 202,5 créditos.
  */
-import { existsSync, linkSync, unlinkSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import sharp from "sharp";
@@ -133,8 +133,7 @@ if (fase === "claves") {
       params: ["--aspect_ratio", "16:9", "--duration", "15", "--resolution", "1080p", "--generate_audio", "false", "--mode", "std"],
       espera: "40m",
     });
-    if (r.ok) alias("coordenadas-16x9.mp4", "hero-escritorio-master.mp4");
-    else fallos.push("16x9");
+    if (!r.ok) fallos.push("16x9");
   }
 
   if (cual === "9x16" || cual === "ambos") {
@@ -148,8 +147,7 @@ if (fase === "claves") {
       params: ["--aspect_ratio", "9:16", "--duration", "15", "--resolution", "720p", "--generate_audio", "false", "--mode", "std"],
       espera: "40m",
     });
-    if (r.ok) alias("coordenadas-9x16.mp4", "hero-movil-master.mp4");
-    else fallos.push("9x16");
+    if (!r.ok) fallos.push("9x16");
   }
 
   const despues = registrarSaldo(`después del master ${cual}`);
@@ -183,18 +181,10 @@ async function recortarVertical(origen) {
 }
 
 /**
- * `scripts/5-hero-recodificar.mjs` (de otro agente) busca los masters por otros
- * nombres: hero-escritorio-master.mp4 y hero-movil-master.mp4. Se deja un enlace
- * duro para que los encuentre sin duplicar los megas ni renombrar nada.
+ * Hubo un momento en que `scripts/5-hero-recodificar.mjs` (de otro agente) solo
+ * buscaba hero-escritorio-master.mp4 / hero-movil-master.mp4, y aquí se dejaban
+ * enlaces duros para que los encontrara. Ya no hace falta: ese script busca
+ * primero coordenadas-16x9.mp4 y coordenadas-9x16.mp4, que son estos mismos.
+ * Si algún día vuelve a cambiar de nombres, el arreglo es un enlace duro, no
+ * copiar el archivo.
  */
-function alias(real, nombreEsperado) {
-  const origen = join(DIR, real);
-  const destino = join(DIR, nombreEsperado);
-  try {
-    if (existsSync(destino)) unlinkSync(destino);
-    linkSync(origen, destino);
-    console.log(`  ↪ alias ${nombreEsperado} (para 5-hero-recodificar.mjs)`);
-  } catch (e) {
-    console.error(`  no se pudo crear el alias ${nombreEsperado}: ${`${e.message ?? e}`.slice(0, 160)}`);
-  }
-}

@@ -28,6 +28,11 @@ export async function generateMetadata(): Promise<Metadata> {
       // ruta se declara desde ya para que el HTML no cambie cuando exista.
       images: [{ url: "/og/quien-soy.jpg", width: 1200, height: 630, alt: titular }],
     },
+    // El bloque `twitter` del layout se hereda entero si una página no pone el
+    // suyo, y ahí el título es el del sitio: compartir esta página enseñaría la
+    // tarjeta de la portada. La imagen no hace falta repetirla — cuando falta
+    // `twitter:image`, los lectores de tarjetas caen en `og:image`.
+    twitter: { title: `${titulo} · ${titular}`, description: DESCRIPCION },
   };
 }
 
@@ -158,14 +163,17 @@ export default async function QuienSoy() {
               todavía no existe. Ver el comentario de arriba. */}
           <img
             src="/retratos/retrato-quien-soy.webp"
+            // Los anchos son los que produce `assets:optimizar` (400, 800,
+            // 1200), no los que uno elegiría a ojo: pedir un 640 que no existe
+            // hace que el navegador se quede sin candidato y no pinte nada.
             srcSet={
-              "/retratos/retrato-quien-soy-640.webp 640w, " +
-              "/retratos/retrato-quien-soy-960.webp 960w, " +
-              "/retratos/retrato-quien-soy-1280.webp 1280w"
+              "/retratos/retrato-quien-soy-400.webp 400w, " +
+              "/retratos/retrato-quien-soy-800.webp 800w, " +
+              "/retratos/retrato-quien-soy-1200.webp 1200w"
             }
             sizes="(min-width: 40rem) 22rem, 100vw"
-            width={1536}
-            height={2048}
+            width={1200}
+            height={1600}
             alt="Carolina Alonso C., sentada, sobre una pared de papel cálido"
             className="size-full object-cover"
           />

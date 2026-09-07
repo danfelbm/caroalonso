@@ -5,7 +5,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { HeroNarrativo } from "@/components/hero/hero-narrativo";
 import { Boton } from "@/components/layout/boton";
 import { Columna, Seccion, Titulo } from "@/components/layout/seccion";
-import { PortadaLibro, Retrato } from "@/components/portada/marco-imagen";
+import { PortadaLibro, Retrato, Textura } from "@/components/portada/marco-imagen";
 import {
   IconoFlechaDerecha,
   IconoFlechaDiagonal,
@@ -110,7 +110,7 @@ export default async function Inicio() {
 
   const cifras = [
     { valor: `${libros.length}`, etiqueta: "libros publicados" },
-    { valor: `${anioReciente - anioPrimero}`, etiqueta: `años entre el primero y el último` },
+    { valor: `${anioReciente - anioPrimero}`, etiqueta: "años publicando" },
     // De su propia biografía: «Tras 18 años como docente e investigadora
     // universitaria…» (`quien-soy.json`, trayectoria). No hay dónde derivarlo.
     { valor: "18", etiqueta: "años de aula universitaria" },
@@ -152,16 +152,19 @@ export default async function Inicio() {
             } as CSSProperties
           }
         >
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-            <div className="mx-auto w-3/5 max-w-[17rem] sm:w-2/5 lg:col-span-4 lg:mx-0 lg:w-full lg:max-w-none">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+            {/* Sin `proporcion`: la foto del libro es apaisada —es una pila de
+                ejemplares, no un escaneo de la cubierta— y forzarle una caja
+                vertical le cortaría el título. */}
+            <div className="mx-auto w-full max-w-[26rem] lg:col-span-5 lg:mx-0 lg:max-w-none">
               <PortadaLibro
                 libro={destacado}
-                sizes="(min-width: 1024px) 22rem, 60vw"
+                sizes="(min-width: 1024px) 30rem, calc(100vw - 2.5rem)"
                 prioridad
               />
             </div>
 
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-7">
               <p className="eyebrow opacity-60">
                 Lo más reciente{destacado.editorial && ` · ${destacado.editorial}`} ·{" "}
                 <span className="cifras">{anioLegible(destacado.anio, destacado.anioPorConfirmar)}</span>
@@ -205,11 +208,15 @@ export default async function Inicio() {
           ================================================================ */}
       <Seccion fondo="papel" tamano="lg">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+          {/* `retrato-escritorio` y no `retrato-quien-soy`: ese último es el de
+              la página «Quién soy», que está a un clic de aquí, y repetir la
+              misma foto en las dos hace que la segunda parezca la primera. */}
           <div className="mx-auto w-4/5 max-w-[22rem] sm:w-3/5 lg:col-span-5 lg:mx-0 lg:w-full lg:max-w-none">
             <Retrato
-              base="retrato-quien-soy"
+              base="retrato-escritorio"
               color="#C2EFE3"
               firma={identidad.firma}
+              alt="Carolina Alonso escribe a mano en un cuaderno abierto, con una pila de libros al lado, y sonríe a la cámara."
               sizes="(min-width: 1024px) 26rem, 70vw"
               className="shadow-panel"
             />
@@ -289,8 +296,15 @@ export default async function Inicio() {
           {libros.map((libro) => (
             <li key={libro.slug} className="w-[13.5rem] sm:w-[15rem]">
               <Link href={urlLibro(libro.slug)} className="tactil group block">
+                {/* Aquí SÍ va una caja igual para todas, porque una fila de
+                    tarjetas de alturas distintas se lee como una estantería mal
+                    puesta. Con `contener` ninguna portada se recorta, y lo que
+                    sobra a los lados lo rellena su propia miniatura difuminada:
+                    cada libro queda en un halo de su color. */}
                 <PortadaLibro
                   libro={libro}
+                  proporcion="3 / 4"
+                  ajuste="contener"
                   sizes="15rem"
                   className="transition-transform duration-500 ease-suave group-hover:-translate-y-1.5"
                 />
@@ -417,49 +431,58 @@ export default async function Inicio() {
           `/reconexion`.
           ================================================================ */}
       {servicio && (
-        <Seccion fondo="marino" tamano="lg" conGrano>
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="mx-auto w-3/4 max-w-[20rem] sm:w-1/2 lg:col-span-5 lg:mx-0 lg:w-full lg:max-w-none">
-              <Retrato
-                base="retrato-reconexion"
-                color="#192D41"
-                proporcion="1 / 1"
-                firma={identidad.firma}
-                sizes="(min-width: 1024px) 26rem, 70vw"
-              />
-            </div>
+        <Seccion fondo="marino" tamano="lg" aSangre>
+          {/*
+            El cielo estrellado en vez de un retrato, por dos razones. La buena:
+            la Reconexión es «volver a alinearte con tu sistema de navegación
+            interno», que es literalmente lo que dice el segundo acto del hero
+            sobre una brújula de estrellas —el mismo cielo cerrando el círculo—.
+            La práctica: `retrato-reconexion` es una escena declarada en
+            `scripts/2-retratos.mjs` que todavía no ha pasado por el pipeline, y
+            los retratos que sí existen tienen dueño en otras páginas.
 
-            <div className="lg:col-span-7">
-              <Titulo
-                eyebrow="Acompañamiento"
-                titulo={servicio.nombre}
-                entradilla={servicio.definicion}
-                className="mb-8 sm:mb-10"
-              />
+            El velo por encima no es decorativo: sin él, el texto claro cae
+            sobre las estrellas más brillantes y pierde contraste.
+          */}
+          <Textura base="constelacion" opacidad={0.55} sizes="100vw" />
+          <div aria-hidden className="absolute inset-0 bg-marino/35" />
 
-              <ul className="border-t border-papel/15">
-                {[
-                  { termino: "Cuántas veces", valor: "Una sola vez en la vida" },
-                  { termino: "Dónde", valor: "Presencial, en Bogotá" },
-                  { termino: "Cuánto dura", valor: "Dos sesiones en 48 horas" },
-                  { termino: "Cuánto cuesta", valor: formatearPrecio(servicio.precio) },
-                ].map((rasgo) => (
-                  <li
-                    key={rasgo.termino}
-                    className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-papel/15 py-4"
-                  >
-                    <span className="text-cuerpo text-papel/60">{rasgo.termino}</span>
-                    <span className="cifras font-display text-rotulo">{rasgo.valor}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-10">
+          <div className="container relative">
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+              <div className="lg:col-span-7">
+                <Titulo
+                  eyebrow="Acompañamiento"
+                  titulo={servicio.nombre}
+                  entradilla={servicio.definicion}
+                  className="mb-8 sm:mb-10"
+                />
                 <Boton href={urlServicio(servicio.slug)} variante="claro" tamano="lg">
                   Cómo es la Reconexión
                   <IconoFlechaDerecha />
                 </Boton>
               </div>
+
+              {/* El resumen de `servicios.json`: el proceso entero, los efectos
+                  y el porqué están en `/reconexion`, que es de otro frente. */}
+              <dl className="rounded-panel bg-papel/8 p-6 backdrop-blur-[2px] sm:p-8 lg:col-span-5">
+                {[
+                  { termino: "Cuántas veces", valor: "Una sola vez en la vida" },
+                  { termino: "Dónde", valor: "Presencial, en Bogotá" },
+                  { termino: "Cuánto dura", valor: "Dos sesiones en 48 horas" },
+                  { termino: "Cuánto cuesta", valor: formatearPrecio(servicio.precio) },
+                ].map((rasgo, indice) => (
+                  <div
+                    key={rasgo.termino}
+                    className={cn(
+                      "flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 py-4",
+                      indice > 0 && "border-t border-papel/15",
+                    )}
+                  >
+                    <dt className="text-cuerpo text-papel/65">{rasgo.termino}</dt>
+                    <dd className="cifras font-display text-rotulo">{rasgo.valor}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </Seccion>
@@ -484,14 +507,19 @@ export default async function Inicio() {
           }
         />
 
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {recomendaciones.slice(0, 4).map((recomendacion, indice) => {
+        {/* Tres y no cuatro, y `items-start`: con cuatro columnas la nota se
+            queda en 260 px y el texto de Carolina cae a tres palabras por
+            renglón. Sin estirar a la misma altura, además, cada papel mide lo
+            que mide su texto, que es lo que hace que parezcan pegados en una
+            pared y no celdas de una tabla. */}
+        <ul className="grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {recomendaciones.slice(0, 3).map((recomendacion, indice) => {
             const tinta = contraste(recomendacion.color);
             return (
               <li key={recomendacion.slug} className={GIROS[indice % GIROS.length]}>
                 <Link
                   href={urlRecomendacion(recomendacion.slug)}
-                  className="tactil flex h-full flex-col rounded-tarjeta p-6 shadow-tarjeta hover:shadow-panel"
+                  className="tactil flex flex-col rounded-tarjeta p-6 shadow-tarjeta hover:shadow-panel"
                   style={{ backgroundColor: recomendacion.color, color: tinta.texto }}
                 >
                   <p className="eyebrow" style={{ color: tinta.suave }}>

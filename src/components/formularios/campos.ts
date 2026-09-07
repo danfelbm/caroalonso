@@ -87,8 +87,14 @@ export const FORMULARIO_BOLETIN: Maqueta = {
   entradilla: "Tu nombre y tu correo. Nada más.",
   nota: "Es una maqueta: todavía no hay a dónde enviarlo.",
   textoBoton: "Quiero recibirlo",
-  aviso:
-    "El boletín todavía no está conectado: este formulario no envía nada a ningún sitio y no guarda tu correo.",
+  /*
+   * Dice lo mismo que `boletin.aviso` de `sitio.json` con otras palabras, y no
+   * por gusto: el pie ya pinta ese texto justo debajo del formulario, de forma
+   * permanente. Repetirlo palabra por palabra a cuatro líneas de distancia se
+   * lee como un fallo de montaje. Este habla del gesto que se acaba de hacer;
+   * el del pie explica por qué el bloque está apagado.
+   */
+  aviso: "Tu correo se quedó en esta pantalla: no salió hacia ningún sitio y nadie lo recibió.",
   campos: [NOMBRE, CORREO],
 };
 
