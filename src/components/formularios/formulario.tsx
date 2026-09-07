@@ -109,7 +109,9 @@ export function Formulario({
         del botón llegaría tarde: quien ya escribió su historia entera en el
         cuadro de texto merecía saberlo en la primera línea.
       */}
-      <p className={cn("text-nota opacity-60", conTitulo ? "mt-5" : "mb-5")}>{maqueta.nota}</p>
+      {maqueta.nota && (
+        <p className={cn("text-nota opacity-60", conTitulo ? "mt-5" : "mb-5")}>{maqueta.nota}</p>
+      )}
 
       <form noValidate onSubmit={alEnviar} className={cn(conTitulo && "mt-7")}>
         <div className="space-y-5">
@@ -174,13 +176,13 @@ export function Formulario({
       <div id={idAviso} role="status" aria-live="polite" className="mt-6 empty:mt-0">
         {enviado && (
           <div className="rounded-panel border border-current/20 bg-current/6 p-5 sm:p-6">
-            <p className="font-display text-rotulo">Esto todavía no llega a ninguna parte</p>
+            <p className="font-display text-rotulo">{maqueta.confirmacion}</p>
             <p className="mt-3 text-cuerpo opacity-75">{textoAviso}</p>
 
             {redes && redes.length > 0 ? (
               <>
                 <p className="mt-5 text-cuerpo opacity-75">
-                  Para escribirle hoy, estas puertas sí están abiertas:
+                  Mientras tanto, también me encuentras aquí:
                 </p>
                 <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1">
                   {redes.map((red) => {

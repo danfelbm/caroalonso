@@ -215,3 +215,24 @@ Bajados a `arte/originales/` antes de que el sitio viejo desaparezca:
 - 7 de las 8 imágenes de recomendaciones.
 - El MP3 de la entrevista en Caracol Radio Bucaramanga, 10 MB, que solo vivía
   allí y no se puede regenerar.
+
+## URGENTE antes de publicar: los formularios confirman sin enviar
+
+Los tres formularios (boletín, contacto y Reconexión) **anuncian que el envío
+fue correcto, pero no envían nada a ningún sitio y no guardan nada**. Se decidió
+así para poder enseñarle el sitio a Carolina sin que aparezcan avisos de obra.
+
+Mientras siga así, cualquiera que se suscriba al boletín creerá que está en una
+lista en la que no está, y quien escriba por contacto esperará una respuesta que
+nadie va a recibir.
+
+**Hay que conectarlos antes de que el sitio esté delante de gente de verdad.**
+Dos caminos, los dos cortos:
+
+- Un manejador de ruta propio en el servidor de Node que ya corre el sitio, que
+  guarde en un archivo o los reenvíe por correo.
+- Un proveedor de boletín (Brevo, Mailchimp, Buttondown) para las suscripciones,
+  y Formspree o Web3Forms para contacto y Reconexión.
+
+Ojo también con la política de seguridad: hoy lleva `form-action 'none'`, que
+bloquea cualquier envío. Al conectar, hay que abrirla al destino que se elija.

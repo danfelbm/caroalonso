@@ -154,17 +154,7 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
             {boletin.entradilla}
           </p>
 
-          {/* Hueco del formulario. Ver el TODO de `PieProps.formulario`. */}
-          {formulario && (
-            <>
-              <div className="mt-6 max-w-[34rem] sm:mt-8">{formulario}</div>
-              {/*
-               * El aviso solo aparece con el formulario delante: sin campos que
-               * rellenar, decir «esto no envía nada» no advierte de nada.
-               */}
-              <p className="mt-4 max-w-[52ch] text-nota text-papel/50">{boletin.aviso}</p>
-            </>
-          )}
+          {formulario && <div className="mt-6 max-w-[34rem] sm:mt-8">{formulario}</div>}
         </section>
 
         {/* ---------------- Legal ---------------- */}
@@ -173,9 +163,6 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
               va con punto medio para no encadenar dos puntos seguidos. */}
           <p className="cifras">
             © {anio} {identidad.firma} · Todos los derechos reservados.
-          </p>
-          <p>
-            Las portadas de los libros son obra de sus editoriales.
           </p>
         </div>
       </div>

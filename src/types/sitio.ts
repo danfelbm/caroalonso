@@ -37,9 +37,13 @@ export interface Destino {
 }
 
 /**
- * El boletín aún no tiene proveedor de correo detrás. El formulario se pinta
- * pero no envía a ningún sitio, y el aviso lo dice en voz alta para que nadie
- * crea que se ha suscrito.
+ * El bloque del boletín del pie.
+ *
+ * OJO, y es importante: el formulario TODAVÍA NO ENVÍA a ningún sitio. La
+ * pantalla confirma la suscripción porque así se decidió para enseñar el sitio,
+ * pero el correo no se guarda en ninguna parte. Antes de que esto esté delante
+ * de gente de verdad hay que conectarlo a un proveedor, o quien se suscriba
+ * esperará un boletín que nunca va a llegar.
  */
 export interface Boletin {
   activo: boolean;
@@ -47,7 +51,6 @@ export interface Boletin {
   entradilla: string;
   etiquetaCampo: string;
   textoBoton: string;
-  aviso: string;
 }
 
 export interface Sitio {

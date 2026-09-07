@@ -42,23 +42,46 @@
     "ciudad": "Bogotá, Colombia"
   },
   "navegacion": [
-    { "titulo": "Inicio", "ruta": "/" },
-    { "titulo": "Quién soy", "ruta": "/quien-soy" },
-    { "titulo": "Sé la heroína", "ruta": "/se-la-heroina" },
-    { "titulo": "Libros", "ruta": "/libros" },
-    { "titulo": "Reconexión", "ruta": "/reconexion" }
+    {
+      "titulo": "Inicio",
+      "ruta": "/"
+    },
+    {
+      "titulo": "Quién soy",
+      "ruta": "/quien-soy"
+    },
+    {
+      "titulo": "Sé la heroína",
+      "ruta": "/se-la-heroina"
+    },
+    {
+      "titulo": "Libros",
+      "ruta": "/libros"
+    },
+    {
+      "titulo": "Reconexión",
+      "ruta": "/reconexion"
+    }
   ],
   "navegacionSecundaria": [
-    { "titulo": "Recomendaciones", "ruta": "/recomendaciones" },
-    { "titulo": "Podcast", "ruta": "/podcast" },
-    { "titulo": "Contacto", "ruta": "/contacto" }
+    {
+      "titulo": "Recomendaciones",
+      "ruta": "/recomendaciones"
+    },
+    {
+      "titulo": "Podcast",
+      "ruta": "/podcast"
+    },
+    {
+      "titulo": "Contacto",
+      "ruta": "/contacto"
+    }
   ],
   "boletin": {
     "activo": false,
     "titular": "Escribamos juntas",
     "entradilla": "Historias, herramientas y avisos de lo que voy publicando. Sin prisa y sin ruido.",
     "etiquetaCampo": "Tu correo electrónico",
-    "textoBoton": "Quiero recibirlo",
-    "aviso": "El boletín todavía no está conectado: este formulario no envía nada a ningún sitio y no guarda tu correo."
+    "textoBoton": "Quiero recibirlo"
   }
 }

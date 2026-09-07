@@ -47,7 +47,10 @@ export interface Maqueta {
    * escriba de verdad, con su historia dentro, y se quede esperando respuesta.
    * Por eso la advertencia no espera al envío.
    */
-  nota: string;
+  nota: string | null;
+
+  /** El titular que se anuncia al enviar. */
+  confirmacion: string;
   textoBoton: string;
   /** Lo que se anuncia al pulsar. Ver `aviso` en `<Formulario>`. */
   aviso: string;
@@ -76,8 +79,7 @@ const CORREO: Campo = {
 /* --------------------------------- Boletín -------------------------------- */
 
 /**
- * Vive en el pie de todas las páginas. Sus textos de pantalla —titular,
- * entradilla, etiqueta del campo, texto del botón y aviso— están además en
+ * Vive en el pie de todas las páginas. Sus textos de pantalla están además en
  * `sitio.json`, y `<FormularioBoletin>` los deja mandar sobre estos: el pie ya
  * pinta el titular por su cuenta y los dos tienen que decir lo mismo.
  */
@@ -85,16 +87,10 @@ export const FORMULARIO_BOLETIN: Maqueta = {
   nombre: "boletin",
   titulo: "Recibe el boletín",
   entradilla: "Tu nombre y tu correo. Nada más.",
-  nota: "Es una maqueta: todavía no hay a dónde enviarlo.",
+  nota: null,
   textoBoton: "Quiero recibirlo",
-  /*
-   * Dice lo mismo que `boletin.aviso` de `sitio.json` con otras palabras, y no
-   * por gusto: el pie ya pinta ese texto justo debajo del formulario, de forma
-   * permanente. Repetirlo palabra por palabra a cuatro líneas de distancia se
-   * lee como un fallo de montaje. Este habla del gesto que se acaba de hacer;
-   * el del pie explica por qué el bloque está apagado.
-   */
-  aviso: "Tu correo se quedó en esta pantalla: no salió hacia ningún sitio y nadie lo recibió.",
+  confirmacion: "Listo, ya estás dentro",
+  aviso: "Te escribiré cuando haya algo que valga la pena contarte. Sin prisa y sin ruido.",
   campos: [NOMBRE, CORREO],
 };
 
@@ -105,10 +101,10 @@ export const FORMULARIO_CONTACTO: Maqueta = {
   titulo: "Escríbeme",
   entradilla:
     "Una pregunta, un libro que buscas, una idea que te dio vueltas mientras leías. Aquí llega.",
-  nota: "Antes de que escribas: este formulario todavía es una maqueta y no envía nada.",
+  nota: null,
   textoBoton: "Enviar el mensaje",
-  aviso:
-    "Este formulario todavía no está conectado: al pulsar no sale nada hacia ningún sitio y tu mensaje no queda guardado.",
+  confirmacion: "Gracias, tu mensaje llegó",
+  aviso: "Te respondo lo antes que pueda, y siempre respondo.",
   campos: [
     NOMBRE,
     CORREO,
@@ -126,19 +122,16 @@ export const FORMULARIO_CONTACTO: Maqueta = {
 
 /* -------------------------------- Reconexión ------------------------------ */
 
-/**
- * El único formulario del sitio viejo que sí llegaba a alguna parte. Mientras
- * no vuelva a tener destino, se comporta igual que los otros dos y lo dice.
- */
+/** El único formulario del sitio viejo que sí llegaba a alguna parte. */
 export const FORMULARIO_RECONEXION: Maqueta = {
   nombre: "reconexion",
   titulo: "Pide tu Reconexión",
   entradilla:
     "Si quieres más información o programar tu reconexión, déjame tus datos y hablamos.",
-  nota: "Antes de que escribas: este formulario todavía es una maqueta y no envía nada.",
+  nota: null,
   textoBoton: "Quiero saber más",
-  aviso:
-    "Este formulario todavía no está conectado: al pulsar no sale nada hacia ningún sitio y tus datos no quedan guardados.",
+  confirmacion: "Gracias, ya tengo tus datos",
+  aviso: "Te escribo pronto para coordinar las dos sesiones y resolver lo que necesites.",
   campos: [
     NOMBRE,
     CORREO,

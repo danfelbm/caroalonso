@@ -122,13 +122,12 @@ export default async function PaginaContacto() {
 
             {/* La vía que hoy sí funciona de verdad. */}
             <section aria-labelledby="contacto-redes">
-              <p className="eyebrow opacity-50">Donde sí llega hoy</p>
+              <p className="eyebrow opacity-50">En redes</p>
               <h2 id="contacto-redes" className="mt-4 text-rotulo">
-                Sus redes están abiertas
+                Sígueme por aquí
               </h2>
               <p className="mt-4 max-w-[42ch] text-cuerpo text-marino-suave">
-                Mientras el formulario de arriba sea una maqueta, este es el camino que
-                funciona: un mensaje directo por cualquiera de estas puertas.
+                También me encuentras aquí, y por aquí respondo rápido.
               </p>
 
               <ul className="mt-6 space-y-1">
