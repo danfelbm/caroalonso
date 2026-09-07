@@ -1,0 +1,45 @@
+{
+  "name": "caroalonso",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "tipos": "tsc --noEmit",
+    "assets:descargar": "node scripts/0-descargar.mjs",
+    "assets:soul": "node scripts/1-soul.mjs",
+    "assets:retratos": "node scripts/2-retratos.mjs",
+    "assets:texturas": "node scripts/3-texturas.mjs",
+    "assets:hero": "node scripts/4-hero-video.mjs",
+    "assets:hero-recodificar": "node scripts/5-hero-recodificar.mjs",
+    "assets:optimizar": "node scripts/6-optimizar.mjs",
+    "og": "node scripts/7-og.mjs",
+    "qa:movil": "node scripts/8-qa-movil.mjs",
+    "qa:hero": "node scripts/9-hero-desfase.mjs",
+    "qa:enlaces": "node scripts/10-enlaces.mjs",
+    "empaquetar": "npm run build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "motion": "^13.2.0",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "ffmpeg-static": "^5.3.0",
+    "playwright": "^1.62.1",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5"
+  }
+}

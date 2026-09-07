@@ -1,0 +1,32 @@
+# dependencias
+/node_modules
+/.pnp
+.pnp.*
+
+# construcción
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# entorno: la clave de OpenRouter nunca entra al repo
+.env
+.env.*
+!.env.example
+
+# sistema
+.DS_Store
+*.pem
+npm-debug.log*
+
+# arte: los originales y las referencias sí se versionan (sin ellos no se puede
+# regenerar nada), pero el material pesado e intermedio no.
+/arte/trabajo/
+/arte/retratos/
+/arte/video/
+/arte/soul/
+
+# notas de agentes
+CLAUDE.md
+AGENTS.md
