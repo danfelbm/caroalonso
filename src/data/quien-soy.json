@@ -1,0 +1,63 @@
+{
+  "titulo": "Quién soy",
+  "titular": "Un poco de mi historia",
+  "biografia": [
+    "Nací en una década anónima, en medio de 2 muy reconocidas: los 60 son famosos por los hippies y una moda colorida que expresaba el anhelo de libertad; en los 80… el boom económico, los yuppies, el volumen en el pelo y el cierre magnífico con un muro cayendo en Berlín mientras yo me graduaba de bachiller.",
+    "Para mi familia, los carros y los motores han sido muy importantes. Y a mí me gustan las palabras. Digamos que cuando mi hermano mayor me decía que yo era adoptada, no me resultaba difícil creerle. Crecí en medio de muchas cosas no dichas; quizás por eso me importa tanto nombrar, contar, escuchar. He tratado, desde que me volví adulta —según la cédula—, de comprender a los seres humanos y sus historias, así como he querido aprender a conectar hilando con ideas y relatos.",
+    "Las historias me han cambiado la vida varias veces. Una de las más significativas fue cuando, tras leer Juan Salvador Gaviota, decidí dejar la Ingeniería Electrónica y encontré el camino en el Teatro y la Literatura. Luego leí El mundo de Sofía y me enamoré de la Filosofía… Despierta, de Anthony de Melo, fue el detonante para romper un compromiso cuando faltaban pocos meses para el matrimonio.",
+    "Contacto, de Carl Sagan, inauguró mi camino de reconciliación con Dios. The Matrix me sacudió con fuerza y abrió la puerta a una comprensión distinta de la realidad y a una necesidad de enseñar y aprender de otra manera, así que llegaron el aprendizaje transformacional y el coaching. Por esa misma puerta entró Un curso en milagros: el camino espiritual al que estaba destinada.",
+    "Las historias contadas en la Literatura, en el Cine, en un escenario o en un lienzo; las historias de los libros sagrados y de los libros reflexivos; las historias que me cuentan las personas con una taza de café o mientras caminamos… Las historias trazadas en las ciudades que amo recorrer con curiosidad… Todas me afectan y transforman.",
+    "Yo he cambiado las historias en mi mente, una y otra y otra vez. Al hacerlo he cambiado mi vida y he asumido la autoría de mi propio relato. Y lo sigo escribiendo: mi labor ahora es la de una hechicera que deshace encantamientos para despertar a la princesa y a su pueblo, para descubrir la belleza de la bestia y traer de vuelta la vida en su esplendor a los reinos que han vivido sumidos en la sombra.",
+    "Me alegra que estés aquí, leyendo estas palabras…",
+    "Si quieres cambiar tu historia, si necesitas ayuda con algún encantamiento por deshacer, cuenta conmigo.",
+    "Tu historia y tu voz son indispensables para que podamos sanar y transformar este mundo. ¡Las mujeres que creen y crean juntas tienen infinito poder!"
+  ],
+  "trayectoria": {
+    "titular": "Y en cuanto a mi trabajo y mi formación…",
+    "parrafos": [
+      "Soy escritora y coach. Tras 18 años como docente e investigadora universitaria, dejé las aulas físicas para enseñar y acompañar a las mujeres a vivir una vida plena y en propósito a través de mis libros, cursos, conferencias y conversaciones virtuales.",
+      "He publicado los libros Sé la heroína de tu historia (Planeta, 2021), Reinventa el amor (2017), A través de las grietas (2012), Un mundo a tu medida (2009), Las muertes posibles (2007) y Navegaciones y naufragios (2004); también, cuentos en antologías nacionales e internacionales, ensayos y reseñas en diversas revistas.",
+      "En 1996 mi cuento «Espacios» ganó el Concurso Nacional de Cuento Fantástico del IDCT y mi libro de relatos A través de las grietas fue finalista en el Concurso Nacional de Cuento del Ministerio de Cultura (2009) y en el IX Concurso Nacional de Novela y Cuento de la Cámara de Comercio de Medellín, entre otros reconocimientos.",
+      "Creé y co-creé los Programas de Transformación Sé UNA Mujer, Tu Historia Cuenta y Preparándote para Amar.",
+      "Publico regularmente en mi canal de YouTube @CarolinaAlonsoC y en mis cuentas de Instagram @carolina_alonso_c y de TikTok @carolinaalonsoc, donde ofrezco reflexiones y herramientas para construir la vida, las relaciones y el mundo que anhelamos.",
+      "Con dos amadas amigas e increíbles coaches exploramos la vida en Coordenadas del alma, un podcast en el que nos guía la curiosidad y en el cual reconocemos cómo nos ha cambiado la brújula interna.",
+      "Soy estudiante de Un Curso en Milagros y comparto el mensaje del Curso y mis reflexiones sobre él en mi canal de YouTube Love is Real."
+    ]
+  },
+  "formacion": {
+    "titular": "Formación",
+    "academica": "Profesional en Estudios Literarios y Máster en Filosofía Contemporánea de la Universidad Javeriana.",
+    "certificaciones": [
+      {
+        "titulo": "Women-Centered Coach",
+        "institucion": "The Institute for Women-Centered Coaching",
+        "url": "https://womancenteredcoaching.com/"
+      },
+      {
+        "titulo": "Inner Harmony Coach",
+        "institucion": "True Purpose Institute",
+        "url": "https://www.truepurposeinstitute.com/"
+      },
+      {
+        "titulo": "True Purpose Coach",
+        "institucion": "True Purpose Institute",
+        "url": "https://www.truepurposeinstitute.com/"
+      },
+      {
+        "titulo": "Integrative Coach",
+        "institucion": "The Ford Institute",
+        "url": "https://thefordinstitute.com/"
+      },
+      {
+        "titulo": "Reconnection & Reconective Healing Practitioner",
+        "institucion": "The Reconnection",
+        "url": "https://www.thereconnection.com/"
+      },
+      {
+        "titulo": "Coach Ontológico",
+        "institucion": "The Newfield Network",
+        "url": "https://newfieldnetwork.com/"
+      }
+    ]
+  }
+}

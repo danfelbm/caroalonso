@@ -1,0 +1,64 @@
+{
+  "identidad": {
+    "nombre": "Carolina Alonso",
+    "firma": "Carolina Alonso C.",
+    "oficio": "Escritora, filósofa y coach",
+    "lema": "Tu historia y tu voz son indispensables para que podamos sanar y transformar este mundo.",
+    "dominio": "caroalonso.com",
+    "url": "https://www.caroalonso.com",
+    "descripciones": {
+      "breve": "Escritora, filósofa y coach. Autora de «Sal del laberinto de soledad» y «Sé la heroína de tu historia».",
+      "larga": "Soy escritora y coach. Tras 18 años como docente e investigadora universitaria, dejé las aulas físicas para enseñar y acompañar a las mujeres a vivir una vida plena y en propósito a través de mis libros, cursos, conferencias y conversaciones virtuales."
+    }
+  },
+  "redes": [
+    {
+      "plataforma": "youtube",
+      "nombre": "YouTube",
+      "usuario": "@CarolinaAlonsoC",
+      "url": "https://www.youtube.com/@CarolinaAlonsoC"
+    },
+    {
+      "plataforma": "instagram",
+      "nombre": "Instagram",
+      "usuario": "@carolina_alonso_c",
+      "url": "https://www.instagram.com/carolina_alonso_c/"
+    },
+    {
+      "plataforma": "tiktok",
+      "nombre": "TikTok",
+      "usuario": "@carolinaalonsoc",
+      "url": "https://www.tiktok.com/@carolinaalonsoc"
+    },
+    {
+      "plataforma": "spotify",
+      "nombre": "Spotify",
+      "usuario": "Coordenadas del alma",
+      "url": "https://open.spotify.com/show/6udAyqd79lFmeOJVgp2U0D"
+    }
+  ],
+  "contacto": {
+    "correo": null,
+    "ciudad": "Bogotá, Colombia"
+  },
+  "navegacion": [
+    { "titulo": "Inicio", "ruta": "/" },
+    { "titulo": "Quién soy", "ruta": "/quien-soy" },
+    { "titulo": "Sé la heroína", "ruta": "/se-la-heroina" },
+    { "titulo": "Libros", "ruta": "/libros" },
+    { "titulo": "Reconexión", "ruta": "/reconexion" }
+  ],
+  "navegacionSecundaria": [
+    { "titulo": "Recomendaciones", "ruta": "/recomendaciones" },
+    { "titulo": "Podcast", "ruta": "/podcast" },
+    { "titulo": "Contacto", "ruta": "/contacto" }
+  ],
+  "boletin": {
+    "activo": false,
+    "titular": "Escribamos juntas",
+    "entradilla": "Historias, herramientas y avisos de lo que voy publicando. Sin prisa y sin ruido.",
+    "etiquetaCampo": "Tu correo electrónico",
+    "textoBoton": "Quiero recibirlo",
+    "aviso": "El boletín todavía no está conectado: este formulario no envía nada a ningún sitio y no guarda tu correo."
+  }
+}

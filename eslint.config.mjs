@@ -1,10 +1,21 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import next from "eslint-config-next";
 
-const compat = new FlatCompat({ baseDirectory: dirname(fileURLToPath(import.meta.url)) });
-
-export default [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  { ignores: [".next/**", "node_modules/**", "arte/**", "public/**"] },
+/**
+ * Configuración plana nativa. `eslint-config-next` ya la exporta en Next 16, así
+ * que el puente `FlatCompat` sobra: con él, cargar la configuración revienta con
+ * un «Converting circular structure to JSON».
+ */
+const configuracion = [
+  ...next,
+  {
+    ignores: [
+      ".next/**",
+      "node_modules/**",
+      "arte/**",
+      "public/**",
+      ".playwright-mcp/**",
+    ],
+  },
 ];
+
+export default configuracion;

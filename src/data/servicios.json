@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "reconexion",
+    "nombre": "Reconexión",
+    "entradilla": "Cuando comprendes que llevas un largo tiempo tratando de mover tu vida en una nueva dirección, pero no lo logras porque el miedo te atrapa en sus distintas cárceles, es el momento de reconectar con la información original, con el ADN de tu alma.",
+    "definicion": "La Reconexión es un proceso para recordar, para volver a alinearte con tu sistema de navegación interno.",
+    "efectos": {
+      "entradilla": "Los efectos de la Reconexión son personales: cada uno de nosotros tiene una historia propia y la manera como regresamos al «guion original» será tan particular como nuestra historia. Sin embargo, existen efectos compartidos:",
+      "lista": [
+        "El miedo esencial desaparece, es reemplazado por la certeza de que «todo estará bien». Se renueva nuestra confianza en que la Sabiduría más grande nos guía y nos sostiene.",
+        "Todo lo que no es Verdad en tu vida se va. Esto es la esencia de la Reconexión y puede ser doloroso, porque estamos apegados a ilusiones que, incluso si nos hacen daño, consideramos indispensables.",
+        "Se abren conexiones con personas, experiencias, entornos que favorecen el nuevo camino alineado con quienes somos realmente, con la función específica que cada uno vino a desempeñar en este mundo."
+      ]
+    },
+    "proceso": {
+      "titular": "Cómo es el proceso",
+      "pasos": [
+        "La decisión de ser reconectados debe ser consciente; se trata de un proceso que se hace UNA SOLA VEZ.",
+        "Es presencial en Bogotá, Colombia.",
+        "Son dos sesiones de una hora cada una que deben realizarse en un periodo de máximo 48 horas.",
+        "Te acuestas en una camilla, cierras los ojos y te reconectan. Antes del proceso recibirás más información."
+      ]
+    },
+    "precio": {
+      "cantidad": 333,
+      "moneda": "USD",
+      "nota": "Sin importar quién te haga la reconexión, su precio es el mismo: USD $333 (trescientos treinta y tres dólares) o su equivalente en la moneda local."
+    },
+    "formulario": {
+      "nombre": "reconexion",
+      "invitacion": "Si quieres más información o programar tu reconexión, escríbeme aquí."
+    }
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "entradilla": "Un espacio para escuchar y comprender historias que nos sirvan como lentes para ver más allá, guías para recorrer los territorios del alma y amigas que nos acompañen en la aventura de vivir.",
+  "programa": {
+    "nombre": "Coordenadas del alma",
+    "descripcion": "Con dos amadas amigas e increíbles coaches exploramos la vida en Coordenadas del alma, un podcast en el que nos guía la curiosidad y en el cual reconocemos cómo nos ha cambiado la brújula interna.",
+    "plataforma": "Spotify",
+    "showId": "6udAyqd79lFmeOJVgp2U0D",
+    "url": "https://open.spotify.com/show/6udAyqd79lFmeOJVgp2U0D"
+  },
+  "canales": [
+    {
+      "slug": "en-conexion",
+      "nombre": "En conexión con Carolina Alonso",
+      "descripcion": "Publico regularmente en mi canal de YouTube, donde ofrezco reflexiones y herramientas para construir la vida, las relaciones y el mundo que anhelamos.",
+      "url": "https://www.youtube.com/@CarolinaAlonsoC",
+      "porConfirmar": false
+    },
+    {
+      "slug": "love-is-real",
+      "nombre": "Love is Real",
+      "descripcion": "Soy estudiante de Un Curso en Milagros y comparto el mensaje del Curso y mis reflexiones sobre él en mi canal de YouTube Love is Real.",
+      "url": null,
+      "porConfirmar": true
+    }
+  ]
+}

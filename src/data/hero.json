@@ -1,0 +1,20 @@
+{
+  "videoMovil": "/hero/hero-movil.27bf907c.mp4",
+  "videoEscritorio": "/hero/hero-escritorio.86d84bd8.mp4",
+  "posterMovil": "/hero/poster-movil.eb24329a.webp",
+  "posterEscritorio": "/hero/poster-escritorio.37e040a3.webp",
+  "quietoMovil": "/hero/quieto-movil.73548d56.webp",
+  "quietoEscritorio": "/hero/quieto-escritorio.4b930968.webp",
+  "duracion": 15,
+  "movil": {
+    "fps": 12,
+    "peso": 158059,
+    "cuadros": 180
+  },
+  "escritorio": {
+    "fps": 15,
+    "peso": 239631,
+    "cuadros": 225
+  },
+  "provisional": true
+}
