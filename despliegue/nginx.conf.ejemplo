@@ -1,0 +1,43 @@
+# Bloque de referencia para caroalonso.com.
+#
+# Lo único verdaderamente delicado es el video del hero: se recorre cuadro a
+# cuadro con el scroll, así que el servidor TIENE que responder 206 a las
+# peticiones por rango. Si responde 200, el hero se congela y no hay ningún
+# error en consola que lo delate.
+#
+# Compruébalo después de desplegar:
+#   curl -sI -H "Range: bytes=0-1023" https://www.caroalonso.com/hero/<archivo>.mp4 | head -1
+#   -> HTTP/2 206
+
+server {
+    listen 443 ssl http2;
+    server_name www.caroalonso.com caroalonso.com;
+
+    # Comprimir un MP4 no ahorra nada y rompe las peticiones por rango.
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml;
+
+    location / {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Sin estas dos, el rango se pierde por el camino y vuelve un 200.
+        proxy_set_header Range    $http_range;
+        proxy_set_header If-Range $http_if_range;
+    }
+
+    # El video del hero: sin buffering, para que el rango llegue entero.
+    location /hero/ {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+        proxy_buffering off;
+        proxy_set_header Host     $host;
+        proxy_set_header Range    $http_range;
+        proxy_set_header If-Range $http_if_range;
+    }
+}
