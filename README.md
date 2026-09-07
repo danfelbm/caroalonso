@@ -81,3 +81,12 @@ git bundle create ~/respaldos/caroalonso-$(date +%F).bundle --all
 
 Y guarda una copia de `arte/video/` fuera del proyecto: regenerar esos masters
 cuesta créditos y minutos.
+
+### Por qué el empaquetado borra antes de copiar
+
+`cp -r` no limpia. Si se empaqueta dos veces con builds distintos, en
+`.next/standalone/.next/static` conviven los fragmentos de los dos, y el
+servidor puede acabar sirviendo un HTML que pide una hoja de estilos que ya no
+existe. El síntoma es desconcertante: la página carga, responde 200 y se ve
+**sin un solo estilo**, porque ninguna clase de Tailwind llega. En la consola
+solo aparece un «Refused to apply style».

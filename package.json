@@ -19,7 +19,7 @@
     "qa:movil": "node scripts/8-qa-movil.mjs",
     "qa:hero": "node scripts/9-hero-desfase.mjs",
     "qa:enlaces": "node scripts/10-enlaces.mjs",
-    "empaquetar": "npm run build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/"
+    "empaquetar": "next build && rm -rf .next/standalone/public .next/standalone/.next/static && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/"
   },
   "dependencies": {
     "clsx": "^2.1.1",
