@@ -1,24 +1,29 @@
-{
-  "generado": "2026-09-07T14:25:37.281Z",
-  "huellaPrompt": "622a275b",
-  "modelo": "seedance_2_0",
-  "prompt": "A calm night sea under a vast field of stars, very slow drift. The stars connect to each other with fine luminous lines and draw a compass rose over the water. The compass slowly transforms into the silhouette of a woman walking toward the horizon. The sky then opens into a pink and golden dawn over the still water. Static camera, no cuts, continuous very slow movement, cinematic. no text, no letters, no logos.",
-  "params": [
-    "--aspect_ratio",
-    "9:16",
-    "--duration",
-    "15",
-    "--resolution",
-    "720p",
-    "--generate_audio",
-    "false",
-    "--mode",
-    "std"
-  ],
-  "imagenInicio": "/Users/testuser/Herd/caroalonso/arte/video/claves/clave-2-9x16.png",
-  "referencias": [],
-  "urls": [
-    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7.mp4"
-  ],
-  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T14:22:12.682184Z\",\n    \"display_name\": \"Seedance 2.0\",\n    \"id\": \"c265cf75-28f5-4977-bdd1-1eca0720bad7\",\n    \"job_type\": \"seedance_2_0\",\n    \"min_result_url\": null,\n    \"params\": {\n      \"aspect_ratio\": \"9:16\",\n      \"bitrate_mode\": \"standard\",\n      \"duration\": 15,\n      \"generate_audio\": false,\n      \"genre\": \"auto\",\n      \"height\": 1280,\n      \"medias\": [\n        {\n          \"data\": {\n            \"id\": \"f3fc1d63-c955-4036-ba0d-4b495da40b58\",\n            \"type\": \"media_input\",\n            \"url\": \"https://d2ol7oe51mr4n9.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/f3fc1d63-c955-4036-ba0d-4b495da40b58.png\"\n          },\n          \"role\": \"start_image\"\n        }\n      ],\n      \"mode\": \"std\",\n      \"model\": \"seedance_2_0\",\n      \"multi_prompt\": [],\n      \"multi_shot_mode\": \"custom\",\n      \"multi_shots\": false,\n      \"prompt\": \"A calm night sea under a vast field of stars, very slow drift. The stars connect to each other with fine luminous lines and draw a compass rose over the water. The compass slowly transforms into the silhouette of a woman walking toward the horizon. The sky then opens into a pink and golden dawn over the still water. Static camera, no cuts, continuous very slow movement, cinematic. no text, no letters, no logos.\",\n      \"prompt_language\": \"en\",\n      \"reference_elements\": [],\n      \"resolution\": \"720p\",\n      \"speedramp\": \"auto\",\n      \"width\": 720\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7.mp4\",\n    \"status\": \"completed\",\n    \"thumbnail_url\": \"https://cdn.higgsfield.ai/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_142212_c265cf75-28f5-4977-bdd1-1eca0720bad7_thumbnail.webp\"\n  }\n]\n"
-}
+[
+  {
+    "created_at": "2026-09-07T15:53:59.656707Z",
+    "display_name": "Kling 3.0 Turbo",
+    "id": "53eea276-a43b-4ba0-903d-0405ac3ab8d1",
+    "job_type": "kling3_0_turbo",
+    "min_result_url": null,
+    "params": {
+      "duration": 15,
+      "height": 1280,
+      "medias": [
+        {
+          "data": {
+            "id": "a114109a-0b39-4f61-a902-4b15156ef9e9",
+            "type": "media_input",
+            "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/a114109a-0b39-4f61-a902-4b15156ef9e9.png"
+          },
+          "role": "start_image"
+        }
+      ],
+      "prompt": "Layered paper cutout animation, flat matte paper textures with soft shadows between layers. The wavy paper sea gently rises and falls at the bottom. Star shapes twinkle softly in the tall navy sky. Thin lines connect the stars into a compass rose that slowly rotates; its needle stretches downward and becomes the small silhouette of a woman walking toward the horizon over the water. The navy sky is replaced layer by layer by dawn: bands of pale pink, warm yellow and soft mint paper slide up from the horizon until the whole sky is warm light. Static camera, no cuts, very slow continuous motion, handcrafted paper craft look, no text, no letters, no numbers, no logos.",
+      "resolution": "720p",
+      "width": 720
+    },
+    "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_155359_53eea276-a43b-4ba0-903d-0405ac3ab8d1.mp4",
+    "status": "completed",
+    "thumbnail_url": "https://cdn.higgsfield.ai/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_155359_53eea276-a43b-4ba0-903d-0405ac3ab8d1_thumbnail.webp"
+  }
+]

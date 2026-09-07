@@ -1,0 +1,20 @@
+{
+  "generado": "2026-09-07T15:33:00.155Z",
+  "huellaPrompt": "ad481c39",
+  "modelo": "gpt_image_2",
+  "prompt": "Hand-painted gouache and wax crayon illustration, thick confident brush strokes and visible cold-press paper tooth, flat blocks of colour with slightly wobbly hand-drawn edges and bold dark outlines, in the style of a folk-art storybook cover. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. Palette: warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F. Warm cream paper shows through at the edges and in the grain. Flat 2D, no photographic realism, no perspective depth. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153114_bae0e2e0-c2d9-487c-aa77-b94b3b0aeb75.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153114_bae0e2e0-c2d9-487c-aa77-b94b3b0aeb75_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T15:31:14.600917Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"bae0e2e0-c2d9-487c-aa77-b94b3b0aeb75\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153114_bae0e2e0-c2d9-487c-aa77-b94b3b0aeb75_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Hand-painted gouache and wax crayon illustration, thick confident brush strokes and visible cold-press paper tooth, flat blocks of colour with slightly wobbly hand-drawn edges and bold dark outlines, in the style of a folk-art storybook cover. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. Palette: warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F. Warm cream paper shows through at the edges and in the grain. Flat 2D, no photographic realism, no perspective depth. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153114_bae0e2e0-c2d9-487c-aa77-b94b3b0aeb75.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}

@@ -1,0 +1,20 @@
+{
+  "generado": "2026-09-07T15:34:47.890Z",
+  "huellaPrompt": "2d1ed08f",
+  "modelo": "gpt_image_2",
+  "prompt": "Fine-line pen and ink illustration on warm cream paper, delicate cross-hatching and stippling like an antique engraving, drawn almost entirely in dark navy line work of varying weight, with generous bare paper left breathing. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. The sea is rendered in fine parallel hatch lines and the stars as clean small ink bursts. Sparse flat washes of warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F, used sparingly over the linework. Elegant, restrained, graphic. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153302_6af900f8-19f2-4fbb-b9e2-3abab268a1ff.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153302_6af900f8-19f2-4fbb-b9e2-3abab268a1ff_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T15:33:02.367204Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"6af900f8-19f2-4fbb-b9e2-3abab268a1ff\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153302_6af900f8-19f2-4fbb-b9e2-3abab268a1ff_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Fine-line pen and ink illustration on warm cream paper, delicate cross-hatching and stippling like an antique engraving, drawn almost entirely in dark navy line work of varying weight, with generous bare paper left breathing. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. The sea is rendered in fine parallel hatch lines and the stars as clean small ink bursts. Sparse flat washes of warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F, used sparingly over the linework. Elegant, restrained, graphic. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153302_6af900f8-19f2-4fbb-b9e2-3abab268a1ff.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}

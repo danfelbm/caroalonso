@@ -1,0 +1,20 @@
+{
+  "generado": "2026-09-07T15:36:26.696Z",
+  "huellaPrompt": "8d3dfa3a",
+  "modelo": "gpt_image_2",
+  "prompt": "Layered cut-paper collage illustration: every element is a separate piece of matte coloured paper with clean scissor-cut edges, each layer casting a soft drop shadow onto the one beneath so the picture has gentle tactile depth. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. The sea is built from three overlapping wave layers and the stars are small shapes punched out of paper. Palette: warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F. Visible paper fibre, flat even studio light, no gloss. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153450_8d485d8a-2666-4cb7-a5aa-bffb0d510d9d.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153450_8d485d8a-2666-4cb7-a5aa-bffb0d510d9d_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T15:34:50.070927Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"8d485d8a-2666-4cb7-a5aa-bffb0d510d9d\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153450_8d485d8a-2666-4cb7-a5aa-bffb0d510d9d_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Layered cut-paper collage illustration: every element is a separate piece of matte coloured paper with clean scissor-cut edges, each layer casting a soft drop shadow onto the one beneath so the picture has gentle tactile depth. A calm night sea across the bottom of the frame under a vast open sky, small four-pointed stars scattered across it, and thin luminous lines just beginning to join a few of those stars into the first faint suggestion of an eight-pointed compass rose high in the sky. The sea is built from three overlapping wave layers and the stars are small shapes punched out of paper. Palette: warm paper #FBF8F6, deep navy #051324, mint #B7ECDA, soft yellow #F6E392, pale pink #FDF3F1 and blue #265C9F. Visible paper fibre, flat even studio light, no gloss. The compass rose is drawn only as plain lines and simple pointed shapes, completely unlettered and unmarked. no text, no letters, no numbers, no logos, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_153450_8d485d8a-2666-4cb7-a5aa-bffb0d510d9d.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}
