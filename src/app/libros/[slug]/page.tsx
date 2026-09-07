@@ -137,13 +137,13 @@ export default async function FichaLibro({ params }: PropsFicha) {
       <Seccion fondo="acento" tamano="lg" conGrano style={paleta.estilo}>
         <Link
           href="/libros"
-          className="tactil group inline-flex items-center gap-2 text-nota opacity-60 hover:opacity-100"
+          className="tactil group inline-flex min-h-11 items-center gap-2 text-nota opacity-60 hover:opacity-100 lg:min-h-0"
         >
           <IconoFlechaDerecha className="rotate-180 text-[1.125rem] transition-transform duration-300 ease-suave group-hover:-translate-x-1" />
           Todos los libros
         </Link>
 
-        <div className="mt-10 grid gap-10 sm:gap-12 lg:mt-14 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-20">
+        <div className="mt-8 grid gap-8 sm:mt-10 sm:gap-12 lg:mt-14 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-20">
           <PortadaLibro
             libro={libro}
             prioridad
@@ -178,7 +178,7 @@ export default async function FichaLibro({ params }: PropsFicha) {
               </p>
             )}
 
-            <Boton href="#comprar" className="mt-10">
+            <Boton href="#comprar" className="mt-8 sm:mt-10">
               {libro.estado === "en-libreria" ? "Dónde comprarlo" : "Cómo conseguirlo"}
             </Boton>
           </div>
@@ -192,10 +192,10 @@ export default async function FichaLibro({ params }: PropsFicha) {
           libro={libro}
           color={paleta.papel.acento}
           tamano="lg"
-          className="mb-16 max-w-[44rem] sm:mb-20"
+          className="mb-10 max-w-[44rem] sm:mb-20"
         />
 
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-20">
+        <div className="grid gap-9 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-20">
           <Prosa>
             {libro.descripcion.map((parrafo, indice) => (
               <p key={indice}>{parrafo}</p>

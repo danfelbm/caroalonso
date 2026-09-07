@@ -83,7 +83,7 @@ export default async function Reconexion() {
           </Subrayado>
         </h1>
         <p className="mt-8 max-w-[52ch] text-entradilla opacity-75">{entradilla}</p>
-        <div className="mt-10">
+        <div className="mt-8 sm:mt-10">
           <Boton href="#solicitar" variante="menta" tamano="lg">
             Quiero reconectarme
           </Boton>
@@ -127,7 +127,7 @@ export default async function Reconexion() {
           entradilla={efectos.entradilla}
           tamano="md"
         />
-        <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+        <ol className="grid gap-7 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3 lg:gap-12">
           {efectos.lista.map((efecto, indice) => (
             <li key={efecto} className="border-t border-marino/15 pt-6">
               <p aria-hidden className="cifras font-display text-subtitulo text-marino/35">
@@ -164,7 +164,7 @@ export default async function Reconexion() {
 
       {/* ------------------------------ El precio -------------------------- */}
       <Seccion fondo="marino" tamano="lg" conGrano>
-        <div className="grid gap-10 lg:grid-cols-[auto_1fr] lg:items-baseline lg:gap-20">
+        <div className="grid gap-7 sm:gap-10 lg:grid-cols-[auto_1fr] lg:items-baseline lg:gap-20">
           <div>
             <p className="eyebrow opacity-60">El precio</p>
             <p className="cifras mt-5 font-display text-titular">

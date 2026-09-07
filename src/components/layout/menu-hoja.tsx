@@ -13,7 +13,12 @@ import {
   type Menu,
 } from "@/components/layout/navegacion";
 import { cn } from "@/lib/utils";
-import { IconoCerrar, IconoFlechaDiagonal, IconoMenu } from "@/components/ui/iconos";
+import {
+  IconoCerrar,
+  IconoCuadricula,
+  IconoFlechaDiagonal,
+  IconoMenu,
+} from "@/components/ui/iconos";
 
 /**
  * El menú de móvil: botón en la barra y hoja que sube desde abajo.
@@ -27,11 +32,34 @@ import { IconoCerrar, IconoFlechaDiagonal, IconoMenu } from "@/components/ui/ico
  * barra fija ni con el vídeo del hero. Lo único que no hace es bloquear el
  * scroll del cuerpo, y eso sí se hace a mano.
  *
- * El alto empieza en 5 rem —justo por debajo de la barra— para que quede una
- * franja de fondo que se puede tocar para cerrar. Con la hoja pegada al borde
- * superior no habría ningún «fuera» donde pulsar.
+ * El alto empieza justo por debajo de la barra superior —de ahí el
+ * `--alto-barra`— para que quede una franja de fondo que se puede tocar para
+ * cerrar. Con la hoja pegada al borde superior no habría ningún «fuera» donde
+ * pulsar.
  */
-export function MenuHoja({ menu, className }: { menu: Menu; className?: string }) {
+
+/**
+ * Cómo se viste el botón que abre la hoja. El diálogo, la trampa de foco y la
+ * devolución del foco al cerrar son los mismos en los dos casos: lo único que
+ * cambia es la cáscara del disparador, y por eso es una prop y no un segundo
+ * componente que tendría que duplicar todo lo de arriba.
+ *
+ * · `barra`   — el icono suelto de la barra superior (hoy solo por debajo de
+ *               `lg`, y solo si algún día vuelve a hacer falta ahí).
+ * · `pestana` — la sexta celda de la barra inferior: icono encima, «Más»
+ *               debajo, con la misma pinta que sus cinco vecinas.
+ */
+type VarianteDisparador = "barra" | "pestana";
+
+export function MenuHoja({
+  menu,
+  variante = "barra",
+  className,
+}: {
+  menu: Menu;
+  variante?: VarianteDisparador;
+  className?: string;
+}) {
   const pathname = usePathname();
   const hoja = useRef<HTMLDialogElement>(null);
   const boton = useRef<HTMLButtonElement>(null);
@@ -91,13 +119,28 @@ export function MenuHoja({ menu, className }: { menu: Menu; className?: string }
         onClick={abrir}
         aria-expanded={abierto}
         aria-controls={idHoja}
-        aria-label="Abrir el menú"
+        aria-label={variante === "pestana" ? "Más: abrir el menú" : "Abrir el menú"}
         className={cn(
-          "tactil -mr-1 flex size-11 items-center justify-center rounded-pildora text-marino-tinta hover:bg-marino/6",
+          "tactil text-marino-tinta",
+          variante === "pestana"
+            ? "flex min-h-12 w-full flex-col items-center justify-center gap-1 rounded-panel px-0.5 text-[0.6875rem] leading-none font-medium text-marino-tenue"
+            : "-mr-1 flex size-11 items-center justify-center rounded-pildora hover:bg-marino/6",
           className,
         )}
       >
-        <IconoMenu className="text-[1.375rem]" />
+        {variante === "pestana" ? (
+          <>
+            {/* El mismo hueco de 28×48 que la píldora de las pestañas activas,
+                para que los seis iconos queden en la misma línea aunque este
+                no se encienda nunca. */}
+            <span className="flex h-7 w-12 items-center justify-center">
+              <IconoCuadricula className="text-[1.3125rem]" />
+            </span>
+            Más
+          </>
+        ) : (
+          <IconoMenu className="text-[1.375rem]" />
+        )}
       </button>
 
       <dialog
@@ -117,7 +160,7 @@ export function MenuHoja({ menu, className }: { menu: Menu; className?: string }
           // Deshacer la hoja de estilos del navegador, que centra el diálogo y
           // le pone borde, relleno y un máximo de alto y ancho.
           "m-0 h-auto max-h-none w-full max-w-none border-0 p-0",
-          "fixed inset-x-0 bottom-0 top-20",
+          "fixed inset-x-0 bottom-0 top-[var(--alto-barra)]",
           /*
            * `hidden` + `open:flex`, y no `flex` a secas. El navegador esconde
            * los diálogos cerrados con `dialog:not([open]) { display: none }`,

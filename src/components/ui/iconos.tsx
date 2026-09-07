@@ -3,7 +3,7 @@ import type { ComponentProps } from "react";
 export type PropsIcono = ComponentProps<"svg">;
 
 /**
- * SVG propios en lugar de una librería de iconos: son nueve, pesan menos que
+ * SVG propios en lugar de una librería de iconos: son quince, pesan menos que
  * el import y así el trazo (1.8, extremos redondos) es el mismo en todos.
  * Todos heredan `currentColor` y son `aria-hidden`: el nombre accesible lo
  * pone el enlace o el botón que los envuelve, nunca el icono.
@@ -100,6 +100,83 @@ export function IconoCerrar(props: PropsIcono) {
   return (
     <svg {...trazo} {...props}>
       <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+/* ------------------------------------------------------------------
+   Los seis de la barra de pestañas.
+
+   Dibujados a mano dentro de la misma caja de 24 y con el mismo trazo
+   de 1.8 que los de arriba, porque a 21 px —que es como se ven en la
+   barra— una figura importada de otra librería canta enseguida: cambia
+   el grosor, cambia el radio de las esquinas y el conjunto deja de
+   leerse como un juego.
+
+   Todos ocupan de 3,3 a 20,7 y están centrados en 12: apilados en la
+   fila de la barra, los seis pesan lo mismo y ninguno baila.
+   ------------------------------------------------------------------ */
+
+/** Inicio. */
+export function IconoInicio(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <path d="M3.8 10.4 12 3.9l8.2 6.5v8.4a1.7 1.7 0 0 1-1.7 1.7h-13a1.7 1.7 0 0 1-1.7-1.7Z" />
+      <path d="M9.4 20.5v-6.2h5.2v6.2" />
+    </svg>
+  );
+}
+
+/** Quién soy. */
+export function IconoPersona(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <circle cx="12" cy="8.1" r="3.7" />
+      <path d="M4.6 20.4a7.4 7.4 0 0 1 14.8 0" />
+    </svg>
+  );
+}
+
+/** Libros. El lomo del centro es lo que lo distingue de una hoja suelta. */
+export function IconoLibro(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <path d="M12 6.9C10.8 5.4 9.1 4.6 6.7 4.6H3.6v12.6h3.1c2.4 0 4.1.8 5.3 2.2 1.2-1.4 2.9-2.2 5.3-2.2h3.1V4.6h-3.1c-2.4 0-4.1.8-5.3 2.3Z" />
+      <path d="M12 6.9v12.5" />
+    </svg>
+  );
+}
+
+/**
+ * Reconexión. Corazón y no mano abierta: a 21 px los cuatro dedos de
+ * una mano se juntan en una mancha, y el corazón se reconoce entero
+ * incluso a la mitad de ese tamaño.
+ */
+export function IconoCorazon(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <path d="M12 20.3 4.9 13.2a4.7 4.7 0 1 1 6.6-6.6l.5.5.5-.5a4.7 4.7 0 1 1 6.6 6.6Z" />
+    </svg>
+  );
+}
+
+/** Sé la heroína. */
+export function IconoEstrella(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <path d="m12 3.5 2.7 5.5 6 .9-4.35 4.24 1.03 5.99L12 17.3l-5.38 2.83 1.03-5.99L3.3 9.9l6-.9Z" />
+    </svg>
+  );
+}
+
+/** Más: lo que no cupo en las cinco pestañas. */
+export function IconoCuadricula(props: PropsIcono) {
+  return (
+    <svg {...trazo} {...props}>
+      <rect x="3.8" y="3.8" width="7" height="7" rx="1.8" />
+      <rect x="13.2" y="3.8" width="7" height="7" rx="1.8" />
+      <rect x="3.8" y="13.2" width="7" height="7" rx="1.8" />
+      <rect x="13.2" y="13.2" width="7" height="7" rx="1.8" />
     </svg>
   );
 }

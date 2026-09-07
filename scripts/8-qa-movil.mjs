@@ -78,7 +78,12 @@ for (const ancho of [1440, 390]) {
         roto: imgs.filter((i) => !(i.complete && i.naturalWidth > 0)).map((i) => (i.currentSrc || i.src).split("/").pop()),
       };
     });
-    const mal = d.desborde > 0 || d.roto.length || errores.length || !d.h1;
+    // `/no-existe` devuelve 404 a propósito y su propia respuesta aparece
+    // como error de consola: eso no es un fallo, es la prueba pasando.
+    const esperado404 = ruta === "/no-existe";
+    const mal =
+      d.desborde > 0 || d.roto.length || !d.h1 ||
+      (errores.length > 0 && !esperado404);
     if (mal) fallos++;
     console.log(`  ${mal ? "✗" : "ok"} ${String(r.status()).padEnd(4)} ${ruta.padEnd(38)} img:${d.imgs - d.roto.length}/${d.imgs}` +
       (!d.h1 ? " SIN-H1" : "") +
@@ -91,4 +96,4 @@ for (const ancho of [1440, 390]) {
 }
 await navegador.close();
 console.log(`\n${fallos === 0 ? "TODO EN VERDE" : fallos + " rutas con problemas"}`);
-process.exit(fallos > 1 ? 1 : 0); // la ruta inexistente cuenta su propio 404
+process.exit(fallos > 0 ? 1 : 0);

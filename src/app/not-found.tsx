@@ -57,7 +57,7 @@ export default async function NoEncontrada() {
         </p>
       </div>
 
-      <nav aria-labelledby="404-destinos" className="mx-auto mt-14 max-w-[34rem]">
+      <nav aria-labelledby="404-destinos" className="mx-auto mt-10 max-w-[34rem] sm:mt-14">
         <h2 id="404-destinos" className="sr-only">
           Destinos del sitio
         </h2>
@@ -78,7 +78,7 @@ export default async function NoEncontrada() {
         <p className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-1 text-cuerpo opacity-65">
           <span className="text-nota">También:</span>
           {navegacionSecundaria.map((destino) => (
-            <Link key={destino.ruta} href={destino.ruta} className="tactil enlace hover:text-azul">
+            <Link key={destino.ruta} href={destino.ruta} className="tactil enlace inline-flex min-h-11 items-center hover:text-azul lg:min-h-0">
               {destino.titulo}
             </Link>
           ))}

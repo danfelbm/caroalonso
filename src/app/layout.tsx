@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Newsreader } from "next/font/google";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
+import { BarraInferior } from "@/components/layout/barra-inferior";
 import { BarraSuperior } from "@/components/layout/barra-superior";
 import { FormularioBoletin } from "@/components/formularios/formulario";
 import { Pie } from "@/components/layout/footer";
@@ -95,23 +96,27 @@ export const viewport: Viewport = {
   // El sitio no tiene modo oscuro: declararlo evita que el navegador invierta
   // por su cuenta los campos de formulario y los deje fuera de la paleta.
   colorScheme: "light",
+  // La barra de pestañas se apoya en `env(safe-area-inset-bottom)`, y esa
+  // variable vale cero mientras el documento no se extienda por debajo del
+  // notch. Sin esto la barra queda flotando sobre la franja del iPhone en vez
+  // de pisarla, y el hueco del gesto de inicio se cuenta dos veces.
+  viewportFit: "cover",
 };
 
 /**
- * EL HUECO DE LA BARRA — 80 px, iguales en todos los anchos.
+ * EL HUECO DE LAS DOS BARRAS vive en `globals.css`, no aquí.
  *
- * La píldora de `barra-superior.tsx` mide 16 px de aire (`p-4`) más 64 px de
- * alto (`h-16`). `<main>` lo compensa con `pt-20`, y el mismo número sale como
- * `--alto-barra` para que una portada que quiera pasar por debajo de la barra
- * lo deshaga sin adivinar la cifra:
+ * `--alto-barra` (56 px en móvil, 80 px desde `lg`) y `--alto-pestanas` (el
+ * alto de la barra inferior, cero desde `lg`) son variables con media query:
+ * como constante de JavaScript puesta en línea sobre el <html> no podían
+ * cambiar con el ancho, y la barra de arriba adelgazó en móvil.
+ *
+ * De ellas cuelgan el `pt` de <main>, el `scroll-padding` de los anclajes,
+ * dónde aterriza el enlace de salto, el `pb-pestanas` del pie y el `-mt` con
+ * el que la portada se mete por debajo de la barra:
  *
  *     <div className="-mt-[var(--alto-barra)]">…</div>
- *
- * No hay barra inferior en móvil —el menú se abre desde la de arriba— así que
- * no hace falta reservar nada abajo; lo único que respeta el notch es la hoja
- * del menú, con `pb-safe`.
  */
-const ALTO_BARRA = "5rem";
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const sitio = await getSitio();
@@ -129,11 +134,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   };
 
   return (
-    <html
-      lang="es-CO"
-      className={`${newsreader.variable} ${inter.variable}`}
-      style={{ "--alto-barra": ALTO_BARRA } as CSSProperties}
-    >
+    <html lang="es-CO" className={`${newsreader.variable} ${inter.variable}`}>
       <body className="flex min-h-dvh flex-col">
         {/* Los trazados de la firma, una sola vez para todo el documento. */}
         <DefinicionFirma />
@@ -148,11 +149,17 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           izquierda taparía la firma, que es lo primero que mira quien acaba de
           llegar. El desplazamiento de reposo es «lo que baja más su propio
           alto», así que el borde inferior queda exactamente en cero por muy
-          alto que se vuelva el enlace.
+          alto que se vuelva el enlace. La cota se lee de `--alto-barra` para
+          que siga a la barra cuando esta adelgaza en móvil.
+
+          La sombra solo con el foco: en reposo el borde inferior del enlace
+          queda exactamente en cero, pero una `shadow-pildora` se derrama 44 px
+          hacia abajo y dejaba una mancha borrosa sobre la barra en todas las
+          páginas. Sin foco no hay nada que separar del fondo.
         */}
         <a
           href="#contenido"
-          className="tactil fixed left-4 top-[5.5rem] z-[60] inline-flex min-h-12 -translate-y-[calc(5.5rem_+_100%)] items-center rounded-boton bg-menta px-6 font-semibold text-marino shadow-pildora focus:translate-y-0"
+          className="tactil fixed left-4 top-[calc(var(--alto-barra)+0.5rem)] z-60 inline-flex min-h-12 -translate-y-[calc(var(--alto-barra)+0.5rem+100%)] items-center rounded-boton bg-menta px-6 font-semibold text-marino focus:translate-y-0 focus:shadow-pildora"
         >
           Saltar al contenido
         </a>
@@ -161,10 +168,22 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
         {/* `tabIndex={-1}` para que el enlace de salto pueda posar el foco aquí
             de verdad y no solo desplazar la página. */}
-        <main id="contenido" tabIndex={-1} className="flex-1 pt-20 outline-none">
+        <main
+          id="contenido"
+          tabIndex={-1}
+          className="flex-1 pt-[var(--alto-barra)] outline-none"
+        >
           {children}
         </main>
 
+        {/*
+          El hueco de la barra de pestañas lo reserva el PIE y no <main>. La
+          última sección de casi todas las páginas es una banda de color a
+          sangre; un `pb` en <main> abriría entre esa banda y el pie marino una
+          franja de papel de 66 px que no está en ningún diseño. Dentro del pie,
+          en cambio, el hueco es marino: invisible, y la barra translúcida se
+          apoya encima. Desde `lg` la variable vale cero y no reserva nada.
+        */}
         <Pie
           identidad={sitio.identidad}
           contacto={sitio.contacto}
@@ -172,6 +191,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           boletin={sitio.boletin}
           formulario={<FormularioBoletin boletin={sitio.boletin} redes={sitio.redes} />}
         />
+
+        <BarraInferior menu={menu} />
       </body>
     </html>
   );

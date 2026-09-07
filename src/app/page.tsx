@@ -165,7 +165,7 @@ export default async function Inicio() {
             } as CSSProperties
           }
         >
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-12 lg:items-start lg:gap-14">
             {/* Sin `proporcion`: la foto del libro es apaisada —es una pila de
                 ejemplares, no un escaneo de la cubierta— y forzarle una caja
                 vertical le cortaría el título. */}
@@ -190,7 +190,7 @@ export default async function Inicio() {
               <p className="mt-6 max-w-[46ch] text-entradilla opacity-75">{destacado.resumen}</p>
 
               {destacado.cita && (
-                <figure className="mt-10 border-l-2 border-current/25 pl-6 sm:pl-8">
+                <figure className="mt-8 border-l-2 border-current/25 pl-6 sm:mt-10 sm:pl-8">
                   <blockquote className="max-w-[40ch] font-display text-rotulo leading-snug">
                     «{destacado.cita.texto}»
                   </blockquote>
@@ -200,7 +200,7 @@ export default async function Inicio() {
                 </figure>
               )}
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
                 <Boton href={urlLibro(destacado.slug)} tamano="lg">
                   Conoce el libro
                   <IconoFlechaDerecha />
@@ -220,7 +220,7 @@ export default async function Inicio() {
           está en `/quien-soy`, que es de otro frente.
           ================================================================ */}
       <Seccion fondo="papel" tamano="lg">
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+        <div className="grid gap-9 sm:gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
           {/* Aquí va una FOTO REAL suya, no una generada, y a propósito: este
               es el texto más personal del sitio y las generadas la rejuvenecían
               lo bastante como para no parecer ella. El recorte sobre el papel
@@ -279,7 +279,7 @@ export default async function Inicio() {
           pregunta que no sabía contestar.
         </p>
 
-        <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:mt-16 sm:gap-x-10 lg:grid-cols-4">
+        <dl className="mt-8 grid grid-cols-2 gap-x-5 gap-y-7 sm:mt-16 sm:gap-x-10 sm:gap-y-10 lg:grid-cols-4">
           {cifras.map((cifra) => (
             /* `flex-col-reverse` deja la cifra arriba y su etiqueta debajo sin
                invertir el orden del DOM, que en una lista de definiciones tiene
@@ -359,7 +359,7 @@ export default async function Inicio() {
             } as CSSProperties
           }
         >
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <div className="grid gap-9 sm:gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-7">
               <p className="eyebrow">Tu espacio</p>
               <h2 className="mt-5 text-titulo">
@@ -382,7 +382,7 @@ export default async function Inicio() {
                 herramientas y las conversaciones que fueron saliendo de ahí.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-4 sm:mt-10">
                 <Boton href="/se-la-heroina" variante="claro" tamano="lg">
                   Entra al espacio
                   <IconoFlechaDerecha />
@@ -470,7 +470,7 @@ export default async function Inicio() {
           <div aria-hidden className="absolute inset-0 bg-marino/35" />
 
           <div className="container relative">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <div className="grid gap-8 sm:gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
               <div className="lg:col-span-7">
                 <Titulo
                   eyebrow="Acompañamiento"
@@ -582,7 +582,7 @@ export default async function Inicio() {
           <p className="mx-auto mt-7 max-w-[46ch] text-entradilla opacity-75">
             {quienSoy.biografia[7]}
           </p>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center sm:mt-10">
             <Boton href="/contacto" tamano="lg">
               Escríbeme
               <IconoFlechaDerecha />

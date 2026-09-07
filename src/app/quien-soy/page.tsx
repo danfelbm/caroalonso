@@ -81,7 +81,7 @@ function colaDeLaEnumeracion(parrafo: string) {
  */
 function CitaDestacada({ children }: { children: ReactNode }) {
   return (
-    <figure className="mx-auto my-16 max-w-[40rem] sm:my-24">
+    <figure className="mx-auto my-10 max-w-[40rem] sm:my-24">
       <blockquote className="font-display text-subtitulo text-marino-tinta">
         {children}
       </blockquote>
@@ -174,7 +174,7 @@ export default async function QuienSoy() {
           de que exista el archivo, y mientras tanto se lee como un panel de
           color y no como una imagen rota.
         */}
-        <figure className="panel mx-auto mt-16 aspect-[3/4] w-full max-w-[22rem] bg-menta-niebla shadow-panel sm:mt-20">
+        <figure className="panel mx-auto mt-10 aspect-[3/4] w-full max-w-[22rem] bg-menta-niebla shadow-panel sm:mt-20">
           {/* eslint-disable-next-line @next/next/no-img-element -- next/image
               necesita que el archivo exista para servir /_next/image; aquí
               todavía no existe. Ver el comentario de arriba. */}
@@ -239,7 +239,7 @@ export default async function QuienSoy() {
             ))}
           </Prosa>
 
-          <div className="mt-14">
+          <div className="mt-10 sm:mt-14">
             <h3 className="eyebrow opacity-50">Los libros publicados</h3>
             <ul className="mt-6 border-t border-marino/12">
               {libros.map((libro) => (
@@ -279,7 +279,7 @@ export default async function QuienSoy() {
             {formacion.academica}
           </p>
 
-          <h3 className="eyebrow mt-14 opacity-50">Certificaciones</h3>
+          <h3 className="eyebrow mt-10 opacity-50 sm:mt-14">Certificaciones</h3>
           <ul className="mt-6 border-t border-marino/12">
             {formacion.certificaciones.map((certificacion) => {
               const contenido = (

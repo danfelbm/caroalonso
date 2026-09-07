@@ -55,7 +55,7 @@ export function FilaLibro({ libro, invertida }: FilaLibroProps) {
         </p>
 
         <h3 className="mt-3 text-rotulo sm:text-subtitulo">
-          <Link href={ficha} className="tactil inline-flex items-baseline gap-3 hover:text-azul">
+          <Link href={ficha} className="tactil inline-flex min-h-11 items-baseline gap-3 hover:text-azul lg:min-h-0">
             {libro.titulo}
             <IconoFlechaDerecha className="shrink-0 self-center text-[0.9em] text-marino-tenue transition-[color,transform] duration-300 ease-suave group-hover:translate-x-1 group-hover:text-azul" />
           </Link>

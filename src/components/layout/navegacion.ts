@@ -1,7 +1,12 @@
 import type { ComponentType } from "react";
 
 import {
+  IconoCorazon,
+  IconoEstrella,
+  IconoInicio,
   IconoInstagram,
+  IconoLibro,
+  IconoPersona,
   IconoSpotify,
   IconoTiktok,
   IconoYoutube,
@@ -68,3 +73,48 @@ export const ICONOS_RED: Record<PlataformaRed, ComponentType<PropsIcono>> = {
   tiktok: IconoTiktok,
   spotify: IconoSpotify,
 };
+
+/* ==================================================================
+   LAS PESTAÑAS DE LA BARRA INFERIOR
+   ================================================================== */
+
+/** Un destino del menú, ya vestido para la barra de pestañas. */
+export interface Pestana extends Destino {
+  /** Cabe en un sexto de pantalla; `titulo` no siempre. */
+  corta: string;
+  icono: ComponentType<PropsIcono>;
+}
+
+/**
+ * Icono y etiqueta corta por ruta.
+ *
+ * ADORNO, NO FUENTE. Los destinos y su orden siguen saliendo de
+ * `getSitio()`; esta tabla solo dice con qué dibujo y con qué palabra corta
+ * se pinta cada uno en la barra. Si mañana el sitio renombra «Reconexión»,
+ * el nombre largo cambia solo en la barra superior, en la hoja y en el pie, y
+ * aquí no hay que tocar nada.
+ *
+ * Las cortas están medidas contra un sexto de 390 px (65 px) a 11 px de Inter:
+ * «Reconexión», que es la más larga, ocupa 57 px y entra en un solo renglón.
+ */
+const VESTUARIO: Record<string, Pick<Pestana, "corta" | "icono">> = {
+  "/": { corta: "Inicio", icono: IconoInicio },
+  "/quien-soy": { corta: "Quién soy", icono: IconoPersona },
+  "/se-la-heroina": { corta: "Heroína", icono: IconoEstrella },
+  "/libros": { corta: "Libros", icono: IconoLibro },
+  "/reconexion": { corta: "Reconexión", icono: IconoCorazon },
+};
+
+/**
+ * Los destinos del sitio convertidos en pestañas.
+ *
+ * Un destino sin entrada en `VESTUARIO` se cae de la barra en vez de salir sin
+ * icono: seis huecos iguales con uno vacío se ve peor que cinco llenos, y el
+ * destino sigue estando en la hoja que abre «Más».
+ */
+export function pestanas(principal: Destino[]): Pestana[] {
+  return principal.flatMap((destino) => {
+    const vestido = VESTUARIO[destino.ruta];
+    return vestido ? [{ ...destino, ...vestido }] : [];
+  });
+}

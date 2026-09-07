@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { Firma } from "@/components/layout/marca";
-import { MenuHoja } from "@/components/layout/menu-hoja";
 import {
   RUTA_DESTACADA,
   TEXTO_DESTACADO,
@@ -15,14 +14,24 @@ import { useDesplazado } from "@/hooks/navegador";
 import { cn } from "@/lib/utils";
 
 /**
- * La píldora flotante de Lookback: la barra no se pega al borde de la ventana,
- * flota sobre el papel con aire alrededor y el contenido pasa por debajo.
+ * DOS BARRAS EN UNA, y la diferencia no es de tamaño sino de género.
  *
- * GEOMETRÍA — de aquí sale el hueco que `layout.tsx` le deja al contenido.
- * 16 px de aire (`p-4`) + 64 px de alto (`h-16`) = 80 px, iguales en todos los
- * anchos. Es a propósito: con una sola cifra, el `pt-20` de `<main>` y el
- * `--alto-barra` que puede leer cualquier página no se desincronizan nunca. Si
- * cambias `p-4` o `h-16`, cambia también los dos sitios de `layout.tsx`.
+ * Desde `lg` es la píldora flotante de Lookback: no se pega al borde de la
+ * ventana, flota sobre el papel con aire alrededor, y el contenido pasa por
+ * debajo. Ahí van la firma, los cinco destinos y el botón menta.
+ *
+ * Por debajo de `lg` es otra cosa: una barra de título a ras, pegada al borde,
+ * translúcida y con una línea abajo — la de cualquier app. Solo lleva la firma.
+ * La navegación se fue a `barra-inferior.tsx`, que es donde llega el pulgar, y
+ * con ella se fue el botón de menú: encogida la píldora a 390 px quedaba una
+ * cápsula de 80 px de alto con una firma a un lado, un icono al otro y un
+ * desierto en medio. Eso era el sitio de escritorio encogido.
+ *
+ * GEOMETRÍA — de aquí sale el hueco que el contenido deja arriba, y vive en
+ * `--alto-barra` (globals.css), no aquí:
+ *   móvil       56 px de alto a ras                        → 3.5rem
+ *   desde `lg`  16 px de aire (`p-4`) + 64 px (`h-16`)      → 5rem
+ * Si cambias cualquiera de esas clases, cambia la variable.
  *
  * ES DE CLIENTE POR DOS COSAS Y SOLO DOS: `usePathname`, para marcar el destino
  * activo, y `useDesplazado`, para pasar de una sombra de un pelo a la sombra
@@ -33,10 +42,10 @@ export function BarraSuperior({ menu }: { menu: Menu }) {
   const desplazado = useDesplazado(16);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 p-4">
-      <div className="relative mx-auto flex h-16 max-w-[1200px] items-center gap-4 pl-5 pr-2 sm:pl-7 sm:pr-3">
+    <header className="fixed inset-x-0 top-0 z-50 lg:p-4">
+      <div className="relative mx-auto flex h-14 max-w-[1200px] items-center gap-4 px-5 lg:h-16 lg:pr-3 lg:pl-7">
         {/*
-          El fondo de la píldora va en una capa aparte y no en el propio div.
+          El fondo va en una capa aparte y no en el propio div.
           `backdrop-filter` convierte a su elemento en bloque contenedor de todo
           lo que lleve dentro con `position: fixed`, y dentro va la hoja del
           menú: pintada desde aquí, sus medidas se medirían contra la píldora en
@@ -45,13 +54,18 @@ export function BarraSuperior({ menu }: { menu: Menu }) {
 
           Translúcida sobre el papel a propósito: el contenido se intuye al
           pasar por debajo, y eso es lo que la hace flotar en vez de tapar.
+
+          En móvil pierde el radio y gana la línea de abajo; la sombra se la
+          queda la píldora de escritorio, porque una barra a ras con sombra
+          proyectada parece despegada de la pantalla.
         */}
         <span
           aria-hidden
           className={cn(
-            "absolute inset-0 -z-10 rounded-pildora bg-white/78 backdrop-blur-xl",
-            "ring-1 ring-marino/6 transition-shadow duration-500 ease-suave",
-            desplazado ? "shadow-pildora" : "shadow-[0_1px_2px_rgb(5_19_36_/_0.05)]",
+            "absolute inset-0 -z-10 bg-white/78 backdrop-blur-xl",
+            "border-b border-marino/8 lg:rounded-pildora lg:border-0 lg:ring-1 lg:ring-marino/6",
+            "transition-shadow duration-500 ease-suave",
+            desplazado ? "lg:shadow-pildora" : "lg:shadow-[0_1px_2px_rgb(5_19_36_/_0.05)]",
           )}
         />
 
@@ -91,9 +105,6 @@ export function BarraSuperior({ menu }: { menu: Menu }) {
         >
           {TEXTO_DESTACADO}
         </Link>
-
-        {/* Debajo de `lg` no caben cinco destinos: firma y botón de menú. */}
-        <MenuHoja menu={menu} className="ml-auto lg:hidden" />
       </div>
     </header>
   );

@@ -77,7 +77,7 @@ export default async function PaginaContacto() {
 
       {/* -------------------- Formulario y vías que sí funcionan -------------- */}
       <Seccion fondo="papel" tamano="lg" conGrano>
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16">
           {/* ---------------------------- El formulario --------------------- */}
           <div className="lg:col-span-7">
             {/*
@@ -89,7 +89,7 @@ export default async function PaginaContacto() {
           </div>
 
           {/* ------------------------ La columna de al lado ------------------ */}
-          <div className="flex flex-col gap-10 lg:col-span-5">
+          <div className="flex flex-col gap-8 sm:gap-10 lg:col-span-5">
             {/* Los libros descatalogados: la razón por la que mucha gente llega. */}
             {descatalogados.length > 0 && (
               <section

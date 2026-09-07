@@ -42,8 +42,15 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
   const anio = new Date().getFullYear();
 
   return (
-    <footer className="bg-marino text-papel">
-      <div className="container py-16 sm:py-20 lg:py-24">
+    /* `pb-pestanas` es el hueco que se traga la barra de pestañas de móvil.
+       Va en el <footer>, último elemento del documento, y no en <main>: dentro
+       del marino no se ve, y entre la última banda de color y el pie no aparece
+       una franja de papel. En el propio <footer> y no en el container de dentro
+       para no pelearse con su `py`: son dos elementos distintos y no hay orden
+       de hojas de estilo que decida cuál gana. Desde `lg` la variable vale cero
+       y esto no reserva nada. */
+    <footer className="bg-marino pb-pestanas text-papel">
+      <div className="container py-12 sm:py-20 lg:py-24">
         {/*
           Cuatro columnas en pantalla ancha —marca, cinco destinos, tres
           secundarios, redes— y no tres. Con «Navegar» y «También» apilados en
@@ -51,17 +58,17 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
           el pie quedaba con un hueco en ele. Repartidos, las tres columnas de
           enlaces terminan casi a la misma altura.
         */}
-        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-14 lg:grid-cols-12 lg:gap-10">
           {/* ---------------- Firma y lema ---------------- */}
           <div className="sm:col-span-2 lg:col-span-5 lg:pr-10">
             <Firma
               className="h-9 text-papel sm:h-11"
               etiqueta={`${identidad.firma}, ir al inicio`}
             />
-            <p className="mt-8 max-w-[30ch] font-display text-rotulo text-papel/85">
+            <p className="mt-6 max-w-[30ch] font-display text-rotulo text-papel/85 sm:mt-8">
               {identidad.lema}
             </p>
-            <p className="mt-6 text-cuerpo text-papel/55">
+            <p className="mt-4 text-cuerpo text-papel/55 sm:mt-6">
               {identidad.oficio} · {contacto.ciudad}
             </p>
           </div>
@@ -71,12 +78,12 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
             <p id="pie-navegar" className="eyebrow text-papel/45">
               Navegar
             </p>
-            <ul className="mt-5 space-y-1">
+            <ul className="mt-3 space-y-0.5 sm:mt-5 sm:space-y-1">
               {menu.principal.map((destino) => (
                 <li key={destino.ruta}>
                   <Link
                     href={destino.ruta}
-                    className="tactil flex min-h-10 items-center text-cuerpo text-papel/80 hover:text-papel"
+                    className="tactil flex min-h-11 items-center text-cuerpo text-papel/80 hover:text-papel lg:min-h-10"
                   >
                     {destino.titulo}
                   </Link>
@@ -90,12 +97,12 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
             <p id="pie-tambien" className="eyebrow text-papel/45">
               También
             </p>
-            <ul className="mt-5 space-y-1">
+            <ul className="mt-3 space-y-0.5 sm:mt-5 sm:space-y-1">
               {menu.secundaria.map((destino) => (
                 <li key={destino.ruta}>
                   <Link
                     href={destino.ruta}
-                    className="tactil flex min-h-10 items-center text-cuerpo text-papel/80 hover:text-papel"
+                    className="tactil flex min-h-11 items-center text-cuerpo text-papel/80 hover:text-papel lg:min-h-10"
                   >
                     {destino.titulo}
                   </Link>
@@ -107,7 +114,7 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
           {/* ---------------- Redes ---------------- */}
           <div className="lg:col-span-3">
             <p className="eyebrow text-papel/45">Dónde más está</p>
-            <ul className="mt-5 space-y-1">
+            <ul className="mt-3 space-y-0.5 sm:mt-5 sm:space-y-1">
               {menu.redes.map((red) => {
                 const Icono = ICONOS_RED[red.plataforma];
                 return (
@@ -116,7 +123,7 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
                       href={red.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="tactil group flex min-h-10 items-center gap-3 text-cuerpo text-papel/80 hover:text-papel"
+                      className="tactil group flex min-h-11 items-center gap-3 text-cuerpo text-papel/80 hover:text-papel lg:min-h-10"
                     >
                       <Icono className="shrink-0 text-[1.125rem] text-papel/55 transition-colors group-hover:text-menta" />
                       {red.nombre}
@@ -137,18 +144,20 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
         {/* ---------------- Boletín ---------------- */}
         <section
           aria-labelledby="pie-boletin"
-          className="mt-16 rounded-panel bg-papel/6 p-7 sm:mt-20 sm:p-10"
+          className="mt-12 rounded-panel bg-papel/6 p-6 sm:mt-20 sm:p-10"
         >
           <p className="eyebrow text-papel/45">Boletín</p>
-          <h2 id="pie-boletin" className="mt-4 max-w-[16ch] text-subtitulo">
+          <h2 id="pie-boletin" className="mt-3 max-w-[16ch] text-subtitulo sm:mt-4">
             {boletin.titular}
           </h2>
-          <p className="mt-5 max-w-[52ch] text-entradilla text-papel/70">{boletin.entradilla}</p>
+          <p className="mt-4 max-w-[52ch] text-entradilla text-papel/70 sm:mt-5">
+            {boletin.entradilla}
+          </p>
 
           {/* Hueco del formulario. Ver el TODO de `PieProps.formulario`. */}
           {formulario && (
             <>
-              <div className="mt-8 max-w-[34rem]">{formulario}</div>
+              <div className="mt-6 max-w-[34rem] sm:mt-8">{formulario}</div>
               {/*
                * El aviso solo aparece con el formulario delante: sin campos que
                * rellenar, decir «esto no envía nada» no advierte de nada.
@@ -159,7 +168,7 @@ export function Pie({ identidad, contacto, menu, boletin, formulario }: PieProps
         </section>
 
         {/* ---------------- Legal ---------------- */}
-        <div className="mt-14 flex flex-col gap-3 border-t border-papel/12 pt-8 text-nota text-papel/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-papel/12 pt-7 text-nota text-papel/45 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:pt-8">
           {/* La firma ya termina en punto («Carolina Alonso C.»): el separador
               va con punto medio para no encadenar dos puntos seguidos. */}
           <p className="cifras">

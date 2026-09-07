@@ -106,10 +106,17 @@ export function Firma({
   etiqueta = "Carolina Alonso C., ir al inicio",
 }: FirmaProps) {
   return (
+    /* `min-h-11` y no un glifo más alto: el dibujo de la firma se queda donde
+       estaba y lo que crece es la caja que recibe el toque. En la barra medía
+       20 px de alto y era el objetivo más pequeño de todo el sitio.
+
+       Y `lg:min-h-0` porque 44 px es la medida de un dedo, no la de un ratón:
+       por encima de `lg` el enlace vuelve a medir lo que mide el glifo y el
+       escritorio no se entera de nada. */
     <Link
       href={href}
       aria-label={etiqueta}
-      className="tactil inline-flex items-center rounded-tarjeta"
+      className="tactil inline-flex min-h-11 items-center rounded-tarjeta lg:min-h-0"
     >
       <GlifoFirma className={className} />
     </Link>

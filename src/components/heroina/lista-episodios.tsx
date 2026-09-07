@@ -55,7 +55,7 @@ export function ListaEpisodios({ episodios }: ListaEpisodiosProps) {
                 href={urlVideo(episodio.video)}
                 target="_blank"
                 rel="noreferrer"
-                className="tactil enlace mt-5 inline-flex items-start gap-2 font-medium text-azul hover:text-marino-tinta"
+                className="tactil enlace mt-5 inline-flex min-h-11 items-start gap-2 font-medium text-azul hover:text-marino-tinta lg:min-h-0"
               >
                 <IconoYoutube className="mt-[0.3em] shrink-0 text-[1.25rem]" />
                 Ver en YouTube

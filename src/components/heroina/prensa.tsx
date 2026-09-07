@@ -68,7 +68,7 @@ export function Prensa({ apariciones }: PrensaProps) {
                 href={aparicion.url}
                 target="_blank"
                 rel="noreferrer"
-                className="tactil enlace mt-5 inline-flex items-start gap-2 font-medium text-azul hover:text-marino-tinta"
+                className="tactil enlace mt-5 inline-flex min-h-11 items-start gap-2 font-medium text-azul hover:text-marino-tinta lg:min-h-0"
               >
                 {/* `items-start` y el desplazamiento: a 375 px «Escuchar en
                     Sanamente, Caracol Radio» ocupa dos renglones, y centrado el

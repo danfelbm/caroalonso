@@ -53,12 +53,30 @@ const FONDOS: Record<Fondo, string> = {
 
 type Tamano = "sm" | "md" | "lg" | "xl" | "nada";
 
+/**
+ * EL AIRE ENTRE SECCIONES, y por qué el escalón de móvil es otro.
+ *
+ * En escritorio una sección `lg` respira 144 px arriba y abajo: la ventana mide
+ * 900 px de alto, la banda ocupa una parte y el aire es lo que separa dos
+ * bloques que se ven a la vez. En un teléfono de 844 px no se ven dos bloques a
+ * la vez nunca, así que ese mismo aire ya no separa nada — solo obliga a
+ * arrastrar el pulgar por 160 px de fondo liso entre el final de una sección y
+ * el título de la siguiente. Medido en la portada: 12 728 px de alto, quince
+ * pantallas, y buena parte era eso.
+ *
+ * Los escalones `sm:` y `lg:` están intactos: desde 640 px el sitio respira hoy
+ * exactamente lo que respiraba ayer. Lo único recalibrado es el valor base, el
+ * que ve un teléfono:
+ *
+ *   sm   40 → 32 px      md   56 → 44 px
+ *   lg   80 → 56 px      xl   96 → 64 px
+ */
 const TAMANOS: Record<Tamano, string> = {
   nada: "",
-  sm: "py-10 sm:py-14",
-  md: "py-14 sm:py-20 lg:py-24",
-  lg: "py-20 sm:py-28 lg:py-36",
-  xl: "py-24 sm:py-36 lg:py-44",
+  sm: "py-8 sm:py-14",
+  md: "py-11 sm:py-20 lg:py-24",
+  lg: "py-14 sm:py-28 lg:py-36",
+  xl: "py-16 sm:py-36 lg:py-44",
 };
 
 interface SeccionProps extends ComponentProps<"section"> {
@@ -136,21 +154,25 @@ export function Titulo({
   return (
     <header
       className={cn(
-        "mb-10 sm:mb-14",
+        // Mismo criterio que el `py` de la sección: en móvil el aire entre el
+        // titular y lo que presenta se acorta, porque a 390 px la cabecera y su
+        // contenido siempre se leen en la misma pantalla y 40 px los separaban
+        // como si fueran dos cosas distintas.
+        "mb-7 sm:mb-14",
         centro && "text-center",
         accion && "sm:flex sm:items-end sm:justify-between sm:gap-10",
         className,
       )}
     >
       <div className={cn(centro && "mx-auto max-w-[42rem]", accion && "sm:max-w-[44rem]")}>
-        {eyebrow && <p className="eyebrow mb-4 opacity-55">{eyebrow}</p>}
+        {eyebrow && <p className="eyebrow mb-3 opacity-55 sm:mb-4">{eyebrow}</p>}
         <Encabezado className={cn(TAMANOS_TITULO[tamano], "max-w-[20ch]", centro && "mx-auto")}>
           {titulo}
         </Encabezado>
         {entradilla && (
           <div
             className={cn(
-              "mt-5 max-w-[48ch] text-entradilla opacity-70",
+              "mt-4 max-w-[48ch] text-entradilla opacity-70 sm:mt-5",
               centro && "mx-auto",
             )}
           >
@@ -158,7 +180,7 @@ export function Titulo({
           </div>
         )}
       </div>
-      {accion && <div className="mt-7 shrink-0 sm:mt-0">{accion}</div>}
+      {accion && <div className="mt-6 shrink-0 sm:mt-0">{accion}</div>}
     </header>
   );
 }

@@ -65,12 +65,12 @@ export default async function Libros() {
 
         {/* Los siete años seguidos: es el dato que cuenta la trayectoria de un
             vistazo, y de paso un atajo a cualquier ficha. */}
-        <ul className="mt-12 flex flex-wrap items-baseline gap-x-7 gap-y-3 border-t border-marino/12 pt-8 sm:mt-16 sm:gap-x-10">
+        <ul className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-1 border-t border-marino/12 pt-5 sm:mt-16 sm:gap-x-10 sm:gap-y-3 sm:pt-8">
           {libros.map((libro) => (
             <li key={libro.slug}>
               <Link
                 href={urlLibro(libro.slug)}
-                className="tactil cifras font-display text-rotulo text-marino-tenue hover:text-azul"
+                className="tactil inline-flex min-h-11 items-center cifras font-display text-rotulo text-marino-tenue hover:text-azul lg:min-h-0"
               >
                 {libro.anio}
                 <span className="sr-only"> · {libro.titulo}</span>
@@ -97,7 +97,7 @@ export default async function Libros() {
           {otros.map((libro, indice) => (
             <li
               key={libro.slug}
-              className="border-t border-marino/10 py-16 first:border-t-0 first:pt-0 last:pb-0 sm:py-20"
+              className="border-t border-marino/10 py-10 first:border-t-0 first:pt-0 last:pb-0 sm:py-20"
             >
               {/* Alternar el lado es lo que impide que seis filas iguales se
                   lean como una tabla. */}

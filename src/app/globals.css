@@ -73,16 +73,38 @@
      (el ancho del container). Entre medias interpola sin saltos, así
      que no hace falta un `sm:text-…` por cada titular.
      El techo de `titular` son los 76 px del h1 de Lookback.
+
+     LOS TOPES NO SE TOCAN: a 1200 px cada rol vale hoy lo que valía
+     ayer. Lo que se recalibró es el SUELO, el valor de 375 px, porque
+     en el teléfono la escala estaba pensada como una reducción de la
+     de escritorio y no como una escala propia:
+
+     · titular  40 → 36 px. A 40 px un h1 de dos palabras largas se
+       partía en tres renglones dentro de los 350 px útiles.
+     · titulo   32 → 28 px. Es el h2 de casi todas las secciones; a
+       32 px pesaba tanto como el h1 y el ojo perdía la jerarquía.
+     · subtitulo 26 → 24 px, para que siga leyéndose por debajo de
+       `titulo` ahora que este bajó.
+     · entradilla 17 → 19 px. Este era el fallo de verdad: a 375 px la
+       entradilla medía 17,05 px y el cuerpo 17,02 px. Dos roles
+       distintos con el mismo tamaño no son dos roles. La entradilla
+       sube, el cuerpo se queda en los 17 px del sistema de iOS, y la
+       distancia entre lo que introduce y lo que se lee vuelve a verse.
+       De regalo, `prosa` —que hereda de aquí— pasa a leerse a 19 px.
+
+     La fórmula, por si hay que recalcular otro rol: para un mínimo m y
+     un máximo M en rem, la pendiente es `(M − m) / 0.515625` vw y la
+     base `m − 0.234375 × pendiente` rem.
      ---------------------------------------------------------------- */
-  --text-titular: clamp(2.5rem, 1.477rem + 4.364vw, 4.75rem);
+  --text-titular: clamp(2.25rem, 1.114rem + 4.848vw, 4.75rem);
   --text-titular--line-height: 1.04;
   --text-titular--letter-spacing: -0.02em;
 
-  --text-titulo: clamp(2rem, 1.318rem + 2.909vw, 3.5rem);
+  --text-titulo: clamp(1.75rem, 0.955rem + 3.394vw, 3.5rem);
   --text-titulo--line-height: 1.08;
   --text-titulo--letter-spacing: -0.02em;
 
-  --text-subtitulo: clamp(1.625rem, 1.227rem + 1.697vw, 2.5rem);
+  --text-subtitulo: clamp(1.5rem, 1.045rem + 1.939vw, 2.5rem);
   --text-subtitulo--line-height: 1.14;
   --text-subtitulo--letter-spacing: -0.018em;
 
@@ -90,7 +112,7 @@
   --text-rotulo--line-height: 1.25;
   --text-rotulo--letter-spacing: -0.012em;
 
-  --text-entradilla: clamp(1.0625rem, 0.977rem + 0.364vw, 1.25rem);
+  --text-entradilla: clamp(1.1875rem, 1.159rem + 0.121vw, 1.25rem);
   --text-entradilla--line-height: 1.55;
 
   --text-cuerpo: clamp(1.0625rem, 1.034rem + 0.121vw, 1.125rem);
@@ -186,11 +208,46 @@
 }
 
 @layer base {
+  /* ----------------------------------------------------------------
+     EL ALTO DE LA BARRA SUPERIOR, en un solo sitio.
+
+     De aquí sale el `pt` de <main>, el `scroll-padding-top` de los
+     anclajes, dónde aterriza el enlace de salto y el `-mt` con el que
+     la portada se mete por debajo de la barra. Antes era una constante
+     de JavaScript en `layout.tsx` puesta en línea sobre el <html>, y
+     así no podía cambiar con el ancho: la barra de móvil adelgazó y la
+     cifra tenía que adelgazar con ella. Una variable con media query
+     lo resuelve donde vive el resto del sistema.
+
+     Móvil: 56 px de barra a ras, sin aire alrededor.
+     Escritorio: 16 px de aire (`p-4`) + 64 px (`h-16`) = 80 px, como siempre.
+     ---------------------------------------------------------------- */
+  :root {
+    --alto-barra: 3.5rem;
+    /* Y el de la barra de pestañas, por lo mismo: 6 px de aire + 48 px
+       de objetivo táctil + 1 px de borde + lo que pida el notch. En escritorio no hay
+       barra de pestañas, así que vale cero y todo lo que la reserva
+       —el `pb-pestanas` del pie, el `scroll-padding-bottom`— se apaga
+       solo sin una sola clase `lg:`. */
+    --alto-pestanas: calc(3.375rem + 1px + max(0.75rem, env(safe-area-inset-bottom)));
+  }
+  @media (width >= 64rem) {
+    :root {
+      --alto-barra: 5rem;
+      --alto-pestanas: 0px;
+    }
+  }
+
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     /* La píldora de navegación es fija: los anclajes se detienen debajo. */
-    scroll-padding-top: 6rem;
+    scroll-padding-top: calc(var(--alto-barra) + 1rem);
+    /* Y la barra de pestañas tapa el final: los anclajes que caen al
+       fondo de la página se detienen justo por encima de ella. Sin sumar
+       nada: en escritorio la variable vale cero y cualquier margen extra
+       cambiaría un comportamiento que hoy no tiene que cambiar. */
+    scroll-padding-bottom: var(--alto-pestanas);
   }
 
   body {
@@ -488,6 +545,15 @@
 /* Hueco para el notch inferior en la barra fija de móvil. */
 @utility pb-safe {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+/* Y el hueco que la barra de pestañas le roba al final del documento.
+   Va en el PIE y no en <main>: entre la última sección —que casi siempre
+   es una banda de color a sangre— y el pie marino no puede aparecer una
+   franja de papel. Dentro del pie el hueco es marino invisible, y la
+   barra translúcida se apoya sobre él. */
+@utility pb-pestanas {
+  padding-bottom: var(--alto-pestanas);
 }
 
 /* Cifras de la misma anchura: precios y fechas no bailan al cambiar. */

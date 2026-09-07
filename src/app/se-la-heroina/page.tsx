@@ -109,7 +109,7 @@ export default async function SeLaHeroina() {
           de lo que alguien reconoce de un libro. En móvil va arriba y centrada;
           desde `lg` se pone al lado del texto, algo más pequeña que él. */}
       <Seccion fondo="acento" tamano="lg" conGrano style={acento}>
-        <div className="mx-auto grid max-w-[64rem] gap-10 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:items-center lg:gap-16">
+        <div className="mx-auto grid max-w-[64rem] gap-8 sm:gap-10 lg:grid-cols-[minmax(0,18rem)_minmax(0,1fr)] lg:items-center lg:gap-16">
           <div className="mx-auto w-3/5 max-w-[16rem] lg:mx-0 lg:w-full lg:max-w-none">
             <PortadaLibro libro={libro} prioridad sizes="(min-width: 1024px) 18rem, 60vw" />
           </div>
@@ -148,7 +148,7 @@ export default async function SeLaHeroina() {
               que va en serif y a cuerpo grande: es una voz, no una descripción. */}
           <p className="font-display text-rotulo text-marino-tinta">{heroina.entradilla}</p>
 
-          <div className="mt-20">
+          <div className="mt-12 sm:mt-20">
             <Titulo eyebrow="La sinopsis" titulo="De qué trata el libro" tamano="md" />
             <Prosa>
               {heroina.presentacion.map((parrafo) => (
@@ -158,7 +158,7 @@ export default async function SeLaHeroina() {
           </div>
 
           {libro.cita && (
-            <figure className="mt-16 border-t border-marino/12 pt-10">
+            <figure className="mt-10 border-t border-marino/12 pt-8 sm:mt-16 sm:pt-10">
               <blockquote className="font-display text-rotulo text-marino-tinta">
                 «{libro.cita.texto}»
               </blockquote>
@@ -204,7 +204,7 @@ export default async function SeLaHeroina() {
             entradilla={`Publicado por ${libro.editorial}. Estos son los sitios donde está a la venta hoy.`}
             tamano="md"
           />
-          <div className="grid gap-10 sm:grid-cols-3">
+          <div className="grid gap-7 sm:grid-cols-3 sm:gap-10">
             {soportesConTienda.map(({ clave, etiqueta }) => (
               <div key={clave}>
                 <h3 className="eyebrow border-b border-current/25 pb-3 opacity-70">{etiqueta}</h3>
@@ -215,7 +215,7 @@ export default async function SeLaHeroina() {
                         href={tienda.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="tactil enlace text-cuerpo"
+                        className="tactil enlace inline-flex min-h-11 items-center text-cuerpo lg:min-h-0"
                       >
                         {tienda.tienda}
                         {/* Ocho enlaces con nombres de tienda repetidos entre
