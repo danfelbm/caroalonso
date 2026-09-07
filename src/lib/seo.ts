@@ -163,9 +163,9 @@ export async function personaCarolina(): Promise<NodoJsonLd> {
  *
  * `workExample` es el motivo de que esto no sea un `Book` a secas. En
  * schema.org, el libro es la obra y cada edición —papel, digital, audiolibro—
- * es un `Book` distinto colgado de ella con su propio `bookFormat`. Un solo
- * nodo con el ISBN del papel deja fuera el audiolibro de «Sé la heroína», que
- * existe y se vende.
+ * es un `Book` distinto colgado de ella, con sus propias tiendas. Un solo nodo
+ * con el ISBN del papel deja fuera el audiolibro de «Sé la heroína», que existe
+ * y se vende.
  *
  * Los libros sin editorial ni ISBN —los cinco anteriores a 2021— salen sin esos
  * campos, no con cadenas vacías: un ISBN inventado es peor que ninguno.

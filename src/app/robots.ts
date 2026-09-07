@@ -20,6 +20,10 @@ import { absoluta } from "@/lib/seo";
  * El mapa se declara en absoluto a propósito: `sitemap` es el único campo del
  * archivo que exige una URL completa; con una ruta relativa, los rastreadores
  * lo ignoran en silencio.
+ *
+ * Sin `Host`: era una extensión de Yandex que ellos mismos retiraron en 2018 y
+ * que nadie más leyó nunca. Quién es el dominio bueno ya lo dice el `canonical`
+ * de cada página, que sí lo respetan todos.
  */
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -29,7 +33,5 @@ export default function robots(): MetadataRoute.Robots {
       disallow: "/muestrario",
     },
     sitemap: absoluta("/sitemap.xml"),
-    // Fija cuál de los dominios es el bueno para quien todavía lea este campo.
-    host: absoluta("/"),
   };
 }

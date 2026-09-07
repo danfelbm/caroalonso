@@ -1,9 +1,9 @@
 /**
  * TARJETAS DE COMPARTIR (Open Graph) E ICONOS DEL SITIO.
  *
- *   npm run og                # las dieciséis tarjetas y los dos iconos
+ *   npm run og                # las dieciséis tarjetas y los tres iconos
  *   npm run og -- tarjetas    # solo las tarjetas
- *   npm run og -- iconos      # solo icon.png y apple-icon.png
+ *   npm run og -- iconos      # solo icon.png, apple-icon.png y favicon.ico
  *
  * ## Por qué por captura y no con `ImageResponse`
  *

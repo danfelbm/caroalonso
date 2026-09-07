@@ -50,6 +50,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: libro.titulo,
     description: libro.resumen,
     openGraph: {
+      // Next SUSTITUYE el openGraph del layout en vez de fusionarlo campo a
+      // campo, así que estas dos hay que repetirlas o la página se comparte sin
+      // idioma ni nombre de sitio.
+      locale: "es_CO",
+      siteName: "Carolina Alonso C.",
       type: "book",
       url: "/se-la-heroina",
       title: titulo,

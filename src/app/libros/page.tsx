@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   description: DESCRIPCION,
   alternates: { canonical: "/libros" },
   openGraph: {
+      // Next SUSTITUYE el openGraph del layout en vez de fusionarlo campo a
+      // campo, así que estas dos hay que repetirlas o la página se comparte sin
+      // idioma ni nombre de sitio.
+      locale: "es_CO",
+      siteName: "Carolina Alonso C.",
     title: "Libros",
     description: DESCRIPCION,
     url: "/libros",

@@ -45,6 +45,11 @@ export async function generateMetadata({ params }: PropsFicha): Promise<Metadata
     description: libro.resumen,
     alternates: { canonical: urlLibro(libro.slug) },
     openGraph: {
+      // Next SUSTITUYE el openGraph del layout en vez de fusionarlo campo a
+      // campo, así que estas dos hay que repetirlas o la página se comparte sin
+      // idioma ni nombre de sitio.
+      locale: "es_CO",
+      siteName: "Carolina Alonso C.",
       type: "book",
       title: completo,
       description: libro.resumen,

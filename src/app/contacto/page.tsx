@@ -22,6 +22,11 @@ export async function generateMetadata(): Promise<Metadata> {
     description: DESCRIPCION,
     alternates: { canonical: "/contacto" },
     openGraph: {
+      // Next SUSTITUYE el openGraph del layout en vez de fusionarlo campo a
+      // campo, así que estas dos hay que repetirlas o la página se comparte sin
+      // idioma ni nombre de sitio.
+      locale: "es_CO",
+      siteName: "Carolina Alonso C.",
       type: "website",
       url: "/contacto",
       title: `${titulo} · ${identidad.firma}`,
