@@ -196,3 +196,22 @@ Lo único que se tocó fue esto, y conviene que ella lo vea:
 - **Las etiquetas de las tiendas** se normalizaron: «bol.» → «bol.com»,
   «!ndigo» → «Indigo», «Exito.com» → «Éxito», «BuscaLibre.com» → «Buscalibre»,
   «Librería LERNER» → «Librería Lerner».
+
+## Imagen perdida en el sitio actual
+
+La ficha **«Un libro/película: La brújula dorada»** apunta a
+`2020/05/La-brújula-dorada.jpg`, y ese archivo ya no existe en el servidor: la
+API de medios lo sigue anunciando pero las once variantes devuelven 404, con
+tilde, sin tilde y con la tilde descompuesta. Es decir, hoy esa recomendación ya
+se ve rota en caroalonso.com.
+
+Queda con `imagen: null`. Hay que pedirle a Carolina la portada, o dejar la
+ficha sin imagen.
+
+## Assets rescatados de WordPress
+
+Bajados a `arte/originales/` antes de que el sitio viejo desaparezca:
+
+- 7 de las 8 imágenes de recomendaciones.
+- El MP3 de la entrevista en Caracol Radio Bucaramanga, 10 MB, que solo vivía
+  allí y no se puede regenerar.

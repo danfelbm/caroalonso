@@ -12,6 +12,8 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
+import { huella } from "./hash.mjs";
+
 const EXTENSIONES = {
   imagen: "png|jpg|jpeg|webp|avif",
   video: "mp4|webm|mov|m4v",
@@ -171,5 +173,6 @@ export function generar({ modelo, prompt, salida, tipo = "imagen", params = [], 
 /** Bitácora junto al archivo: siempre con el prompt literal dentro. */
 export function escribirBitacora(salida, datos) {
   mkdirSync(dirname(salida), { recursive: true });
-  writeFileSync(`${salida}.json`, `${JSON.stringify({ generado: new Date().toISOString(), ...datos }, null, 2)}\n`);
+  const conHuella = datos.prompt ? { huellaPrompt: huella(datos.prompt), ...datos } : datos;
+  writeFileSync(`${salida}.json`, `${JSON.stringify({ generado: new Date().toISOString(), ...conHuella }, null, 2)}\n`);
 }

@@ -1,0 +1,19 @@
+{
+  "generado": "2026-09-07T13:37:34.283Z",
+  "modelo": "gpt_image_2",
+  "prompt": "Pure abstract gradient background, extremely smooth and soft, going from pale icy blue #E2EFFF at the top left to soft lavender periwinkle #A1B2EE at the bottom right. Even diagonal blend with no bands and no hard edges, wrapped in a fine analog film grain that gives it a matte printed feeling. Nothing else in the frame: no shapes, no objects, no horizon, no light source. no text, no letters, no logos, no people, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133612_eb31e90c-e202-4708-8907-6fb6cffdfc02.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133612_eb31e90c-e202-4708-8907-6fb6cffdfc02_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T13:36:12.779145Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"eb31e90c-e202-4708-8907-6fb6cffdfc02\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133612_eb31e90c-e202-4708-8907-6fb6cffdfc02_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Pure abstract gradient background, extremely smooth and soft, going from pale icy blue #E2EFFF at the top left to soft lavender periwinkle #A1B2EE at the bottom right. Even diagonal blend with no bands and no hard edges, wrapped in a fine analog film grain that gives it a matte printed feeling. Nothing else in the frame: no shapes, no objects, no horizon, no light source. no text, no letters, no logos, no people, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133612_eb31e90c-e202-4708-8907-6fb6cffdfc02.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}

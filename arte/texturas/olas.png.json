@@ -1,0 +1,19 @@
+{
+  "generado": "2026-09-07T13:38:57.959Z",
+  "modelo": "gpt_image_2",
+  "prompt": "Extremely minimal seascape at dawn: a calm flat sea with very soft low ripples in the lower third, and a wide empty sky above. The whole scene bathed in pale blush pink #FDF3F1 and warm golden light #F6E392, with the low horizon line placed near the bottom. Soft haze, no sun disc, no clouds with detail, no land, no boats, no birds. Serene, airy, lots of negative space, muted pastel palette, fine grain, cinematic wide shot. no text, no letters, no logos, no people, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133736_b1135067-7aba-4bf5-a480-624af70b4f23.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133736_b1135067-7aba-4bf5-a480-624af70b4f23_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T13:37:36.461004Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"b1135067-7aba-4bf5-a480-624af70b4f23\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133736_b1135067-7aba-4bf5-a480-624af70b4f23_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Extremely minimal seascape at dawn: a calm flat sea with very soft low ripples in the lower third, and a wide empty sky above. The whole scene bathed in pale blush pink #FDF3F1 and warm golden light #F6E392, with the low horizon line placed near the bottom. Soft haze, no sun disc, no clouds with detail, no land, no boats, no birds. Serene, airy, lots of negative space, muted pastel palette, fine grain, cinematic wide shot. no text, no letters, no logos, no people, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133736_b1135067-7aba-4bf5-a480-624af70b4f23.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}

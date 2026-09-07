@@ -1,0 +1,19 @@
+{
+  "generado": "2026-09-07T13:36:10.663Z",
+  "modelo": "gpt_image_2",
+  "prompt": "Deep night sky filling the frame, rich dark navy #051324 background with a gentle darker vignette at the corners. Fine scattered stars of different sizes, most of them tiny pinpricks of pale mint white #E0F7F1, a few brighter with a soft glow. Some of the stars are joined by very thin luminous straight lines in pale blue #C3E9FE, drawing delicate constellation figures across the sky, elegant and sparse. Astronomical chart feeling, minimal, lots of empty dark space, cinematic and calm. no text, no letters, no logos, no people, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "16:9",
+    "--resolution",
+    "2k",
+    "--quality",
+    "high"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133431_cab649cb-725e-4145-947b-7036aba2aee9.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133431_cab649cb-725e-4145-947b-7036aba2aee9_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T13:34:31.097972Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"cab649cb-725e-4145-947b-7036aba2aee9\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133431_cab649cb-725e-4145-947b-7036aba2aee9_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"16:9\",\n      \"height\": 1520,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Deep night sky filling the frame, rich dark navy #051324 background with a gentle darker vignette at the corners. Fine scattered stars of different sizes, most of them tiny pinpricks of pale mint white #E0F7F1, a few brighter with a soft glow. Some of the stars are joined by very thin luminous straight lines in pale blue #C3E9FE, drawing delicate constellation figures across the sky, elegant and sparse. Astronomical chart feeling, minimal, lots of empty dark space, cinematic and calm. no text, no letters, no logos, no people, no watermark.\",\n      \"quality\": \"high\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"2k\",\n      \"width\": 2688\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133431_cab649cb-725e-4145-947b-7036aba2aee9.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}

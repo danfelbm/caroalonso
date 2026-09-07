@@ -1,4 +1,4 @@
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/lib/utils";
 
 interface GranoProps {
   /** Entre 0.25 y 0.55; por encima el ruido deja de leerse como papel. */

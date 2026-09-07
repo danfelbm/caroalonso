@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/lib/utils";
 
 /**
  * Nombres de la paleta, no colores sueltos: quien monta una página elige

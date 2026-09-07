@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/lib/utils";
 
 type Variante = "primario" | "menta" | "borde" | "claro" | "enlace";
 type Tamano = "sm" | "md" | "lg";

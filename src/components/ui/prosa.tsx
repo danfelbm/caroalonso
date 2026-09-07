@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
 
-import { cn } from "@/components/ui/cn";
+import { cn } from "@/lib/utils";
 
 /**
  * Bloque de lectura larga: biografías, sinopsis, artículos. Todo el ritmo

@@ -1,0 +1,19 @@
+{
+  "generado": "2026-09-07T13:34:29.212Z",
+  "modelo": "gpt_image_2",
+  "prompt": "Flat scan of warm off-white paper in soft cream tone #FBF8F6, seamless and tileable. Visible cotton fibers and fine natural grain, subtle tooth of uncoated stock, a few faint darker specks. Evenly lit like a flatbed scanner, no shadows, no vignette, no folds, no edges of the sheet. Neutral warm paper only, filling the entire frame. no text, no letters, no logos, no people, no watermark.",
+  "params": [
+    "--aspect_ratio",
+    "1:1",
+    "--resolution",
+    "1k",
+    "--quality",
+    "medium"
+  ],
+  "referencias": [],
+  "urls": [
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133343_546b8bec-a0b1-49a7-99df-aae3a936a8be.png",
+    "https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133343_546b8bec-a0b1-49a7-99df-aae3a936a8be_min.webp"
+  ],
+  "stdout": "[\n  {\n    \"created_at\": \"2026-09-07T13:33:43.659584Z\",\n    \"display_name\": \"GPT Image 2\",\n    \"id\": \"546b8bec-a0b1-49a7-99df-aae3a936a8be\",\n    \"job_type\": \"gpt_image_2\",\n    \"min_result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133343_546b8bec-a0b1-49a7-99df-aae3a936a8be_min.webp\",\n    \"params\": {\n      \"aspect_ratio\": \"1:1\",\n      \"height\": 1024,\n      \"medias\": [],\n      \"model\": \"videotape-alpha\",\n      \"prompt\": \"Flat scan of warm off-white paper in soft cream tone #FBF8F6, seamless and tileable. Visible cotton fibers and fine natural grain, subtle tooth of uncoated stock, a few faint darker specks. Evenly lit like a flatbed scanner, no shadows, no vignette, no folds, no edges of the sheet. Neutral warm paper only, filling the entire frame. no text, no letters, no logos, no people, no watermark.\",\n      \"quality\": \"medium\",\n      \"reference_elements\": [],\n      \"remove_bg\": false,\n      \"resolution\": \"1k\",\n      \"width\": 1024\n    },\n    \"result_url\": \"https://d8j0ntlcm91z4.cloudfront.net/user_2vdbR08wns4Af97UYqv25DsGWg1/hf_20260907_133343_546b8bec-a0b1-49a7-99df-aae3a936a8be.png\",\n    \"status\": \"completed\"\n  }\n]\n"
+}
