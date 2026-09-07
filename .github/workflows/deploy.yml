@@ -1,0 +1,75 @@
+name: Deploy to Hidora
+# Sitio SSR (Next.js 16 standalone). El poller del servidor detecta el build y lo
+# despliega (modelo PULL, solo trafico saliente). Transporte por Release (evita la
+# cuota de artefactos de Actions). El NOMBRE del workflow debe seguir siendo
+# exactamente "Deploy to Hidora" (el poller filtra por ese nombre).
+#
+# NEXT_PUBLIC_SITIO_URL va inline y no como secret: es una URL publica (se hornea en
+# el bundle del navegador, sale en el canonical y en el sitemap) y ademas el PAT del
+# servidor no tiene permiso para escribir Actions secrets en este repo.
+#
+# El sitio se sirve SSR y no estatico a proposito: headers() (CSP/HSTS/Cache-Control),
+# la optimizacion de imagenes y sobre todo las respuestas 206 por rango del video del
+# hero necesitan el servidor de Node.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-caroalonso
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Next.js standalone)
+        env:
+          NEXT_PUBLIC_SITIO_URL: https://caroalonso.danfelbm.net
+        run: npm run build
+
+      - name: Package standalone artifact
+        run: |
+          set -e
+          # standalone no incluye .next/static ni /public: copiar su CONTENIDO dentro
+          # (cp -r public/. dest/ evita el anidamiento public/public en Next 16.x).
+          mkdir -p .next/standalone/.next/static
+          cp -r .next/static/. .next/standalone/.next/static/
+          if [ -d public ]; then
+            mkdir -p .next/standalone/public
+            cp -r public/. .next/standalone/public/
+          fi
+          # sharp es devDependency: si el trazado de standalone no lo copio, la
+          # optimizacion de imagenes daria 500 en produccion.
+          if [ ! -d .next/standalone/node_modules/sharp ] && [ -d node_modules/sharp ]; then
+            mkdir -p .next/standalone/node_modules
+            cp -r node_modules/sharp .next/standalone/node_modules/
+            for d in node_modules/@img; do [ -d "$d" ] && cp -r "$d" .next/standalone/node_modules/ || true; done
+          fi
+          # Next copia .env y .env.production al standalone: nunca deben viajar en el tarball.
+          rm -f .next/standalone/.env .next/standalone/.env.*
+          tar -czf build.tgz --exclude='.env' --exclude='.env.*' -C .next/standalone .
+          echo "Artifact size: $(du -h build.tgz | cut -f1)"
+
+      - name: Publish build to Release (evita cuota de artefactos)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create deploy -R "${{ github.repository }}" -t deploy -n "latest build" || echo "release ya existe"
+          gh release upload deploy build.tgz -R "${{ github.repository }}" --clobber
