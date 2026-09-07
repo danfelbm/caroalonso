@@ -173,7 +173,19 @@ export async function personaCarolina(): Promise<NodoJsonLd> {
 export async function libroJsonLd(libro: Libro): Promise<NodoJsonLd> {
   const { identidad } = await getSitio();
   const url = absoluta(`/libros/${libro.slug}`);
-  const autora = { "@id": `${URL_SITIO}/#persona` };
+
+  /*
+   * La autora va con `@id` Y con nombre. El `@id` la ata a la misma persona que
+   * declara la portada; el nombre está porque en ESTA página no hay ningún nodo
+   * `Person` que resolver, y una referencia colgando obligaría a quien lea la
+   * ficha a haber leído antes la portada.
+   */
+  const autora = {
+    "@type": "Person",
+    "@id": `${URL_SITIO}/#persona`,
+    name: identidad.firma,
+    url: URL_SITIO,
+  };
 
   /**
    * Las ediciones que sí tienen dónde comprarse. `datePublished` NO se copia a
@@ -182,7 +194,13 @@ export async function libroJsonLd(libro: Libro): Promise<NodoJsonLd> {
    */
   const ediciones = (
     [
-      { clave: "fisico", formato: "https://schema.org/Hardcover" },
+      /*
+       * El impreso va SIN `bookFormat`. schema.org solo ofrece `Paperback` y
+       * `Hardcover`, y el catálogo no guarda la encuadernación: cualquiera de
+       * los dos sería un dato inventado, y aquí lo que importa —dónde se
+       * compra— está en las ofertas de todas formas.
+       */
+      { clave: "fisico", formato: null },
       { clave: "digital", formato: "https://schema.org/EBook" },
       { clave: "audio", formato: "https://schema.org/AudiobookFormat" },
     ] as const
@@ -191,7 +209,7 @@ export async function libroJsonLd(libro: Libro): Promise<NodoJsonLd> {
     .map(({ clave, formato }) => ({
       "@type": "Book",
       "@id": `${url}#${clave}`,
-      bookFormat: formato,
+      ...(formato ? { bookFormat: formato } : {}),
       // Cada tienda es una oferta: es lo que permite que el buscador diga
       // «disponible en» sin que nadie escriba precios que aquí no existen.
       offers: libro.compra[clave].map((enlace) => ({
@@ -220,8 +238,6 @@ export async function libroJsonLd(libro: Libro): Promise<NodoJsonLd> {
     ...(libro.editorial ? { publisher: { "@type": "Organization", name: libro.editorial } } : {}),
     image: absoluta(`/libros/${libro.portada}.webp`),
     ...(ediciones.length ? { workExample: ediciones } : {}),
-    // Sirve de firma en los resultados enriquecidos cuando no hay reseñas.
-    copyrightHolder: { "@type": "Person", name: identidad.firma },
   };
 }
 
