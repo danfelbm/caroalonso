@@ -111,7 +111,90 @@ if (fase === "claves") {
   console.log("\nAquí se para a propósito: el final en 1080p y la versión vertical");
   console.log("se generan solo después de aprobar este borrador.");
   if (!r.ok) process.exitCode = 1;
+} else if (fase === "final") {
+  // El borrador ya se aprobó: se rinden los masters definitivos desde clave-2.
+  const cual = process.argv[3] ?? "ambos";
+  const CLAVE = join(DIR_CLAVES, "clave-2.png");
+  if (!existsSync(CLAVE)) {
+    console.error(`No existe ${CLAVE}. Corre antes: node scripts/4-hero-video.mjs claves`);
+    process.exit(1);
+  }
+
+  const antes = registrarSaldo(`antes del master ${cual}`);
+  const fallos = [];
+
+  if (cual === "16x9" || cual === "ambos") {
+    const r = generar({
+      modelo: "seedance_2_0",
+      prompt: PROMPT_VIDEO,
+      salida: join(DIR, "coordenadas-16x9.mp4"),
+      tipo: "video",
+      imagenInicio: CLAVE,
+      params: ["--aspect_ratio", "16:9", "--duration", "15", "--resolution", "1080p", "--generate_audio", "false", "--mode", "std"],
+      espera: "40m",
+    });
+    if (r.ok) alias("coordenadas-16x9.mp4", "hero-escritorio-master.mp4");
+    else fallos.push("16x9");
+  }
+
+  if (cual === "9x16" || cual === "ambos") {
+    const recorte = await recortarVertical(CLAVE);
+    const r = generar({
+      modelo: "seedance_2_0",
+      prompt: PROMPT_VIDEO,
+      salida: join(DIR, "coordenadas-9x16.mp4"),
+      tipo: "video",
+      imagenInicio: recorte,
+      params: ["--aspect_ratio", "9:16", "--duration", "15", "--resolution", "720p", "--generate_audio", "false", "--mode", "std"],
+      espera: "40m",
+    });
+    if (r.ok) alias("coordenadas-9x16.mp4", "hero-movil-master.mp4");
+    else fallos.push("9x16");
+  }
+
+  const despues = registrarSaldo(`después del master ${cual}`);
+  console.log(`\nGasto de esta fase: ${(antes - despues).toFixed(2)} créditos`);
+  console.log("(si corrieron otros trabajos a la vez, esa resta incluye su gasto)");
+  if (fallos.length) {
+    console.error(`Fallaron: ${fallos.join(", ")}`);
+    process.exitCode = 1;
+  }
 } else {
-  console.error(`Fase desconocida "${fase}". Usa: claves | borrador <n>`);
+  console.error(`Fase desconocida "${fase}". Usa: claves | borrador <n> | final [16x9|9x16]`);
   process.exit(1);
+}
+
+/**
+ * Recorta el fotograma clave al centro en 9:16 para arrancar el vertical.
+ * Reanudable: si el recorte ya existe, se reutiliza.
+ */
+async function recortarVertical(origen) {
+  const destino = join(DIR_CLAVES, "clave-2-9x16.png");
+  if (existsSync(destino)) {
+    console.log(`· recorte vertical ya existe: ${destino}`);
+    return destino;
+  }
+  const { width, height } = await sharp(origen).metadata();
+  const ancho = Math.round((height * 9) / 16);
+  const izquierda = Math.round((width - ancho) / 2);
+  await sharp(origen).extract({ left: izquierda, top: 0, width: ancho, height }).toFile(destino);
+  console.log(`✓ recorte vertical ${ancho}x${height} → ${destino}`);
+  return destino;
+}
+
+/**
+ * `scripts/5-hero-recodificar.mjs` (de otro agente) busca los masters por otros
+ * nombres: hero-escritorio-master.mp4 y hero-movil-master.mp4. Se deja un enlace
+ * duro para que los encuentre sin duplicar los megas ni renombrar nada.
+ */
+function alias(real, nombreEsperado) {
+  const origen = join(DIR, real);
+  const destino = join(DIR, nombreEsperado);
+  try {
+    if (existsSync(destino)) unlinkSync(destino);
+    linkSync(origen, destino);
+    console.log(`  ↪ alias ${nombreEsperado} (para 5-hero-recodificar.mjs)`);
+  } catch (e) {
+    console.error(`  no se pudo crear el alias ${nombreEsperado}: ${`${e.message ?? e}`.slice(0, 160)}`);
+  }
 }

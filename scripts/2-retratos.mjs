@@ -1,32 +1,37 @@
 /**
- * Las mismas 5 escenas con los dos motores, para poder compararlos:
- *   Motor A — Higgsfield Soul 2.0  -> arte/retratos/higgsfield/
- *   Motor B — OpenRouter GPT Image 2 con 3 fotos de referencia -> arte/retratos/openrouter/
+ * Retratos definitivos de Carolina con el motor elegido: Higgsfield Soul 2.0.
  *
- *   node scripts/2-retratos.mjs                  # los dos motores
- *   node scripts/2-retratos.mjs higgsfield       # solo el motor A
- *   node scripts/2-retratos.mjs openrouter       # solo el motor B
- *   node scripts/2-retratos.mjs openrouter retrato-libro   # una sola escena
+ *   node scripts/2-retratos.mjs                    # las 9 escenas x 3 variantes
+ *   node scripts/2-retratos.mjs retrato-libro      # solo una escena
  *
- * Reanudable: cada PNG que ya exista se salta. Al final escribe el
- * comparador.html para que una persona elija. El script NO elige.
+ * Salen a arte/retratos/soul/ como `<escena>-1.png`, `-2.png`, `-3.png`, para
+ * poder elegir. El script NO elige: al final escribe comparador.html con la
+ * foto real al lado de las tres variantes.
+ *
+ * Los retratos de la comparación anterior de motores siguen en
+ * arte/retratos/higgsfield/ y arte/retratos/openrouter/ como historial.
+ *
+ * Dos correcciones respecto de aquella tanda:
+ *  1. El fondo se describe con insistencia (pared de yeso con textura, luz
+ *     lateral de ventana, sombra proyectada real, profundidad de campo). Cuatro
+ *     de las seis fotos de entrenamiento son recortes sobre blanco, y sin esto
+ *     el Soul devuelve fondos planos y un halo de recorte alrededor del pelo.
+ *  2. `retrato-libro` sacaba letras inventadas en la cubierta. Ahora cada
+ *     variante usa un encuadre distinto donde la cubierta no se ve.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { RAIZ } from "./lib/env.mjs";
 import { generar, registrarSaldo } from "./lib/higgsfield.mjs";
-import { generarImagen } from "./lib/openrouter.mjs";
 
 const DIR = join(RAIZ, "arte", "retratos");
-const DIR_A = join(DIR, "higgsfield");
-const DIR_B = join(DIR, "openrouter");
+const DESTINO = join(DIR, "soul");
 const FOTOS = join(RAIZ, "arte", "originales", "carolina");
-const MODELO_OR = "openai/gpt-5.4-image-2";
 
-const [motorPedido = "ambos", escenaPedida = null] = process.argv.slice(2);
+const escenaPedida = process.argv[2] ?? null;
 
-// --- Quién es ella. El mismo párrafo en los dos motores, para que comparen de verdad ---
+// --- Quién es ella -------------------------------------------------------
 const ELLA = [
   "a Colombian woman in her early fifties, warm olive skin,",
   "dark brown almost black wavy hair falling to her shoulders with a side part,",
@@ -35,86 +40,108 @@ const ELLA = [
   "a wide warm genuine smile, dressed in black,",
 ].join(" ");
 
-const FOTOGRAFIA = "Natural editorial portrait photography, 50mm lens, shallow depth of field, soft realistic skin texture, true to life, no retouching plastic look.";
+// --- El fondo, insistiendo: es lo que arregla el halo y el blanco plano ---
+const FONDO = [
+  "She is standing inside a real room, several steps in front of a warm plaster wall",
+  "with visible hand-troweled texture and soft tonal variation.",
+  "Soft directional window light from one side wraps around her hair and shoulders,",
+  "and her own soft shadow falls naturally on the wall behind her.",
+  "Shallow depth of field lets the wall fall gently out of focus, with real depth between her and it.",
+].join(" ");
+
+const FOTOGRAFIA = "Natural editorial portrait photography, 50mm lens, soft realistic skin texture, true to life, visible pores and fine lines, no plastic retouching.";
 const LIMPIO = "no text, no letters, no logos, no watermark.";
 
-// Las 3 fotos que se le pasan al motor B: un primer plano, un plano medio y una foto con fondo real.
-const REFERENCIAS = ["carolina.jpg", "carolina_alonso_c.png", "carolia_alonso_c_libro.jpg"].map((f) => join(FOTOS, f));
-
-// La foto que el comparador enseña al lado de cada escena.
 const ESCENAS = [
   {
     nombre: "retrato-quien-soy",
     referencia: "carolina_alonso_c.png",
-    // El modelo Soul no acepta 4:5; 3:4 es el vertical más cercano.
-    aspectoA: "3:4",
-    encuadre: "Vertical portrait, 4:5 framing, she is seated",
-    escena: [
-      "She is sitting relaxed on a simple chair, body turned slightly to one side, hands resting calmly in her lap,",
-      "warm afternoon window light falling across her face from the left, soft shadows,",
-      "the background is a plain warm off-white paper wall in tone #FBF8F6, completely empty.",
-    ].join(" "),
+    pedido: "4:5",
+    aspecto: "3:4",
+    encuadre: "Vertical portrait, she is seated",
+    escena: "She sits relaxed on a simple wooden chair, body turned slightly to one side, hands resting calmly in her lap, warm late afternoon light across her face.",
   },
   {
     nombre: "retrato-escritorio",
     referencia: "P1013993.png",
-    aspectoA: "3:4",
-    encuadre: "Vertical portrait, 4:5 framing, three quarter view",
-    escena: [
-      "She is writing by hand in an open notebook on a wooden desk, pen in her right hand, looking down at the page with quiet concentration and a faint smile,",
-      "warm window light from the side, a few books and a cup out of focus behind her,",
-      "calm intimate study atmosphere, muted warm tones.",
-    ].join(" "),
+    pedido: "4:5",
+    aspecto: "3:4",
+    encuadre: "Vertical portrait, three quarter view",
+    escena: "She writes by hand in an open notebook on a wooden desk, pen in her right hand, looking down at the page with quiet concentration and a faint smile. A few books and a cup sit out of focus beside her.",
   },
   {
     nombre: "retrato-libro",
     referencia: "carolia_alonso_c_libro.jpg",
-    aspectoA: "3:4",
-    encuadre: "Vertical portrait, 4:5 framing, waist up",
-    escena: [
-      "She is holding a closed hardcover book with both hands at chest height and looking straight into the camera with a warm confident smile,",
-      "soft even light, the background a plain warm off-white wall in tone #FBF8F6,",
-      "the book cover is plain and blank with no title and no design.",
-    ].join(" "),
+    pedido: "4:5",
+    aspecto: "3:4",
+    encuadre: "Vertical portrait, waist up",
+    // Tres encuadres distintos: en ninguno se ve la cubierta, así que no hay
+    // dónde inventar letras.
+    escena: "She holds a closed book.",
+    // Ninguna variante deja a la vista una superficie impresa: si hay cubierta o
+    // sobrecubierta visible, el modelo escribe títulos inventados encima.
+    // Probado: en cuanto una cubierta mira a la cámara, el modelo le imprime un
+    // título inventado, incluso pidiéndola lisa. Las tres variantes evitan que
+    // haya ninguna cara impresa de frente.
+    variantes: [
+      "She stands relaxed holding a closed book in one hand down at her side, low and mostly below the bottom edge of the frame, softly out of focus. The picture is about her face: she looks into the lens smiling warmly.",
+      "She stands with a closed book tucked under one arm, the spine edge forward and the covers pressed flat against her ribs, hands relaxed. She looks into the lens with a warm confident smile.",
+      "She stands relaxed with a closed book held in one hand down at her side, low and mostly below the bottom edge of the frame, softly out of focus. The picture is about her face: she looks into the lens smiling warmly.",
+    ],
   },
   {
     nombre: "retrato-podcast",
     referencia: "P1013588-1.png",
-    aspectoA: "3:4",
-    encuadre: "Vertical portrait, 4:5 framing, waist up",
-    escena: [
-      "She is wearing black over-ear headphones and speaking into a large studio condenser microphone on a boom arm in front of her,",
-      "she leans slightly toward the microphone, mid conversation, animated and warm,",
-      "a softly blurred dark studio background with a warm lamp glow behind her, moody podcast lighting.",
-    ].join(" "),
+    pedido: "4:5",
+    aspecto: "3:4",
+    encuadre: "Vertical portrait, waist up",
+    escena: "She wears black over-ear headphones and speaks into a large studio condenser microphone on a boom arm, leaning slightly toward it, mid conversation, animated and warm. A warm lamp glows softly behind her.",
   },
   {
     nombre: "retrato-contacto",
     referencia: "carolina.jpg",
-    aspectoA: "1:1",
-    encuadre: "Square 1:1 framing, close up head and shoulders",
-    escena: [
-      "A friendly close up of her face and shoulders, looking directly into the camera with an open welcoming smile,",
-      "soft flattering frontal light, the background a plain warm off-white paper tone #FBF8F6, completely empty and slightly out of focus.",
-    ].join(" "),
+    pedido: "1:1",
+    aspecto: "1:1",
+    encuadre: "Square framing, close up head and shoulders",
+    escena: "A friendly close up of her face and shoulders, looking directly into the camera with an open welcoming smile, soft flattering light from the side.",
+  },
+  // --- Escenas nuevas ---
+  {
+    nombre: "retrato-hero",
+    referencia: "carolina_alonso_c.png",
+    pedido: "3:2",
+    aspecto: "3:2",
+    encuadre: "Wide horizontal portrait, medium shot, she is placed off to one side of the frame",
+    escena: "She stands looking away from the camera toward the light, calm and thoughtful, a faint smile. She occupies only one side of the picture and the rest is generous empty wall, deliberately left as open space.",
+  },
+  {
+    nombre: "retrato-heroina",
+    referencia: "P1013588-1.png",
+    pedido: "4:5",
+    aspecto: "3:4",
+    encuadre: "Vertical portrait, standing, three quarter length",
+    escena: "She stands tall and at ease, weight on one leg, arms relaxed, turning to the camera with a bright open smile, bathed in warm golden window light that catches the side of her face.",
+  },
+  {
+    nombre: "retrato-reconexion",
+    referencia: "P1013993.png",
+    pedido: "1:1",
+    aspecto: "1:1",
+    encuadre: "Square framing, chest up, hands clearly visible in frame",
+    escena: "She rests one open hand softly over her heart and the other loosely below it, eyes calm and gentle, a serene unforced expression, in very soft diffused light.",
+  },
+  {
+    nombre: "retrato-firma",
+    referencia: "carolina.jpg",
+    pedido: "1:1",
+    aspecto: "1:1",
+    encuadre: "Square framing, tight head shot",
+    escena: "A tight, warm portrait of her face, smiling openly and directly at the camera, eyes bright, lit softly and evenly.",
   },
 ];
 
-/** Prompt del motor A: el Soul ya sabe la cara, así que se describe la escena. */
-const promptA = (e) => `${e.encuadre}. ${ELLA} ${e.escena} ${FOTOGRAFIA} ${LIMPIO}`;
-
-/** Prompt del motor B: hay que pedirle explícitamente que conserve la cara de las fotos. */
-const promptB = (e) =>
-  [
-    "Generate a new photograph of the exact same woman shown in the reference photographs.",
-    "Keep her facial identity strictly identical to the references: the same face shape, the same nose, the same eyes and eyebrows, the same smile and teeth, the same hairline and hair colour with its burgundy streaks, the same age and skin.",
-    "This must look like the same real person, photographed on another day, not a lookalike and not a younger version.",
-    `She is ${ELLA.replace(/^a /, "")}`,
-    e.escena,
-    e.encuadre + ".",
-    FOTOGRAFIA,
-    LIMPIO,
-  ].join(" ");
+// Tres semillas fijas: variantes reproducibles, no lotería.
+const SEMILLAS = [11, 27, 43];
 
 const lote = escenaPedida ? ESCENAS.filter((e) => e.nombre === escenaPedida) : ESCENAS;
 if (!lote.length) {
@@ -122,83 +149,60 @@ if (!lote.length) {
   process.exit(1);
 }
 
-const hacerA = motorPedido === "ambos" || motorPedido === "higgsfield";
-const hacerB = motorPedido === "ambos" || motorPedido === "openrouter";
+/** El Soul ya sabe la cara: aquí se describe la escena y, sobre todo, el fondo. */
+function prompt(escena, indice) {
+  const cuerpo = escena.variantes?.[indice] ?? escena.escena;
+  return `${escena.encuadre}. ${ELLA} ${cuerpo} ${FONDO} ${FOTOGRAFIA} ${LIMPIO}`;
+}
 
-// --- Motor A: Higgsfield Soul --------------------------------------------
-async function motorA() {
-  const ficha = join(RAIZ, "arte", "soul", "soul.json");
-  if (!existsSync(ficha)) {
-    console.error("Falta arte/soul/soul.json. Corre antes: node scripts/1-soul.mjs");
-    return { hecho: 0, fallos: ["sin-soul"] };
-  }
-  const { referenceId, estado } = JSON.parse(readFileSync(ficha, "utf8"));
-  if (!referenceId || estado !== "completed") {
-    console.error(`El Soul no está listo (estado: ${estado}). Corre antes: node scripts/1-soul.mjs`);
-    return { hecho: 0, fallos: ["soul-no-listo"] };
-  }
+// --- Generar -------------------------------------------------------------
+const ficha = join(RAIZ, "arte", "soul", "soul.json");
+if (!existsSync(ficha)) {
+  console.error("Falta arte/soul/soul.json. Corre antes: node scripts/1-soul.mjs");
+  process.exit(1);
+}
+const { referenceId, estado } = JSON.parse(readFileSync(ficha, "utf8"));
+if (!referenceId || estado !== "completed") {
+  console.error(`El Soul no está listo (estado: ${estado}). Corre antes: node scripts/1-soul.mjs`);
+  process.exit(1);
+}
 
-  const antes = registrarSaldo("antes de los retratos Higgsfield");
-  const fallos = [];
-  let hecho = 0;
-  for (const e of lote) {
+mkdirSync(DESTINO, { recursive: true });
+const antes = registrarSaldo("antes de los retratos Soul");
+
+const fallos = [];
+let hechas = 0;
+for (const escena of lote) {
+  for (let i = 0; i < 3; i++) {
     const r = generar({
       modelo: "text2image_soul_v2",
-      prompt: promptA(e),
-      salida: join(DIR_A, `${e.nombre}.png`),
+      prompt: prompt(escena, i),
+      salida: join(DESTINO, `${escena.nombre}-${i + 1}.png`),
       tipo: "imagen",
-      params: ["--custom_reference_id", referenceId, "--quality", "2k", "--aspect_ratio", e.aspectoA],
+      params: ["--custom_reference_id", referenceId, "--quality", "2k", "--aspect_ratio", escena.aspecto, "--seed", String(SEMILLAS[i])],
       espera: "15m",
     });
-    if (r.ok) hecho++;
-    else fallos.push(e.nombre);
+    if (r.ok) hechas++;
+    else fallos.push(`${escena.nombre}-${i + 1}`);
   }
-  const despues = registrarSaldo("después de los retratos Higgsfield");
-  // text2image_soul_v2 cuesta ~0.12 créditos por imagen. La resta de saldos NO
-  // sirve aquí: este script corre los dos motores a la vez y puede haber otros
-  // trabajos en paralelo, así que esa diferencia incluiría gasto ajeno.
-  console.log(`Motor A: ${hecho} imágenes ≈ ${(hecho * 0.12).toFixed(2)} créditos`);
-  console.log(`  (saldo ${antes.toFixed(2)} → ${despues.toFixed(2)}; la diferencia incluye lo que gastara cualquier otro trabajo en paralelo)`);
-  return { hecho, fallos };
 }
 
-// --- Motor B: OpenRouter con fotos de referencia --------------------------
-async function motorB() {
-  const ausentes = REFERENCIAS.filter((r) => !existsSync(r));
-  if (ausentes.length) {
-    console.error(`Faltan fotos de referencia: ${ausentes.join(", ")}`);
-    return { hecho: 0, fallos: ["sin-referencias"] };
-  }
-  const fallos = [];
-  let hecho = 0;
-  for (const e of lote) {
-    const r = await generarImagen({
-      modelo: MODELO_OR,
-      prompt: promptB(e),
-      referencias: REFERENCIAS,
-      salida: join(DIR_B, `${e.nombre}.png`),
-      // gpt-5.4-image-2 tampoco acepta 4:5; se pide el mismo 3:4 que el motor A.
-      imageConfig: { aspect_ratio: e.aspectoA, quality: "high" },
-    });
-    if (r.ok) hecho++;
-    else fallos.push(e.nombre);
-  }
-  return { hecho, fallos };
-}
-
-// --- El comparador, para que elija una persona ----------------------------
+// --- El comparador, para que elija una persona ---------------------------
 function escribirComparador() {
   const filas = ESCENAS.map((e) => {
     const celda = (titulo, ruta, existe) =>
       existe
         ? `<figure><img src="${ruta}" alt="${titulo} — ${e.nombre}"><figcaption>${titulo}</figcaption></figure>`
         : `<figure class="falta"><div class="hueco">no se generó</div><figcaption>${titulo}</figcaption></figure>`;
+    const variantes = [1, 2, 3]
+      .map((n) => celda(`Variante ${n}`, `soul/${e.nombre}-${n}.png`, existsSync(join(DESTINO, `${e.nombre}-${n}.png`))))
+      .join("\n      ");
+    const nota = e.pedido !== e.aspecto ? ` · pedido ${e.pedido}, generado ${e.aspecto}` : ` · ${e.aspecto}`;
     return `<section>
-    <h2>${e.nombre}<small>${e.aspectoA === "1:1" ? "1:1" : "4:5 (generado 3:4)"}</small></h2>
+    <h2>${e.nombre}<small>${nota}</small></h2>
     <div class="fila">
       ${celda("Foto real de referencia", `../originales/carolina/${e.referencia}`, true)}
-      ${celda("Motor A · Higgsfield Soul 2.0", `higgsfield/${e.nombre}.png`, existsSync(join(DIR_A, `${e.nombre}.png`)))}
-      ${celda("Motor B · OpenRouter GPT Image 2", `openrouter/${e.nombre}.png`, existsSync(join(DIR_B, `${e.nombre}.png`)))}
+      ${variantes}
     </div>
   </section>`;
   }).join("\n");
@@ -208,55 +212,54 @@ function escribirComparador() {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Retratos de Carolina — comparador de motores</title>
+<title>Retratos de Carolina — variantes con Soul 2.0</title>
 <style>
   :root { --papel:#FBF8F6; --marino:#051324; --tinta:#192D41; --menta:#C2EFE3; --linea:#e6ded9; }
   * { box-sizing: border-box; }
   body { margin:0; padding:40px 32px 80px; background:var(--papel); color:var(--marino);
          font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
-  header { max-width:1500px; margin:0 auto 40px; }
+  header { max-width:1700px; margin:0 auto 40px; }
   h1 { font-size:30px; margin:0 0 8px; letter-spacing:-0.02em; }
-  header p { margin:0; color:var(--tinta); max-width:70ch; }
+  header p { margin:0 0 6px; color:var(--tinta); max-width:78ch; }
   header mark { background:var(--menta); padding:2px 6px; border-radius:4px; }
-  section { max-width:1500px; margin:0 auto 56px; }
+  section { max-width:1700px; margin:0 auto 56px; }
   h2 { font-size:19px; margin:0 0 16px; padding-bottom:10px; border-bottom:1px solid var(--linea);
        display:flex; align-items:baseline; gap:12px; }
   h2 small { font-weight:400; font-size:13px; color:#6d7f8f; }
-  .fila { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start; }
+  .fila { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:start; }
   figure { margin:0; }
   figure img { width:100%; height:auto; display:block; border-radius:10px;
                background:#fff; box-shadow:0 2px 14px rgba(5,19,36,.10); }
   figcaption { margin-top:10px; font-size:14px; font-weight:600; color:var(--tinta); text-align:center; }
+  .fila figure:first-child figcaption { color:#6d7f8f; }
   .falta .hueco { aspect-ratio:4/5; display:grid; place-items:center; border:2px dashed var(--linea);
                   border-radius:10px; color:#9aa8b4; font-size:14px; }
-  @media (max-width:900px) { .fila { grid-template-columns:1fr; } }
+  @media (max-width:1100px) { .fila { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:620px)  { .fila { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 <header>
-  <h1>Retratos de Carolina — comparador de motores</h1>
-  <p>Cada fila es la misma escena: a la izquierda la <strong>foto real</strong> de referencia, y al lado las dos versiones generadas.
-  <mark>Elige tú</mark> cuál se parece de verdad a ella; los scripts no eligen. Generado el ${new Date().toLocaleString("es-CO")}.</p>
+  <h1>Retratos de Carolina — variantes con Soul 2.0</h1>
+  <p>Cada fila es una escena: primero la <strong>foto real</strong> de referencia y después las tres variantes generadas.
+  <mark>Elige tú</mark> cuál se queda; los scripts no eligen.</p>
+  <p>El modelo Soul no acepta 4:5, así que ahí se generó en 3:4, el vertical más cercano. Generado el ${new Date().toLocaleString("es-CO")}.</p>
 </header>
 ${filas}
 </body>
 </html>
 `;
   const ruta = join(DIR, "comparador.html");
-  mkdirSync(DIR, { recursive: true });
   writeFileSync(ruta, html);
   console.log(`\nComparador: ${ruta}`);
 }
 
-// --- Los dos motores en paralelo -----------------------------------------
-mkdirSync(DIR_A, { recursive: true });
-mkdirSync(DIR_B, { recursive: true });
-
-const [resA, resB] = await Promise.all([
-  hacerA ? motorA() : Promise.resolve({ hecho: 0, fallos: [], omitido: true }),
-  hacerB ? motorB() : Promise.resolve({ hecho: 0, fallos: [], omitido: true }),
-]);
-
 escribirComparador();
-console.log(`\nMotor A (Higgsfield): ${resA.omitido ? "omitido" : `${resA.hecho} listos${resA.fallos.length ? `, fallaron ${resA.fallos.join(", ")}` : ""}`}`);
-console.log(`Motor B (OpenRouter): ${resB.omitido ? "omitido" : `${resB.hecho} listos${resB.fallos.length ? `, fallaron ${resB.fallos.join(", ")}` : ""}`}`);
+
+const despues = registrarSaldo("después de los retratos Soul");
+console.log(`\n${hechas} imágenes ≈ ${(hechas * 0.12).toFixed(2)} créditos`);
+console.log(`  (saldo ${antes.toFixed(2)} → ${despues.toFixed(2)}; esa resta incluye lo que gastara cualquier trabajo en paralelo)`);
+if (fallos.length) {
+  console.error(`Fallaron: ${fallos.join(", ")}`);
+  process.exitCode = 1;
+}
