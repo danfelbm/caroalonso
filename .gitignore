@@ -33,3 +33,7 @@ AGENTS.md
 
 # capturas de trabajo de Playwright
 /.playwright-mcp/
+
+# capturas sueltas que dejan las herramientas en la raíz
+/*.png
+/*.jpeg

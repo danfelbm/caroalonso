@@ -12,6 +12,7 @@ import {
   IconoSpotify,
   IconoYoutube,
 } from "@/components/ui/iconos";
+import { DatosEstructurados } from "@/components/ui/datos-estructurados";
 import { Prosa } from "@/components/ui/prosa";
 import { Subrayado } from "@/components/ui/subrayado";
 import { contraste } from "@/lib/color";
@@ -32,19 +33,20 @@ import {
   urlRecomendacion,
   urlServicio,
 } from "@/lib/datos";
+import { personaCarolina, sitioWeb } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import type { TipoRecomendacion } from "@/types";
 
 /**
  * LA PORTADA
  *
- * El orden no es un menú: es una conversación. El hero pregunta («¿Perdiste tu
- * norte?»), el libro nuevo dice desde dónde habla hoy, la biografía dice quién
- * lo dice, las cifras dan la medida del oficio, el carrusel abre el catálogo,
- * «Sé la heroína» ofrece la casa que ya existe, el podcast y la Reconexión son
- * las dos maneras de acompañarla fuera del papel, las recomendaciones enseñan
- * su gusto, y la banda amarilla cierra con la única cosa que se le pide a quien
- * llegó hasta abajo: escribir.
+ * El orden cuenta algo seguido, en vez de enumerar destinos. El hero pregunta
+ * («¿Perdiste tu norte?»), el libro nuevo dice desde dónde habla hoy, la
+ * biografía dice quién lo dice, las cifras dan la medida del oficio, el
+ * carrusel abre el catálogo, «Sé la heroína» ofrece la casa que ya existe, el
+ * podcast y la Reconexión son las dos maneras de acompañarla fuera del papel,
+ * las recomendaciones enseñan su gusto, y la banda amarilla cierra con la única
+ * cosa que se le pide a quien llegó hasta abajo: escribir.
  *
  * El color alterna a propósito —claro, oscuro, claro— para que ninguna banda de
  * color quede pegada a otra del mismo valor. La superficie sigue siendo papel
@@ -120,8 +122,19 @@ export default async function Inicio() {
     },
   ];
 
+  /*
+   * Los dos nodos que identifican el sitio para un buscador: quién es ella y
+   * qué es esto. Van juntos y solo aquí —el `@id` de la persona es la misma
+   * dirección en todas las páginas—, así que el `Person` de «Quién soy» y el
+   * `author` de las siete fichas apuntan a esta declaración y no abren siete
+   * personas distintas.
+   */
+  const [persona, sitioLd] = await Promise.all([personaCarolina(), sitioWeb()]);
+
   return (
     <>
+      <DatosEstructurados nodos={[persona, sitioLd]} />
+
       {/* ================================================================
           1 · HERO — a sangre, por debajo de la barra
 
@@ -347,7 +360,10 @@ export default async function Inicio() {
                 <em>{heroina.titulo}</em>
               </h2>
               {heroina.subtitulo && (
-                <p className="mt-3 font-display text-rotulo opacity-80">{heroina.subtitulo}</p>
+                /* Sin `opacity`: sobre este verde, papel al 80 % se queda en
+                   3,6:1 y no pasa AA. Lo que separa el subtítulo del título es
+                   el tamaño, no la intensidad. */
+                <p className="mt-3 font-display text-rotulo">{heroina.subtitulo}</p>
               )}
 
               <p className="mt-8 max-w-[34ch] font-display text-subtitulo leading-tight">
@@ -441,8 +457,8 @@ export default async function Inicio() {
             `scripts/2-retratos.mjs` que todavía no ha pasado por el pipeline, y
             los retratos que sí existen tienen dueño en otras páginas.
 
-            El velo por encima no es decorativo: sin él, el texto claro cae
-            sobre las estrellas más brillantes y pierde contraste.
+            El velo por encima está para el contraste: sin él, el texto claro
+            cae sobre las estrellas más brillantes y se pierde.
           */}
           <Textura base="constelacion" opacidad={0.55} sizes="100vw" />
           <div aria-hidden className="absolute inset-0 bg-marino/35" />
@@ -471,15 +487,17 @@ export default async function Inicio() {
                   { termino: "Cuánto dura", valor: "Dos sesiones en 48 horas" },
                   { termino: "Cuánto cuesta", valor: formatearPrecio(servicio.precio) },
                 ].map((rasgo, indice) => (
+                  /* Etiqueta encima y valor debajo, siempre. En una fila con
+                     `justify-between`, dos de los cuatro valores caben al lado
+                     de su etiqueta y los otros dos bajan de línea: el bloque
+                     queda con dos alineaciones distintas sin haberlo decidido
+                     nadie. */
                   <div
                     key={rasgo.termino}
-                    className={cn(
-                      "flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 py-4",
-                      indice > 0 && "border-t border-papel/15",
-                    )}
+                    className={cn("py-4", indice > 0 && "border-t border-papel/15")}
                   >
-                    <dt className="text-cuerpo text-papel/65">{rasgo.termino}</dt>
-                    <dd className="cifras font-display text-rotulo">{rasgo.valor}</dd>
+                    <dt className="text-nota text-papel/60">{rasgo.termino}</dt>
+                    <dd className="cifras mt-1 font-display text-rotulo">{rasgo.valor}</dd>
                   </div>
                 ))}
               </dl>
@@ -595,7 +613,15 @@ function Costura({ color }: { color: string }) {
   return (
     <span
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-36"
+      /*
+       * Sin JavaScript no hay degradado. Ahí el hero se queda en el póster —el
+       * mar de noche, oscuro— y la salida es el bloque de botones que el hero
+       * ancla a 32 px del borde inferior: justo dentro de estos nueve
+       * centímetros de degradado, que lo taparían de amarillo casi por
+       * completo. Contra una imagen nocturna, además, el borde recto contra la
+       * banda clara no chirría; lo que había que suavizar era el amanecer.
+       */
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 sm:h-36 [@media(scripting:none)]:hidden"
       style={{ backgroundImage: `linear-gradient(to bottom, ${transparente}, ${color})` }}
     />
   );

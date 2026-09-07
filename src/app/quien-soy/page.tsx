@@ -3,10 +3,12 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 import { Columna, Seccion, Titulo } from "@/components/layout/seccion";
+import { DatosEstructurados } from "@/components/ui/datos-estructurados";
 import { IconoFlechaDiagonal } from "@/components/ui/iconos";
 import { Prosa } from "@/components/ui/prosa";
 import { Subrayado } from "@/components/ui/subrayado";
 import { anioLegible, getLibros, getQuienSoy, urlLibro } from "@/lib/datos";
+import { personaCarolina } from "@/lib/seo";
 
 const DESCRIPCION =
   "Carolina Alonso C., escritora, filósofa y coach. Dejó la Ingeniería Electrónica " +
@@ -118,8 +120,18 @@ export default async function QuienSoy() {
   );
   const colaLibros = parrafoEnumeracion ? colaDeLaEnumeracion(parrafoEnumeracion) : null;
 
+  /*
+   * El mismo `Person` de la portada, con el mismo `@id`. Repetirlo aquí no
+   * duplica la entidad: la refuerza. Esta es la página que un buscador va a
+   * enseñar cuando alguien busque su nombre, y el nodo es lo que le dice que
+   * el YouTube, el Instagram y el TikTok de `sameAs` son de esta misma persona.
+   */
+  const persona = await personaCarolina();
+
   return (
     <>
+      <DatosEstructurados nodos={persona} />
+
       {/* ---------------------------- Cabecera ---------------------------- */}
       {/*
         Todo centrado, y no el titular a un lado con el retrato al otro: debajo

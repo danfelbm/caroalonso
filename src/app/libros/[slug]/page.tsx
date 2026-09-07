@@ -9,10 +9,12 @@ import { CitaLibro } from "@/components/libros/cita-libro";
 import { NavegacionLibros } from "@/components/libros/navegacion-libros";
 import { paletaLibro } from "@/components/libros/paleta";
 import { PortadaLibro } from "@/components/libros/portada-libro";
+import { DatosEstructurados } from "@/components/ui/datos-estructurados";
 import { IconoFlechaDerecha } from "@/components/ui/iconos";
 import { Prosa } from "@/components/ui/prosa";
 import { Subrayado } from "@/components/ui/subrayado";
 import { getLibro, getLibros, getLibrosAdyacentes, getSitio, urlLibro } from "@/lib/datos";
+import { libroJsonLd, migasDePan } from "@/lib/seo";
 
 interface PropsFicha {
   params: Promise<{ slug: string }>;
@@ -110,8 +112,23 @@ export default async function FichaLibro({ params }: PropsFicha) {
   const ultima = palabras[palabras.length - 1];
   const antes = palabras.slice(0, -1).join(" ");
 
+  /*
+   * `Book` con sus ediciones y las migas de pan. Las migas son lo que cambia la
+   * segunda línea del resultado de búsqueda: en vez de la dirección cruda, el
+   * buscador escribe «Inicio › Libros › <título>». La última miga va sin ruta a
+   * propósito — es la página en la que ya estamos.
+   */
+  const libroLd = await libroJsonLd(libro);
+  const migas = migasDePan([
+    { nombre: "Inicio", ruta: "/" },
+    { nombre: "Libros", ruta: "/libros" },
+    { nombre: libro.titulo },
+  ]);
+
   return (
     <>
+      <DatosEstructurados nodos={[libroLd, migas]} />
+
       <Seccion fondo="acento" tamano="lg" conGrano style={paleta.estilo}>
         <Link
           href="/libros"

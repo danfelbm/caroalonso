@@ -85,8 +85,8 @@ interface MarcoProps {
 /**
  * Una imagen del pipeline sobre un marco que la sostiene.
  *
- * El marco reserva el sitio antes de que la imagen llegue —así la página no da
- * el salto de maquetación que daría una imagen sin medidas— y, debajo, pinta la
+ * El marco reserva el sitio antes de que la imagen llegue —así la página se
+ * ahorra el salto de maquetación de una imagen sin medidas— y, debajo, pinta la
  * miniatura difuminada: mientras baja la buena hay una mancha con sus colores
  * en vez de un rectángulo vacío.
  */

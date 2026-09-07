@@ -119,7 +119,7 @@
       "1200": "/retratos/retrato-contacto-1200.avif"
     },
     "principal": "/retratos/retrato-contacto.webp",
-    "difuminada": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAADwBACdASoUABQAPu1wsFIppiSiqAgBMB2JQBe6AjZqqjV2iPr3nN/B+RXZsMbawAAA/vHfSniFOvefsigC4K/ynKVCMU6o+UEZaM632rWGAELH4VcvePxMENsn4NyEHaCvvmt260DmDxhseR4YAl9CiP/7cTYHGiu8tz7Va3pF8LD1HzcQ1nnOcBzcNV4GUV8wX+rC15D8VAuvLff1H2rp2C6Xv3LCjII1a7/HZvLJoI0AAAA="
+    "difuminada": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAADQBACdASoUABQAPu1sq1EppaOiqAqpMB2JYwC7ABBamoJCjOX69ZXSq5s9MfEDwAD3ixcxX8fQKg3KANqHqFbDUsuoz0yUXybPG/26ntbN3b+Rr42rsmxDUxIWIvAH04Hh8Ly4PFr9UNJyPmH0U26+LzLPAoI7/1KJsDJdeQV1tfeIUrfXibZ07PpI+DFRCg2OMIlkkDQ7PLfsN9oy4AAA"
   },
   "retrato-escritorio": {
     "ancho": 1536,
@@ -135,7 +135,55 @@
       "1200": "/retratos/retrato-escritorio-1200.avif"
     },
     "principal": "/retratos/retrato-escritorio.webp",
-    "difuminada": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBQCdASoUABsAPu1qrVCppaQiqAqpMB2JYwCdMtJv/gHS7RsCYxnfx6St7Ez1qVR0P0LBMvkAAP6BiUK3BUknEk9uet6Nvz/EscfD2ytf7CbepQ9B5ikWaQTVePfaVSaeesVMGG1nCgBpeiBdtDXykoL27nellXQOIKdDQLaVYqB1hYQPomgKB2GFyqREd/rqI7NJH60CWV9xDqDoMBhcVXDJP1gyQY7Uz6vAzkeg2XMcCPXQcCDXoCRAWHcAAAA="
+    "difuminada": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAQBQCdASoUABsAPu1qrFEppaQiqAqpMB2JYwCdMoABoy7ZhfuVCckKiXFTJPX2XQmgAP5SG/E5p+bwhewX0UGVGUYdue08llG2ZfMhBD9xHqdB4ucDkD9eJvf/tY33e8Emf5m1AlLrj86JDmyckhJNaXDNQc/TaswY3KYFX0Ib8r3o9DiX2yvqH/XzDNSC2mAFsYzG31Loq8eHbwjbr23X6BrDHp+Z3nFbZ8VoxAA="
+  },
+  "retrato-firma": {
+    "ancho": 2048,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-firma-400.webp",
+      "800": "/retratos/retrato-firma-800.webp",
+      "1200": "/retratos/retrato-firma-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-firma-400.avif",
+      "800": "/retratos/retrato-firma-800.avif",
+      "1200": "/retratos/retrato-firma-1200.avif"
+    },
+    "principal": "/retratos/retrato-firma.webp",
+    "difuminada": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBACdASoUABQAPu1ur1IppiQiqAgBMB2JQBYdggtTOtCuYs+Sowhn/11jQAAA/HhNv0ivUqr6G4TMPT6KMXjOI69pki5yQsT8VQAUD2879d6iMIlH7Zq8iz4FitFroKRbiLv4zkGKvkZfyjeFcUYlp9R5HNeHtQeJg1p7M5sAetEbb2o+gwipdUV9/YC4885XekkZR64iXaDaHIGZZJgA"
+  },
+  "retrato-hero": {
+    "ancho": 2016,
+    "alto": 1344,
+    "webp": {
+      "400": "/retratos/retrato-hero-400.webp",
+      "800": "/retratos/retrato-hero-800.webp",
+      "1200": "/retratos/retrato-hero-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-hero-400.avif",
+      "800": "/retratos/retrato-hero-800.avif",
+      "1200": "/retratos/retrato-hero-1200.avif"
+    },
+    "principal": "/retratos/retrato-hero.webp",
+    "difuminada": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoUAA0APu1kqU2ppaOiMAgBMB2JQBOgAs89tmPKcoIbYwAA/j7VuCOBWgLCS+Y7qfJehhPV92eBRHobWOU6yAd/FgpFVojCUz9giMN1OyvdeE8GSfBpP/glP5nTIgAA"
+  },
+  "retrato-heroina": {
+    "ancho": 1536,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-heroina-400.webp",
+      "800": "/retratos/retrato-heroina-800.webp",
+      "1200": "/retratos/retrato-heroina-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-heroina-400.avif",
+      "800": "/retratos/retrato-heroina-800.avif",
+      "1200": "/retratos/retrato-heroina-1200.avif"
+    },
+    "principal": "/retratos/retrato-heroina.webp",
+    "difuminada": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAABwBQCdASoUABsAPu1qr1AppaSiqAqpMB2JQBYj8dg1q27nEuSOx9gyRzKGeAr/yovlQAKAAP7T5C9GXBEnwZ7YRbfJAa3Qq8nFDJxVOM/FfKuTPJzMthykgK14OPV1zN3mCS9xXF89Joa63dQ34R/RD3YvrPpfucMbBGILTJNNOhV+z6IEKIja/lkCgxF5lbdFaQCckYn+HLHN69i1EYtqLpAAJArEPwoNpYACNs76tC9Fw6jgfaNGiAAAAA=="
   },
   "retrato-libro": {
     "ancho": 1536,
@@ -151,7 +199,7 @@
       "1200": "/retratos/retrato-libro-1200.avif"
     },
     "principal": "/retratos/retrato-libro.webp",
-    "difuminada": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAACwBQCdASoUABsAPu1qrlCppaQiqAqpMB2JZQDB7SAgtQoG3TxT9LDP3YNzK4d0v2sPdM/ZJgwA/u/XTWecw20vh9M0eUf9vhK252C22Z9nqZ7jCGNzHXQrP1LIagqQISXRTXWGXg1InofqS5Valc1ri50OIm4VE4Ov6umcQHXq3RFiM9Z7RoC3PNU3YlvNZUKi7a6B4PrDnnnqY9RDfswAXhbwU1fRm/7bY4206mkl7sUOH9eXWoaK+O6Q400NIgjE4hDuV2dCPC/JlAv7/wdA4f3Gd+nfNxCpAVhMhLzcFrfCgS8AAA=="
+    "difuminada": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBQCdASoUABsAPu1oqk+ppiOiKA1RMB2JQBUk7RBTAp3MY3+d1cbtZoSRHROB8p2cLQoAAP3MGkd/zXcgsIjPvZB+1xmRP+hPkUIaaC726IVkZv+KS/0ty8TATptZx+Ym9Si5DAfge3ExmlJDm9/IDGXPec2PPKb1IjECKLQOipBkPnEmeQorcrUBuEXnZch7/eK6tAXv6xrcAOEzuKtFlo9IE0HwAAA="
   },
   "retrato-podcast": {
     "ancho": 1536,
@@ -167,7 +215,7 @@
       "1200": "/retratos/retrato-podcast-1200.avif"
     },
     "principal": "/retratos/retrato-podcast.webp",
-    "difuminada": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADQBACdASoUABsAPu1mq08ppaOiKA1RMB2JYwDE2BEcrtrjo4dIa7HVj1rPXdGlAAD+8qBuHn5Duc3YwsoDmPt+Piw2hq05qFklosM45Lk9S27nzfxtOfYsfwIEj2SPMuo8LXiTpkTPT7Ut3Ram+Q01gYn4ukkekCjVVXwA"
+    "difuminada": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABQBQCdASoUABsAPu1ur1KppiQiqAgBMB2JQBajbIA0XGRcQZd8khyd8Q62qZqowVHZ/gAA/sNZi4Zh7x3snxut7KVeS5PEp690qxaJ5g2qJ73NFcO98tfkbhuer5vMhmrTxS3QIFeEsxWJYFF/wj/lB+WgahjrsIo5k9ebYZ7JbJf4iKncmJLMxjuGoSZ3TwZE3Wux1wJbeL9AVr6LupTUXFOiYy5MBkxxsMgQAAA="
   },
   "retrato-quien-soy": {
     "ancho": 1536,
@@ -183,7 +231,23 @@
       "1200": "/retratos/retrato-quien-soy-1200.avif"
     },
     "principal": "/retratos/retrato-quien-soy.webp",
-    "difuminada": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAACwBQCdASoUABsAPu1sq1EppaOiqAqpMB2JZwC7M2QlvwwDdY4f6uGgvIl8U0JnoTTiDm/t+YAA/u1IK+TMLUOGKLYd9ueIhvlA9PpOUv5pfeJ8s6b5P314KQz+lKUTRJencC1XQq7NggJz2u8cTEXS3AMI+O2oB0qnkTOkg5NFXu/ic6eEwfDxb0A6gkKsHwmZKoN08+7jeM2xfKAM4P0hXm0eTusVSAucuiaqXxiHs8lm2aMYD6Ws1H25sQhldybnMTgekKLxkT/3yAA="
+    "difuminada": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAACwBACdASoUABsAPu1wsFIppiSiqAgBMB2JYwC06AvpBWbOYQygRwakVvfy5vuYAP7D+U8oPAHeZeA8ehQCon5rSkKRmy0PlTFdspA/T118Mdn3DbjYqm3HQchfqBOuqam/2EfBF0Vv/uueWxEmS9GibiHHyPOo43cv+B3+O3ksppI0dMZsUrBgMOvNBS0MkICLjw6m/yQayuyZw1G1SlFvM64cEFkeb17fm+IAAAA="
+  },
+  "retrato-reconexion": {
+    "ancho": 2048,
+    "alto": 2048,
+    "webp": {
+      "400": "/retratos/retrato-reconexion-400.webp",
+      "800": "/retratos/retrato-reconexion-800.webp",
+      "1200": "/retratos/retrato-reconexion-1200.webp"
+    },
+    "avif": {
+      "400": "/retratos/retrato-reconexion-400.avif",
+      "800": "/retratos/retrato-reconexion-800.avif",
+      "1200": "/retratos/retrato-reconexion-1200.avif"
+    },
+    "principal": "/retratos/retrato-reconexion.webp",
+    "difuminada": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBQCdASoUABQAPu1sqlEppaOiqAqpMB2JZQDE2BFAdm/6q3iu2D2IuS78CfWxh5LGAADc+MYyRTj+ACU3TR1HPfea+OI4+K9YG+wOU7aBKe/Ka5Cl9bAA+7IugwpnmLOR7UPStUn/RBcDuslYSMlD+la4aHjalgWPtt4JFIQ0egCu0zIu6yubTx7IVtqhppeUAA=="
   },
   "el-camino-del-artista": {
     "ancho": 591,

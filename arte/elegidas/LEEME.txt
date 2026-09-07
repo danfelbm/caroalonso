@@ -1,0 +1,16 @@
+Retratos que usa el sitio.
+
+Salen del Soul de Higgsfield (referencia 843ac4c5-402b-4d63-ae9f-53136f8f89ba),
+entrenado con las seis fotos reales de Carolina que había en su web.
+
+Hoy están puestas las variantes «-1» de cada escena como selección de trabajo,
+para que el sitio no se quede esperando. LA ELECCIÓN DEFINITIVA ES DE CAROLINA:
+abre arte/retratos/comparador.html, mira las tres variantes de cada escena junto
+a su foto real, copia aquí la que prefiera con el nombre sin sufijo y vuelve a
+correr `npm run assets:optimizar`.
+
+Ninguna imagen generada se publica sin su visto bueno. Cuando lo dé, anótalo
+aquí con la fecha.
+
+Aprobado por: (pendiente)
+Fecha: (pendiente)
