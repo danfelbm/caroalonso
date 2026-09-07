@@ -3,6 +3,7 @@ import { Inter, Newsreader } from "next/font/google";
 import type { CSSProperties, ReactNode } from "react";
 
 import { BarraSuperior } from "@/components/layout/barra-superior";
+import { FormularioBoletin } from "@/components/formularios/formulario";
 import { Pie } from "@/components/layout/footer";
 import { DefinicionFirma } from "@/components/layout/marca";
 import type { Menu } from "@/components/layout/navegacion";
@@ -169,6 +170,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           contacto={sitio.contacto}
           menu={menu}
           boletin={sitio.boletin}
+          formulario={<FormularioBoletin boletin={sitio.boletin} redes={sitio.redes} />}
         />
       </body>
     </html>
