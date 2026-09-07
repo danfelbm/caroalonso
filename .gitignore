@@ -30,3 +30,6 @@ npm-debug.log*
 # notas de agentes
 CLAUDE.md
 AGENTS.md
+
+# capturas de trabajo de Playwright
+/.playwright-mcp/
