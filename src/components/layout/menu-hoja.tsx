@@ -190,7 +190,7 @@ export function MenuHoja({
         )}
       >
         <div className="flex min-h-16 shrink-0 items-center justify-between gap-4 px-5">
-          <GlifoFirma className="h-5 text-marino" />
+          <GlifoFirma className="h-[1.6rem] text-marino" />
           <h2 id={idTitulo} className="sr-only">
             Menú de {menu.principal.length + menu.secundaria.length} destinos
           </h2>

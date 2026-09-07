@@ -69,7 +69,7 @@ export function BarraSuperior({ menu }: { menu: Menu }) {
           )}
         />
 
-        <Firma className="h-5 text-marino sm:h-[1.375rem]" />
+        <Firma className="h-[1.6rem] text-marino sm:h-[1.9rem]" />
 
         {/* `mx-auto` reparte el hueco sobrante a los dos lados: los cinco
             destinos quedan centrados entre la firma y el botón. */}

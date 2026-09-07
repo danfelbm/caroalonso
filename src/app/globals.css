@@ -240,7 +240,17 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
+    /* SIN `scroll-behavior: smooth`, y a propósito.
+     *
+     * Con el desplazamiento suave activo, cambiar de página deja de ser un
+     * salto y pasa a ser una animación: se ve subir la página entera, que es
+     * incómodo, y además compite con la restauración de posición del router.
+     * Next pone el scroll a cero al navegar, pero como el navegador está
+     * animando, el resultado depende de quién llegue antes: unas veces acaba
+     * arriba y otras a mitad de la página siguiente. Ese es el fallo errático.
+     *
+     * Los anclajes internos de la misma página lo piden por su cuenta, en el
+     * componente que los usa. */
     /* La píldora de navegación es fija: los anclajes se detienen debajo. */
     scroll-padding-top: calc(var(--alto-barra) + 1rem);
     /* Y la barra de pestañas tapa el final: los anclajes que caen al
